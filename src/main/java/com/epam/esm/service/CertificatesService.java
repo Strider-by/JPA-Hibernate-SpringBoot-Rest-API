@@ -1,7 +1,7 @@
 package com.epam.esm.service;
 
-import com.epam.esm.entity.Certificate;
-import com.epam.esm.entity.dto.CertificateCreateDto;
+import com.epam.esm.model.Certificate;
+import com.epam.esm.model.dto.CertificateCreateDto;
 import org.springframework.util.MultiValueMap;
 
 import java.util.List;

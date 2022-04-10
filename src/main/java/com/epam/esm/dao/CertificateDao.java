@@ -1,8 +1,8 @@
 package com.epam.esm.dao;
 
-import com.epam.esm.entity.Certificate;
-import com.epam.esm.entity.dto.CertificateCreateDto;
-import com.epam.esm.entity.dto.CertificateUpdateDto;
+import com.epam.esm.model.Certificate;
+import com.epam.esm.model.dto.CertificateCreateDto;
+import com.epam.esm.model.dto.CertificateUpdateDto;
 
 import java.util.Date;
 import java.util.List;

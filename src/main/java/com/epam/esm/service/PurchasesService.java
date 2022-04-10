@@ -1,6 +1,6 @@
 package com.epam.esm.service;
 
-import com.epam.esm.entity.Purchase;
+import com.epam.esm.model.Purchase;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

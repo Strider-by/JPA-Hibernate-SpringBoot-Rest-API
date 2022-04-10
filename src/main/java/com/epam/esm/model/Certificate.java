@@ -1,13 +1,23 @@
 package com.epam.esm.model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Entity
+@Table(name = "certificate")
 public class Certificate {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @SequenceGenerator(
+//            name = "certificate_seq",
+//            sequenceName = "certificate_seq")
+    private Long id;
     private String name;
+    //@ElementCollection // brakes normal work
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<Tag> description;
     private Integer price;
     private Integer duration;
@@ -19,7 +29,7 @@ public class Certificate {
     }
 
     public Certificate(
-            long id, String name, List<Tag> description, int price, int duration, Date createDate, Date lastUpdateDate) {
+            Long id, String name, List<Tag> description, int price, int duration, Date createDate, Date lastUpdateDate) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -29,11 +39,11 @@ public class Certificate {
         this.lastUpdateDate = lastUpdateDate;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

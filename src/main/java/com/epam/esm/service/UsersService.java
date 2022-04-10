@@ -1,6 +1,6 @@
 package com.epam.esm.service;
 
-import com.epam.esm.entity.User;
+import com.epam.esm.model.User;
 
 import java.util.List;
 

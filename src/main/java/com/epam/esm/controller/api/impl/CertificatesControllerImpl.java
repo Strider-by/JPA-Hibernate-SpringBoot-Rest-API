@@ -9,6 +9,7 @@ import com.epam.esm.model.dto.CertificateUpstreamDto;
 import com.epam.esm.model.representation.HateoasView;
 import com.epam.esm.model.util.DtoConverter;
 import com.epam.esm.service.CertificatesService;
+import com.epam.esm.service.impl.v2.CertificatesServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 import static com.epam.esm.controller.api.ControllerHelper.*;
@@ -28,18 +30,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 public class CertificatesControllerImpl implements CertificatesController {
 
     @Autowired
-    private CertificatesService certificatesService;
+    private CertificatesServiceImpl certificatesService;
 
-    public CertificatesControllerImpl(CertificatesService certificatesService) {
-        this.certificatesService = certificatesService;
-    }
-
-    public CertificatesControllerImpl() {
-    }
-
-    public void setCertificatesService(CertificatesService certificatesService) {
-        this.certificatesService = certificatesService;
-    }
 
     @Override
     public HttpEntity<HateoasView<List<Certificate>>> getAllCertificates(long limit, int page) {
@@ -104,13 +96,20 @@ public class CertificatesControllerImpl implements CertificatesController {
         return certificate;
     }
 
-    @ExceptionHandler(CertificateNotFoundException.class)
+    @ExceptionHandler({CertificateNotFoundException.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @RequestMapping(produces = "application/json")
     private Message certificateNotFound(CertificateNotFoundException ex) {
         long id = ex.getCertificateId();
         return new Message(HttpStatus.NOT_FOUND, String.format("Certificate %d can not be found", id));
     }
+
+//    @ExceptionHandler({EntityNotFoundException.class})
+//    @ResponseStatus(HttpStatus.NOT_FOUND)
+//    @RequestMapping(produces = "application/json")
+//    private Message certificateNotFoundV2(EntityNotFoundException ex) {
+//        return new Message(HttpStatus.NOT_FOUND, ex.getMessage());
+//    }
 
 
 }

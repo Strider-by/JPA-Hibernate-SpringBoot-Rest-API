@@ -1,7 +1,7 @@
 package com.epam.esm.service;
 
-import com.epam.esm.entity.Tag;
-import com.epam.esm.entity.dto.TagDownstreamDto;
+import com.epam.esm.model.Tag;
+import com.epam.esm.model.dto.TagDownstreamDto;
 
 import java.util.List;
 

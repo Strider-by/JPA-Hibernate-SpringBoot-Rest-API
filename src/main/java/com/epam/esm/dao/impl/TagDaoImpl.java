@@ -1,8 +1,8 @@
 package com.epam.esm.dao.impl;
 
 import com.epam.esm.dao.TagDao;
-import com.epam.esm.entity.Tag;
-import com.epam.esm.entity.dto.TagDownstreamDto;
+import com.epam.esm.model.Tag;
+import com.epam.esm.model.dto.TagDownstreamDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;

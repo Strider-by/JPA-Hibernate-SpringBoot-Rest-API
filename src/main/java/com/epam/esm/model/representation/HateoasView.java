@@ -9,7 +9,6 @@ public class HateoasView<T> extends RepresentationModel<HateoasView<T>> {
     private T content;
 
     @JsonCreator
-
     public HateoasView(@JsonProperty("content") T content) {
         this.content = content;
     }

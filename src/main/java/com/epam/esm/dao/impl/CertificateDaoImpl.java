@@ -1,12 +1,12 @@
 package com.epam.esm.dao.impl;
 
 import com.epam.esm.dao.CertificateDao;
-import com.epam.esm.entity.Certificate;
-import com.epam.esm.entity.Tag;
-import com.epam.esm.entity.dto.CertificateCreateDto;
-import com.epam.esm.entity.dto.CertificateUpdateDto;
-import com.epam.esm.entity.dto.Pair;
-import com.epam.esm.entity.dto.TagDownstreamDto;
+import com.epam.esm.model.Certificate;
+import com.epam.esm.model.Tag;
+import com.epam.esm.model.dto.CertificateCreateDto;
+import com.epam.esm.model.dto.CertificateUpdateDto;
+import com.epam.esm.model.dto.Pair;
+import com.epam.esm.model.dto.TagDownstreamDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
