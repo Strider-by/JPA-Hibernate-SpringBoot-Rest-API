@@ -41,7 +41,7 @@ public class CertificatesSearchControllerChangedImpl implements CertificatesSear
         }
 
 
-        long limit = getLimitParameter(params);
+        int limit = getLimitParameter(params);
         int page = getPageParameter(params);
         long offset = calcOffset(limit, page);
 
@@ -60,10 +60,10 @@ public class CertificatesSearchControllerChangedImpl implements CertificatesSear
         }
     }
 
-    private long getLimitParameter(Map<String, String> params) {
+    private int getLimitParameter(Map<String, String> params) {
         String paramsSetLimit = params.get("limit");
         try {
-            return paramsSetLimit != null ? Long.parseLong(paramsSetLimit) : DEFAULT_LIMIT;
+            return paramsSetLimit != null ? Integer.parseInt(paramsSetLimit) : DEFAULT_LIMIT;
         } catch (NumberFormatException ex) {
             throw new BadRequestParametersException("Failed to parse limit parameter");
         }

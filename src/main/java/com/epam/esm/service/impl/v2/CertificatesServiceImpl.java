@@ -78,39 +78,34 @@ public class CertificatesServiceImpl implements CertificatesService {
 
     @Override
     public Certificate updateCertificate(long id, MultiValueMap<String, String> params) {
-        Certificate certificate = certificateRepository.findById(id).orElse(null);
-            affixTimestampOnUpdate(certificate);
+        Certificate certificate = certificateRepository.getCertificateForUpdate(id);
+        if (certificate != null) {
             updateCertificateProperties(certificate, params);
-            return certificateRepository.updateCertificate(id, params);
+            certificate = certificateRepository.save(certificate);
+        }
+        return certificate;
     }
 
     @Override
     public boolean deleteCertificate(long id) {
-        boolean toBeDeleted;
-        try {
-            Certificate certificate = certificateRepository.getById(id);
-            toBeDeleted = certificate != null;
-        } catch (EntityNotFoundException ex) {
-            return false;
-        }
+        Certificate certificate = certificateRepository.findById(id).orElse(null);
+        boolean toBeDeleted = certificate != null;
 
         if (toBeDeleted) {
-            certificateRepository.deleteById(id);
+            certificateRepository.delete(certificate);
         }
 
-        return true;
+        return toBeDeleted;
     }
 
     @Override
-    public List<Certificate> searchCertificates(long limit, long offset, Map<String, String> parameters) {
-        //return certificateDao.searchCertificates(limit, offset, parameters);
-        return null;
+    public List<Certificate> searchCertificates(int limit, long offset, Map<String, String> parameters) {
+        return certificateRepository.searchCertificates(parameters, limit, offset);
     }
 
     @Override
     public List<Certificate> searchCertificatesByTagNames(List<String> tagNames, long limit, long offset) {
-        //return certificateDao.searchCertificatesByTagNames(tagNames, limit, offset);
-        return null;
+        return certificateRepository.searchCertificatesByTagNames(tagNames, limit, offset);
     }
 
 

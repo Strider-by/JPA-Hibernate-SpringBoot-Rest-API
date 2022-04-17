@@ -59,7 +59,7 @@ public class CertificatesServiceImplV1 implements CertificatesService {
     }
 
     @Override
-    public List<Certificate> searchCertificates(long limit, long offset, Map<String, String> parameters) {
+    public List<Certificate> searchCertificates(int limit, long offset, Map<String, String> parameters) {
         return certificateDao.searchCertificates(limit, offset, parameters);
     }
 

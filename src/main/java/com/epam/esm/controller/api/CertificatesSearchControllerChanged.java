@@ -14,7 +14,7 @@ import java.util.Map;
 public interface CertificatesSearchControllerChanged {
 
     String DEFAULT_LIMIT_AS_STRING = "500";
-    long DEFAULT_LIMIT = 500;
+    int DEFAULT_LIMIT = 500;
 
     @GetMapping(produces = "application/json")
     HttpEntity<HateoasView<List<Certificate>>> searchCertificatesByPartOfNameOrDescription(

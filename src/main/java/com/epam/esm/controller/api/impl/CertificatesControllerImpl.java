@@ -35,7 +35,7 @@ public class CertificatesControllerImpl implements CertificatesController {
 
     @Override
     public HttpEntity<HateoasView<List<Certificate>>> getAllCertificates(long limit, int page) {
-        long offset = calcOffset(limit, page);
+        int offset = (int) calcOffset(limit, page);
         List<Certificate> certificates = certificatesService.getAllCertificates(limit, offset);
         HateoasView<List<Certificate>> view = createGetAllCertificatesHateoasView(limit, page, certificates);
         return new HttpEntity<>(view);

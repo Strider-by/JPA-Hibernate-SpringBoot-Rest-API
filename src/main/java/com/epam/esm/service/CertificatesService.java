@@ -19,7 +19,7 @@ public interface CertificatesService {
 
     boolean deleteCertificate(long id);
 
-    List<Certificate> searchCertificates(long limit, long offset, Map<String, String> parameters);
+    List<Certificate> searchCertificates(int limit, long offset, Map<String, String> parameters);
 
     List<Certificate> searchCertificatesByTagNames(List<String> tagNames, long limit, long offset);
 
