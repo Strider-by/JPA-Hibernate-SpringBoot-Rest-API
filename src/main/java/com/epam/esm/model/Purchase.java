@@ -1,14 +1,31 @@
 package com.epam.esm.model;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "purchase")
 public class Purchase {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long certificateId;
-    private Long userId;
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private User user;
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private Certificate certificate;
     private Integer cost;
     private Date timestamp;
+
+    public Purchase() {
+    }
+
+    public Purchase(User user, Certificate certificate) {
+        this.user = user;
+        this.certificate = certificate;
+        this.cost = certificate.getPrice();
+        affixTimestamp();
+    }
 
     public Long getId() {
         return id;
@@ -18,12 +35,12 @@ public class Purchase {
         this.id = id;
     }
 
-    public Long getCertificateId() {
-        return certificateId;
+    public Certificate getCertificate() {
+        return certificate;
     }
 
-    public void setCertificateId(Long certificateId) {
-        this.certificateId = certificateId;
+    public void setCertificate(Certificate certificate) {
+        this.certificate = certificate;
     }
 
     public Integer getCost() {
@@ -42,12 +59,16 @@ public class Purchase {
         this.timestamp = timestamp;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void affixTimestamp() {
+        this.timestamp = new Date();
     }
 
 }

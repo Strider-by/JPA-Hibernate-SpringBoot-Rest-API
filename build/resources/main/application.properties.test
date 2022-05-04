@@ -1,0 +1,7 @@
+spring.profiles.active=production
+spring.jpa.hibernate.ddl-auto=create-drop
+
+#show sql statement
+logging.level.org.hibernate.SQL=debug
+#show sql values
+logging.level.org.hibernate.type.descriptor.sql=trace

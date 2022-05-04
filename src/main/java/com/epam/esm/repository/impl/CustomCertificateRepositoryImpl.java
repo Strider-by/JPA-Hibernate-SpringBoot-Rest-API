@@ -1,12 +1,15 @@
 package com.epam.esm.repository.impl;
 
+import com.epam.esm.controller.api.ControllerHelper;
 import com.epam.esm.model.Certificate;
 import com.epam.esm.model.Tag;
+import com.epam.esm.model.util.DtoConverter;
 import com.epam.esm.repository.JpaCertificateRepository;
 import com.epam.esm.repository.CustomCertificateRepository;
 import com.epam.esm.repository.TagRepository;
 import com.epam.esm.repository.util.QueryParametersSetter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
@@ -38,15 +41,28 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
 
 
     @Override
-    public List<Certificate> getAllCertificates(long limit, long offset) {
+    public List<Certificate> getAllCertificates(int limit, long offset) {
         // to make this work, name table with the name of the Entity (with capital 'C')
+        // todo: calc quantity
+        // todo: it is a standard feature, use Hibernate implementation?
         return entityManager.createQuery("SELECT c FROM Certificate c", Certificate.class)
+                .setFirstResult((int) offset)
+                .setMaxResults(limit)
                 .getResultList();
     }
 
     @Override
-    @Transactional
     public Certificate createCertificate(Certificate certificate) {
+        return save(certificate);
+    }
+
+    @Override
+    public Certificate updateCertificate(Certificate certificate) {
+        return save(certificate);
+    }
+
+    @Transactional
+    private Certificate save(Certificate certificate) {
         List<Tag> description = certificate.getDescription();
         certificate.setDescription(tagRepository.persistTags(description));
         return certificateRepository.save(certificate);
@@ -65,7 +81,7 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
     }
 
     @Override
-    public List<Certificate> searchCertificates(Map<String, String> parameters, long limit, long offset) {
+    public Page<Certificate> searchCertificates(Map<String, String> parameters, int pageNumber, int pageSize) {
         String qlString = buildSearchCertificatesQueryString(parameters);
         String countingQlString = buildSearchCertificatesCountingQueryString(parameters);
         // fixme
@@ -76,27 +92,29 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
         TypedQuery<Long> countingQuery = entityManager.createQuery(countingQlString, Long.class);
         mapSearchCertificatesQueryParameters(countingQuery, parameters);
 
-        Long totalQuantity = countingQuery.getSingleResult();
+        Long elementsTotal = countingQuery.getSingleResult();
 
-        query.setMaxResults((int) limit);
+        query.setMaxResults(pageSize);
+        int offset = (int) ControllerHelper.calcOffset(pageSize, pageNumber);
         // todo: ask WHY int not long
-        // todo: make limit int
-        query.setFirstResult((int) offset);
+        query.setFirstResult(offset);
         List<Certificate> resultList = query.getResultList();
 
-        new PageImpl<>(resultList, Pageable.ofSize((int) limit), totalQuantity);
-
-        return resultList;
+//        new PageImpl<>(resultList, Pageable.ofSize((int) limit), elementsTotal);
+        Page<Certificate> page = DtoConverter.createPageRepresentation(resultList, pageNumber, pageSize, elementsTotal);
+        return page;
     }
 
     @Override
-    public List<Certificate> searchCertificatesByTagNames(List<String> tagNames, long limit, long offset) {
+    public Page<Certificate> searchCertificatesByTagNames(List<String> tagNames, int pageNumber, int pageSize) {
         String qlString = buildSearchCertificatesByTagNamesQueryString(tagNames.size());
         System.err.println(qlString);
         TypedQuery<Certificate> query = entityManager.createQuery(qlString, Certificate.class);
         mapSearchCertificatesByTagNamesQueryParameters(query, tagNames);
-        query.setFirstResult((int) offset);
-        query.setMaxResults((int) limit);
+        // todo: ask why ints?!
+        int offset = (int) ControllerHelper.calcOffset(pageSize, pageNumber);
+        query.setFirstResult(offset);
+        query.setMaxResults(pageSize);
         List<Certificate> resultList = query.getResultList();
 
         String countingQlString = buildSearchCertificatesByTagNamesCountingQueryString(tagNames.size());
@@ -105,7 +123,8 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
         Long elementsTotal = countingQuery.getSingleResult();
 
 //        System.err.printf("elements: %d %n %s", elementsTotal, resultList);
-        return resultList;
+        Page<Certificate> page = DtoConverter.createPageRepresentation(resultList, pageNumber, pageSize, elementsTotal);
+        return page;
     }
 
     private void mapSearchCertificatesByTagNamesQueryParameters(Query query, List<String> tagNames) {
@@ -164,18 +183,22 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
     private String buildSearchCertificatesQueryString(boolean countingQuery, Map<String, String> parameters) {
         // todo: make separate methods for defining parameters values
         boolean searchByTagName = parameters.containsKey("tag");
+        boolean searchByContent = parameters.containsKey("contains");
         String sortOrderParam = parameters.getOrDefault("sort_by", "");
         String sortByField;
 
         switch (sortOrderParam) {
             case "date":
-                sortByField = SortBy.CREATE_DATE;
+                sortByField = SortByTemplate.CREATE_DATE;
+                break;
+            case "updated":
+                sortByField = SortByTemplate.UPDATE_DATE;
                 break;
             case "name":
-                sortByField = SortBy.NAME;
+                sortByField = SortByTemplate.NAME;
                 break;
             default:
-                sortByField = SortBy.DEFAULT;
+                sortByField = SortByTemplate.DEFAULT;
         }
 
         String sortOrder = parameters.getOrDefault("order", SortOrder.DEFAULT)
@@ -186,17 +209,24 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
                 ? COUNT_SEARCH_FOR_CERTIFICATES_RESULTS
                 : SEARCH_FOR_CERTIFICATES);
 
-        if (searchByTagName) {
+        if (searchByTagName && searchByContent) {
             sb.append(TAG_EQUALS)
                     // fixme
                     .append(AND)
                     .append(TEXT_CONTAINS);
-        } else {
+        } else if (searchByContent && !searchByTagName) {
             sb.append(TEXT_CONTAINS);
+        } else if (searchByTagName && !searchByContent) {
+            sb.append(TAG_EQUALS);
+        } else {
+            sb.append(WHERE_CLAUSE_DUMMY_VALUE);
         }
 
-        sb.append(String.format(ORDER_BY_TEMPLATE, sortByField, sortOrder));
+        String orderQlSubstring = String.format(ORDER_BY_TEMPLATE, String.format(sortByField, sortOrder));
+
+//        sb.append(String.format(ORDER_BY_TEMPLATE, sortByField, sortOrder));
 //        sb.append(LIMIT_AND_OFFSET);
+        sb.append(orderQlSubstring);
         return sb.toString();
 
     }
@@ -327,15 +357,19 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
         static final String TEXT_CONTAINS =
                 String.format(" (d.name LIKE CONCAT('%%', :%s, '%%') "
                         + "OR c.name LIKE CONCAT('%%', :%s, '%%')) ", TAG_NAME_LIKE_PARAM, CERTIFICATE_NAME_LIKE_PARAM);
-        static final String ORDER_BY_TEMPLATE = " ORDER BY %s %s";
+        static final String CERTIFICATE_NAME_CONTAINS =
+                String.format(" c.name LIKE CONCAT('%%', :%s, '%%')) ", CERTIFICATE_NAME_LIKE_PARAM);
+        static final String ORDER_BY_TEMPLATE = " ORDER BY %s ";
 
         static final String AND = " AND ";
         static final String WHERE_CLAUSE_DUMMY_VALUE = " 1 = 1 ";
 
-        static class SortBy {
-            static final String CREATE_DATE = "c.createDate, c.id";
-            static final String NAME = "c.name, c.id";
-            static final String DEFAULT = "c.id";
+        static class SortByTemplate {
+            static final String CREATE_DATE = "c.createDate %s, c.id";
+            static final String UPDATE_DATE = "c.lastUpdateDate %s, c.id";
+            static final String NAME = "c.name %s, c.id";
+            static final String ID = "c.id %s";
+            static final String DEFAULT = ID;
         }
 
         static class SortOrder {
