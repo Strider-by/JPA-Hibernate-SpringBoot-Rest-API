@@ -25,11 +25,13 @@ public interface PurchaseController {
     @ResponseBody
     Purchase getPurchaseById(@PathVariable long id);
 
+
     @GetMapping(value="/all", produces = "application/json")
     @ResponseBody
     HateoasViewV2<Purchase> getAllPurchases(
-            @RequestParam(defaultValue = FIRST_PAGE_NUMBER_AS_STRING) int pageNumber,
-            @RequestParam(defaultValue = DEFAULT_PAGE_SIZE) int pageSize);
+            @RequestParam(name = "page", defaultValue = FIRST_PAGE_NUMBER_AS_STRING) int pageNumber,
+            @RequestParam(name = "limit", defaultValue = DEFAULT_PAGE_SIZE) int pageSize);
+
 
     @GetMapping(value = "/user/{userId}", produces = "application/json")
     @ResponseBody
@@ -38,9 +40,8 @@ public interface PurchaseController {
             @RequestParam(name = "page", defaultValue = FIRST_PAGE_NUMBER_AS_STRING) int pageNumber,
             @RequestParam(name = "limit", defaultValue = DEFAULT_PAGE_SIZE) int pageSize);
 
-//    HateoasViewV2<Purchase> getUserPurchases(long userId, int pageNumber, int pageSize);
 
-    @GetMapping(value = "/primary-tags/{userId}", produces = "application/json")
+    @GetMapping(value = "/primary-tags/user/{userId}", produces = "application/json")
     @ResponseBody
     HateoasViewV2<Tag> getUserPrimaryTags(
             @PathVariable long userId,
@@ -48,19 +49,11 @@ public interface PurchaseController {
             @RequestParam(name = "limit", defaultValue = DEFAULT_PAGE_SIZE) int pageSize);
 
 
-    HateoasViewV2<Tag> getPrimaryTags(int pageNumber, int pageSize);
-
-    // todo: extend?
     @GetMapping(value = "/primary-tags/", produces = "application/json")
     @ResponseBody
-    default HateoasViewV2<Tag> _getPrimaryTags(
+    HateoasViewV2<Tag> getPrimaryTags(
             @RequestParam(name = "page", defaultValue = FIRST_PAGE_NUMBER_AS_STRING) int pageNumber,
-            @RequestParam(name = "limit", defaultValue = DEFAULT_PAGE_SIZE) int pageSize) {
-
-        int actualPageNumber = calcPageNumberForPageRequest(pageNumber);
-        return getPrimaryTags(actualPageNumber, pageSize);
-    }
-
+            @RequestParam(name = "limit", defaultValue = DEFAULT_PAGE_SIZE) int pageSize);
 
 
     @PostMapping(produces = "application/json")
@@ -68,11 +61,13 @@ public interface PurchaseController {
     @ResponseBody
     Purchase purchaseCertificate(long userId, long certificateId);
 
+
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
     @ResponseBody
     Message deletePurchase(
             @PathVariable long id,
             HttpServletResponse response) throws IOException;
+
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PATCH, produces = "application/json")
     @ResponseBody

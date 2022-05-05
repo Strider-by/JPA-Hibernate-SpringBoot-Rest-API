@@ -1,9 +1,8 @@
 package com.epam.esm.repository;
 
-import com.epam.esm.model.Certificate;
 import com.epam.esm.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends CustomUserRepository, JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
 }

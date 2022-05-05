@@ -12,7 +12,7 @@ import com.epam.esm.repository.UserRepository;
 import com.epam.esm.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -27,24 +27,23 @@ public class PurchaseServiceImpl implements PurchaseService {
 
 
     @Override
-    public Page<Purchase> getUserPurchases(long userId, int pageNumber, int pageSize) {
-        return purchaseRepository.getUserPurchases(userId, pageNumber, pageSize);
+    public Page<Purchase> getUserPurchases(long userId, Pageable pageable) {
+        return purchaseRepository.getUserPurchases(userId, pageable);
     }
 
     @Override
-    public Page<Purchase> getAllPurchases(int pageNumber, int pageSize) {
-        return purchaseRepository.findAll(PageRequest.of(pageNumber, pageSize));
+    public Page<Purchase> getAllPurchases(Pageable pageable) {
+        return purchaseRepository.findAll(pageable);
     }
 
     @Override
-    public Page<Tag> getPrimaryTags(int pageNumber, int pageSize) {
-        return purchaseRepository.getPrimaryTags(pageNumber, pageSize);
+    public Page<Tag> getPrimaryTags(Pageable pageable) {
+        return purchaseRepository.getPrimaryTags(pageable);
     }
 
     @Override
-    public Page<Tag> getUserPrimaryTags(long userId, int pageNumber, int pageSize) {
-//        User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException(userId));
-        return  purchaseRepository.getUserPrimaryTags(userId, pageNumber, pageSize);
+    public Page<Tag> getUserPrimaryTags(long userId, Pageable pageable) {
+        return  purchaseRepository.getUserPrimaryTags(userId, pageable);
     }
 
     @Override
@@ -60,12 +59,12 @@ public class PurchaseServiceImpl implements PurchaseService {
 
     @Override
     public Purchase getPurchaseById(long id) {
-        return null;
+        return purchaseRepository.findById(id).orElse(null);
     }
 
     @Override
-    public boolean deletePurchase(long id) {
-        return false;
+    public void deletePurchase(long id) {
+        purchaseRepository.deletePurchaseById(id);
     }
 
 }

@@ -6,13 +6,12 @@ import com.epam.esm.model.Tag;
 import com.epam.esm.model.User;
 import com.epam.esm.model.dto.CertificateCreateDto;
 import com.epam.esm.model.dto.CertificateUpstreamDto;
-import com.epam.esm.model.dto.TagDownstreamDto;
+import com.epam.esm.model.dto.TagCreateDto;
 import com.epam.esm.model.dto.UserCreateDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.util.MultiValueMap;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -64,7 +63,7 @@ public class DtoConverter {
 //        certificate.set
 //    }
 
-    public static Tag toTag(TagDownstreamDto dto) {
+    public static Tag toTag(TagCreateDto dto) {
         Tag tag = new Tag();
         tag.setName(dto.getName());
         return tag;
@@ -76,15 +75,15 @@ public class DtoConverter {
         return tag;
     }
 
-    public static List<Tag> toTags(List<TagDownstreamDto> dtos) {
+    public static List<Tag> toTags(List<TagCreateDto> dtos) {
         return dtos.stream()
                 .map(DtoConverter::toTag)
                 .collect(Collectors.toList());
     }
 
-    public static <T> Page<T> createPageRepresentation(List<T> content, int pageNumber, int pageSize, long resultsTotal) {
+    public static <T> Page<T> createPageRepresentation(List<T> content, int pageNumber, int pageSize, long elementsTotal) {
         Pageable pageable = PageRequest.of(pageNumber - ControllerHelper.FIRST_PAGE_NUMBER, pageSize);
-        Page<T> page = new PageImpl<>(content, pageable, resultsTotal);
+        Page<T> page = new PageImpl<>(content, pageable, elementsTotal);
         return page;
     }
 

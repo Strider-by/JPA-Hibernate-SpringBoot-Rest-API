@@ -2,7 +2,7 @@ package com.epam.esm.dao.impl;
 
 import com.epam.esm.dao.TagDao;
 import com.epam.esm.model.Tag;
-import com.epam.esm.model.dto.TagDownstreamDto;
+import com.epam.esm.model.dto.TagCreateDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -33,7 +33,7 @@ public class TagDaoImpl implements TagDao {
     }
 
     @Override
-    public boolean create(TagDownstreamDto dto) {
+    public boolean create(TagCreateDto dto) {
         String name = dto.getName();
         return jdbcTemplate.update(CREATE_INSTANCE, name) == 1;
     }

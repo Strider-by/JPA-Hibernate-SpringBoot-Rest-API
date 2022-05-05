@@ -6,7 +6,7 @@ import java.util.Objects;
 public class CertificateCreateDto {
 
     private String name;
-    private List<TagDownstreamDto> description;
+    private List<TagCreateDto> description;
     private int price;
     private int duration;
 
@@ -18,11 +18,11 @@ public class CertificateCreateDto {
         this.name = name;
     }
 
-    public List<TagDownstreamDto> getDescription() {
+    public List<TagCreateDto> getDescription() {
         return description;
     }
 
-    public void setDescription(List<TagDownstreamDto> description) {
+    public void setDescription(List<TagCreateDto> description) {
         this.description = description;
     }
 

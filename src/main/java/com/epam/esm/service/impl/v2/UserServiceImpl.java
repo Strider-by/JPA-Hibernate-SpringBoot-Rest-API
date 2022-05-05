@@ -19,15 +19,11 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-//    @Autowired
-//    UserDao dao;
-
     @Autowired
     UserRepository repository;
 
     @Override
-    public Page<User> getUsers(int pageNumber, int pageSize) {
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+    public Page<User> getUsers(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -41,16 +37,5 @@ public class UserServiceImpl implements UserService {
         User user = DtoConverter.toUser(dto);
         return repository.save(user);
     }
-
-
-//    @Override
-//    public List<User> getAllUsers(long limit, long offset) {
-//        return dao.getAllUsers(limit, offset);
-//    }
-
-//    @Override
-//    public List<User> getAllUsersV2(long limit, long previousId) {
-//        return dao.getAllUsersV2(limit, previousId);
-//    }
 
 }

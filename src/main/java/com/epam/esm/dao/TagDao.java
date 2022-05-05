@@ -1,13 +1,13 @@
 package com.epam.esm.dao;
 
 import com.epam.esm.model.Tag;
-import com.epam.esm.model.dto.TagDownstreamDto;
+import com.epam.esm.model.dto.TagCreateDto;
 
 import java.util.List;
 
 public interface TagDao {
 
-    boolean create(TagDownstreamDto dto);
+    boolean create(TagCreateDto dto);
 
     Tag getByName(String name);
 

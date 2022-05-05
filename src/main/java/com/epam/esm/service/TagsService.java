@@ -1,18 +1,20 @@
 package com.epam.esm.service;
 
 import com.epam.esm.model.Tag;
-import com.epam.esm.model.dto.TagDownstreamDto;
-
-import java.util.List;
+import com.epam.esm.model.dto.TagCreateDto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface TagsService {
 
-    boolean createTag(TagDownstreamDto dto);
+    Tag createTag(TagCreateDto dto);
 
-    boolean deleteTag(String tagName);
+    void deleteTag(String tagName);
 
-    List<Tag> getAllTags(long limit, long offset);
+    Page<Tag> getAllTags(Pageable pageable);
 
     Tag getTag(String tagName);
+
+    Tag getTag(long id);
 
 }

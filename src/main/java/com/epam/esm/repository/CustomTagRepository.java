@@ -5,9 +5,12 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface CustomTagRepository {
 
     List<Tag> persistTags(List<Tag> tags);
+
+    Tag findByName(String name);
+
+    void deleteByName(String tagName);
 
 }

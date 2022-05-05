@@ -2,13 +2,12 @@ package com.epam.esm.repository;
 
 import com.epam.esm.model.Certificate;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Map;
 
 public interface CustomCertificateRepository {
-
-    List<Certificate> getAllCertificates(int limit, long offset);
 
     Certificate createCertificate(Certificate certificate);
 
@@ -16,12 +15,10 @@ public interface CustomCertificateRepository {
 
     Certificate getCertificateForUpdate(long id);
 
-    Page<Certificate> searchCertificates(Map<String, String> parameters, int pageNumber, int pageSize);
+    void deleteCertificateById(long id);
 
-//    Page<Certificate> searchCertificatesByTagNames(List<String> tagNames, long limit, long offset);
+    Page<Certificate> searchCertificates(Map<String, String> parameters, Pageable pageable);
 
-    Page<Certificate> searchCertificatesByTagNames(List<String> tagNames, int pageNumber, int pageSize);
-
-//    Certificate updateCertificate(Certificate certificate);
+    Page<Certificate> searchCertificatesByTagNames(List<String> tagNames, Pageable pageable);
 
 }

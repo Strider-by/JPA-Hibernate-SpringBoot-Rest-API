@@ -8,6 +8,7 @@ import com.epam.esm.model.representation.HateoasViewV2;
 import com.epam.esm.service.CertificateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -37,10 +38,10 @@ public class CertificatesSearchControllerImpl implements CertificatesSearchContr
         SearchParametersVerifier.verify(params);
         int pageSize = getLimitParameter(params);
         int pageNumber = getPageParameter(params);
-        Page<Certificate> page = certificateService.searchCertificates(params, pageNumber, pageSize);
-        HateoasViewV2 view = new HateoasViewV2(page);
+        Pageable pageable = toPageable(pageNumber, pageSize);
+        Page<Certificate> page = certificateService.searchCertificates(params, pageable);
         BiFunction<Integer, Integer, String> hrefGenerator = createSearchCertificatesHrefGenerator(params);
-        view.generateStandardLinks(hrefGenerator);
+        HateoasViewV2 view = new HateoasViewV2(page, hrefGenerator);
         return view;
     }
 
@@ -52,79 +53,6 @@ public class CertificatesSearchControllerImpl implements CertificatesSearchContr
                     .searchCertificatesByPartOfNameOrDescription(params)).toString();
         };
     }
-
-//    private HateoasView<List<Certificate>> createHateoasView(
-//            int page, Map<String, String> params, List<Certificate> certificates) {
-//        HateoasView<List<Certificate>> view = new HateoasView<>(certificates);
-//
-//        if (page != FIRST_PAGE_NUMBER) {
-//            params.put("page", FIRST_PAGE_NUMBER_AS_STRING);
-//
-//            view.add(linkTo(methodOn(CertificatesSearchController.class)
-//                    .searchCertificatesByPartOfNameOrDescription(params)).withRel(FIRST));
-//
-//            params.put("page", Integer.toString(page - 1));
-//            view.add(linkTo(methodOn(CertificatesSearchController.class)
-//                    .searchCertificatesByPartOfNameOrDescription(params)).withRel(PREVIOUS));
-//        }
-//
-//        params.put("page", Integer.toString(page));
-//        view.add(linkTo(methodOn(CertificatesSearchController.class)
-//                .searchCertificatesByPartOfNameOrDescription(params)).withSelfRel());
-//
-//        params.put("page", Integer.toString(page + 1));
-//        view.add(linkTo(methodOn(CertificatesSearchController.class)
-//                .searchCertificatesByPartOfNameOrDescription(params)).withRel(NEXT));
-//
-//
-////        String paramsAsUriString =
-////                MvcUriComponentsBuilder.fromController(CertificatesSearchControllerChanged.class).queryParams(params)
-////                        /*.build(params)*/.toUriString();
-////
-////        System.err.println(" >> " + paramsAsUriString);
-//
-////        view/*.add(linkTo(methodOn(CertificatesSearchControllerChanged.class)
-////                .searchCertificatesByPartOfNameOrDescription(limit, page, params)).withSelfRel())*/
-////            .add(linkTo(CertificatesSearchControllerChanged.class).slash("dodo")
-////                    /*.slash(paramsAsUriString)*/.withRel(NEXT))
-////        .add(
-////                Link.of(
-////                        linkTo(CertificatesSearchControllerChanged.class)
-////                                .toUriComponentsBuilder().queryParams(params).toUriString()
-////                , NEXT));
-//
-//        return view;
-//    }
-
-//    private HateoasViewV2<Certificate> createHateoasView(Page<Certificate> page, Map<String, String> params) {
-//        HateoasViewV2<Certificate> view = new HateoasViewV2<>(page);
-//
-//        if (!isFirstPage(page)) {
-//
-//            setPageNumberParam(params, firstPageNumber());
-//            view.add(linkTo(methodOn(CertificatesSearchController.class)
-//                    .searchCertificatesByPartOfNameOrDescription(params)).withRel(FIRST));
-//
-//            setPageNumberParam(params, previousPageNumber(page));
-//            view.add(linkTo(methodOn(CertificatesSearchController.class)
-//                    .searchCertificatesByPartOfNameOrDescription(params)).withRel(PREVIOUS));
-//
-//        }
-//
-//        setPageNumberParam(params, pageNumber(page));
-//        view.add(linkTo(methodOn(CertificatesSearchController.class)
-//                .searchCertificatesByPartOfNameOrDescription(params)).withSelfRel());
-//
-//        setPageNumberParam(params, nextPageNumber(page));
-//        view.add(linkTo(methodOn(CertificatesSearchController.class)
-//                .searchCertificatesByPartOfNameOrDescription(params)).withRel(NEXT));
-//
-//        return view;
-//    }
-
-//    private String setPageNumberParam(Map<String, String> params, int pageNumber) {
-//        return params.put("page", Integer.toString(pageNumber));
-//    }
 
     @ExceptionHandler(BadRequestParametersException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)

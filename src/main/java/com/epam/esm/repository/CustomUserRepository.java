@@ -1,5 +1,5 @@
-package com.epam.esm.repository;
-
-public interface CustomUserRepository {
-
-}
+//package com.epam.esm.repository;
+//
+//public interface CustomUserRepository {
+//
+//}
