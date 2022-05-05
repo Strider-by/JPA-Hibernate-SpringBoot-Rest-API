@@ -3,7 +3,7 @@ package com.epam.esm.controller.api.impl;
 import com.epam.esm.controller.api.UserController;
 import com.epam.esm.model.User;
 import com.epam.esm.model.dto.UserCreateDto;
-import com.epam.esm.model.representation.HateoasViewV2;
+import com.epam.esm.model.representation.HateoasView;
 import com.epam.esm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,12 +31,11 @@ public class UserControllerImpl implements UserController {
         return service.createUser(new UserCreateDto());
     }
 
-
     @Override
-    public HateoasViewV2<User> getUsers(int pageNumber, int pageSize) {
+    public HateoasView<User> getUsers(int pageNumber, int pageSize) {
         Pageable pageable = toPageable(pageNumber, pageSize);
         Page<User> page = service.getUsers(pageable);
-        HateoasViewV2<User> view = new HateoasViewV2<>(page, GET_USERS_HREF_GENERATOR);
+        HateoasView<User> view = new HateoasView<>(page, GET_USERS_HREF_GENERATOR);
         return view;
     }
 

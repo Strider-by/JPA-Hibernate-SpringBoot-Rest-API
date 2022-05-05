@@ -5,7 +5,7 @@ import com.epam.esm.controller.api.exception.TagNotFoundException;
 import com.epam.esm.controller.util.Message;
 import com.epam.esm.model.Tag;
 import com.epam.esm.model.dto.TagCreateDto;
-import com.epam.esm.model.representation.HateoasViewV2;
+import com.epam.esm.model.representation.HateoasView;
 import com.epam.esm.service.TagsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,19 +32,18 @@ public class TagControllerImpl implements TagController {
             (pageNumber, pageSize) -> linkTo(methodOn(TagController.class)
                     .getAllTags(pageNumber, pageSize)).toString();
 
+
     public TagControllerImpl(TagsService tagsService) {
         this.tagsService = tagsService;
     }
 
-
     @Override
-    public HateoasViewV2<Tag> getAllTags(int pageNumber, int pageSize) {
+    public HateoasView<Tag> getAllTags(int pageNumber, int pageSize) {
         Pageable pageable = toPageable(pageNumber, pageSize);
         Page<Tag> page = tagsService.getAllTags(pageable);
-        HateoasViewV2<Tag> view = new HateoasViewV2<>(page, GET_TAGS_HREF_GENERATOR);
+        HateoasView<Tag> view = new HateoasView<>(page, GET_TAGS_HREF_GENERATOR);
         return view;
     }
-
 
     @Override
     public Tag getTag(String name) {
@@ -55,20 +54,17 @@ public class TagControllerImpl implements TagController {
         return tag;
     }
 
-
     @Override
     public Tag createTag(TagCreateDto dto) {
         Tag tag = tagsService.createTag(dto);
         return tag;
     }
 
-
     @Override
     public Message deleteTag(String name) {
         tagsService.deleteTag(name);
         return new Message(HttpStatus.OK, String.format("Tag '%s' has been deleted", name));
     }
-
 
     @ExceptionHandler(TagNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)

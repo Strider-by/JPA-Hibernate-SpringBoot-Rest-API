@@ -3,22 +3,20 @@ package com.epam.esm.controller.api;
 import com.epam.esm.controller.util.Message;
 import com.epam.esm.model.Tag;
 import com.epam.esm.model.dto.TagCreateDto;
-import com.epam.esm.model.representation.HateoasViewV2;
+import com.epam.esm.model.representation.HateoasView;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import static com.epam.esm.controller.api.ControllerHelper.FIRST_PAGE_NUMBER_AS_STRING;
+import static com.epam.esm.controller.api.ControllerHelper.*;
 
 @RequestMapping("/tags")
 public interface TagController {
 
-    String DEFAULT_PAGE_SIZE = "10";
-
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    HateoasViewV2<Tag> getAllTags(
-            @RequestParam(name = "page", defaultValue = FIRST_PAGE_NUMBER_AS_STRING) int pageNumber,
-            @RequestParam(name = "limit", defaultValue = DEFAULT_PAGE_SIZE) int pageSize);
+    HateoasView<Tag> getAllTags(
+            @RequestParam(name = DEFAULT_PAGE_NUMBER_PARAM_NAME, defaultValue = FIRST_PAGE_NUMBER_AS_STRING) int pageNumber,
+            @RequestParam(name = DEFAULT_PAGE_SIZE_PARAM_NAME, defaultValue = DEFAULT_PAGE_SIZE_AS_STRING) int pageSize);
 
     @GetMapping(value = "/{name}", produces = "application/json")
     @ResponseBody

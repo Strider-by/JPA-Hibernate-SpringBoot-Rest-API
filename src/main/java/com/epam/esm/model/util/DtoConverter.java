@@ -1,6 +1,5 @@
 package com.epam.esm.model.util;
 
-import com.epam.esm.controller.api.ControllerHelper;
 import com.epam.esm.model.Certificate;
 import com.epam.esm.model.Tag;
 import com.epam.esm.model.User;
@@ -8,10 +7,6 @@ import com.epam.esm.model.dto.CertificateCreateDto;
 import com.epam.esm.model.dto.CertificateUpstreamDto;
 import com.epam.esm.model.dto.TagCreateDto;
 import com.epam.esm.model.dto.UserCreateDto;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -56,13 +51,6 @@ public class DtoConverter {
         return new User();
     }
 
-//    public static Certificate toCertificate(long id, MultiValueMap<String, String> params) {
-//        Certificate certificate = new Certificate();
-//        certificate.setId(id);
-//        certificate.setPrice(getAsInteger("price", params));
-//        certificate.set
-//    }
-
     public static Tag toTag(TagCreateDto dto) {
         Tag tag = new Tag();
         tag.setName(dto.getName());
@@ -80,13 +68,5 @@ public class DtoConverter {
                 .map(DtoConverter::toTag)
                 .collect(Collectors.toList());
     }
-
-    public static <T> Page<T> createPageRepresentation(List<T> content, int pageNumber, int pageSize, long elementsTotal) {
-        Pageable pageable = PageRequest.of(pageNumber - ControllerHelper.FIRST_PAGE_NUMBER, pageSize);
-        Page<T> page = new PageImpl<>(content, pageable, elementsTotal);
-        return page;
-    }
-
-
 
 }

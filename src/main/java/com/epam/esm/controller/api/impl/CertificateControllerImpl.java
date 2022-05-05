@@ -5,7 +5,7 @@ import com.epam.esm.controller.api.exception.CertificateNotFoundException;
 import com.epam.esm.controller.util.Message;
 import com.epam.esm.model.Certificate;
 import com.epam.esm.model.dto.CertificateCreateDto;
-import com.epam.esm.model.representation.HateoasViewV2;
+import com.epam.esm.model.representation.HateoasView;
 import com.epam.esm.service.CertificateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,15 +38,13 @@ public class CertificateControllerImpl implements CertificateController {
         this.certificateService = certificateService;
     }
 
-
     @Override
-    public HateoasViewV2<Certificate> getAllCertificates(int pageNumber, int pageSize) {
+    public HateoasView<Certificate> getAllCertificates(int pageNumber, int pageSize) {
         Pageable pageable = toPageable(pageNumber, pageSize);
         Page<Certificate> page = certificateService.getAllCertificates(pageable);
-        HateoasViewV2 view = new HateoasViewV2(page, GET_CERTIFICATES_HREF_GENERATOR);
+        HateoasView view = new HateoasView(page, GET_CERTIFICATES_HREF_GENERATOR);
         return view;
     }
-
 
     @Override
     public Certificate getCertificate(long id) {
@@ -57,19 +55,16 @@ public class CertificateControllerImpl implements CertificateController {
         return certificate;
     }
 
-
     @Override
     public Certificate createCertificate(CertificateCreateDto dto) {
         return certificateService.createCertificate(dto);
     }
-
 
     @Override
     public Message deleteCertificate(long id) {
         certificateService.deleteCertificate(id);
         return new Message(HttpStatus.OK, String.format("Certificate %d has been deleted", id));
     }
-
 
     @Override
     public Certificate updateCertificate(long id, MultiValueMap<String, String> params) {

@@ -8,21 +8,10 @@ import java.util.Objects;
 public class Tag {
 
     @Id
-//    @TableGenerator(
-//            name = "tag_table_generator",
-//            table = "tag_table",
-//            pkColumnValue = "tag_seq")
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-            /*generator = "tag_table_generator"*/)
-//    @SequenceGenerator(
-//            name = "tag_seq",
-//            sequenceName = "tag_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
     private String name;
-//    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-//    private List<Certificate> certificates;
 
     public Tag() {
     }
@@ -47,14 +36,6 @@ public class Tag {
     public void setName(String name) {
         this.name = name;
     }
-
-//    public List<Certificate> getCertificates() {
-//        return certificates;
-//    }
-//
-//    public void setCertificates(List<Certificate> certificates) {
-//        this.certificates = certificates;
-//    }
 
     @Override
     public String toString() {

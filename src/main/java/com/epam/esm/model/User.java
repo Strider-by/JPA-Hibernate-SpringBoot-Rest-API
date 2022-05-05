@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@NamedQuery(name = "test name", query = "SELECT s FROM Student s")
 @Entity
 @Table(name = "user")
 public class User {

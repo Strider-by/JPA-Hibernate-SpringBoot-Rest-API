@@ -11,12 +11,8 @@ public class Certificate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @SequenceGenerator(
-//            name = "certificate_seq",
-//            sequenceName = "certificate_seq")
     private Long id;
     private String name;
-    //@ElementCollection // brakes normal work
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<Tag> description;
     private Integer price;

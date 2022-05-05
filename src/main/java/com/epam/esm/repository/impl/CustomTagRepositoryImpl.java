@@ -86,4 +86,14 @@ public class CustomTagRepositoryImpl implements CustomTagRepository {
         repository.delete(tag);
     }
 
+    @Override
+    @Transactional
+    public Tag createTag(Tag tag) {
+        tag = findByName(tag.getName());
+        if (tag == null) {
+            tag = repository.save(tag);
+        }
+        return tag;
+    }
+
 }

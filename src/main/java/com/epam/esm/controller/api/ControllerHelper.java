@@ -16,7 +16,10 @@ public abstract class ControllerHelper {
     public static final String LAST = "last";
     public static final int FIRST_PAGE_NUMBER = 1;
     public static final String FIRST_PAGE_NUMBER_AS_STRING = "1";
-    public static final int DEFAULT_LIMIT = 10;
+    public static final int DEFAULT_PAGE_SIZE = 10;
+    public static final String DEFAULT_PAGE_SIZE_AS_STRING = "10";
+    public static final String DEFAULT_PAGE_NUMBER_PARAM_NAME = "page";
+    public static final String DEFAULT_PAGE_SIZE_PARAM_NAME = "limit";
 
 
     public static int pageNumber(Page page) {
@@ -39,8 +42,8 @@ public abstract class ControllerHelper {
         return pageNumberParam - FIRST_PAGE_NUMBER;
     }
 
-    public static int getPageParameter(Map<String, String> params) {
-        String paramsSetPage = params.get("page");
+    public static int getPageNumberParameter(Map<String, String> params) {
+        String paramsSetPage = params.get(DEFAULT_PAGE_NUMBER_PARAM_NAME);
         try {
             return paramsSetPage != null ? Integer.parseInt(paramsSetPage) : FIRST_PAGE_NUMBER;
         } catch (NumberFormatException ex) {
@@ -48,10 +51,10 @@ public abstract class ControllerHelper {
         }
     }
 
-    public static int getLimitParameter(Map<String, String> params) {
-        String paramsSetLimit = params.get("limit");
+    public static int getPageSizeParameter(Map<String, String> params) {
+        String paramsSetLimit = params.get(DEFAULT_PAGE_SIZE_PARAM_NAME);
         try {
-            return paramsSetLimit != null ? Integer.parseInt(paramsSetLimit) : DEFAULT_LIMIT;
+            return paramsSetLimit != null ? Integer.parseInt(paramsSetLimit) : DEFAULT_PAGE_SIZE;
         } catch (NumberFormatException ex) {
             throw new BadRequestParametersException("Failed to parse limit parameter");
         }
@@ -60,14 +63,5 @@ public abstract class ControllerHelper {
     public static Pageable toPageable(int pageNumber, int pageSize) {
         return PageRequest.of(calcPageNumberForPageRequest(pageNumber), pageSize);
     }
-
-//    public static int getLimitParameter(Map<String, String> params, int defaultLimit) {
-//        String paramsSetLimit = params.get("limit");
-//        try {
-//            return paramsSetLimit != null ? Integer.parseInt(paramsSetLimit) : defaultLimit;
-//        } catch (NumberFormatException ex) {
-//            throw new BadRequestParametersException("Failed to parse limit parameter");
-//        }
-//    }
 
 }
