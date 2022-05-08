@@ -1,0 +1,2 @@
+com/epam/esm/controller/api/impl/CertificateControllerImplUnitTest.java
+ com.epam.esm.controller.api.impl.CertificateControllerImplUnitTest

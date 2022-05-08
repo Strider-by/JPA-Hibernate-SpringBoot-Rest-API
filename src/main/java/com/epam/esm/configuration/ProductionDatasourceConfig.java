@@ -25,7 +25,7 @@ public class ProductionDatasourceConfig {
     private int maxActive;
 
     @Bean
-    @Profile("production")
+    @Profile("production") // todo: repeated profile?
     @Scope("singleton")
     public DataSource mysqlDataSource() {
 

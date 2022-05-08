@@ -1,5 +1,6 @@
 package com.epam.esm.model.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -9,6 +10,11 @@ public class CertificateCreateDto {
     private List<TagCreateDto> description;
     private int price;
     private int duration;
+
+    // todo: this is for testing only. rework?
+    public CertificateCreateDto() {
+        description = new ArrayList<>();
+    }
 
     public String getName() {
         return name;
