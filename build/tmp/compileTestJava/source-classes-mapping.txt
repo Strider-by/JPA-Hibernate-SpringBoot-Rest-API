@@ -1,2 +1,4 @@
+com/epam/esm/util/ContentStringBuilder.java
+ com.epam.esm.util.ContentStringBuilder
 com/epam/esm/controller/api/impl/CertificateControllerImplUnitTest.java
  com.epam.esm.controller.api.impl.CertificateControllerImplUnitTest
