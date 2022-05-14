@@ -54,7 +54,7 @@ class UserControllerImplTest {
         mockMvc.perform(get("/users"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.elements_on_current_page").value(pageSize));
+                .andExpect(jsonPath("$.elements_on_current_page").value(elementsOnPage));
     }
 
     static class Data {
@@ -62,6 +62,7 @@ class UserControllerImplTest {
         static final User singleUser = new User();
         static final int pageNumber = 0;
         static final int pageSize = 10;
+        static final int elementsOnPage = pageSize;
         static final Pageable pageable = PageRequest.of(pageNumber, pageSize);
         static final long elementsTotal = 25;
         static final List<User> users = Collections.unmodifiableList(

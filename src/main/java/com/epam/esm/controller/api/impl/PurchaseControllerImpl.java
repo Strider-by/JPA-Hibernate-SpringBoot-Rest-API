@@ -25,7 +25,7 @@ import static com.epam.esm.controller.api.ControllerHelper.*;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @RestController
-public class PurchaseControllerImpl implements PurchaseController {
+public class PurchaseControllerImpl extends BaseExceptionHandlingController implements PurchaseController {
 
     @Autowired
     private PurchaseService service;
@@ -102,31 +102,5 @@ public class PurchaseControllerImpl implements PurchaseController {
         service.deletePurchase(id);
         return new Message(HttpStatus.OK, String.format("Purchase %d has been deleted", id));
     }
-
-    @ExceptionHandler({PurchaseNotFoundException.class})
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @RequestMapping(produces = "application/json")
-    private Message purchaseNotFound(PurchaseNotFoundException ex) {
-        long id = ex.getPurchaseId();
-        return new Message(HttpStatus.NOT_FOUND, String.format("Purchase %d can not be found", id));
-    }
-
-    // todo: fix
-//    @ExceptionHandler({UserNotFoundException.class})
-//    @ResponseStatus(HttpStatus.NOT_FOUND)
-//    @RequestMapping(produces = "application/json")
-//    private Message userNotFound(UserNotFoundException ex) {
-//        long id = ex.getUserId();
-//        return new Message(HttpStatus.NOT_FOUND, String.format("User %d can not be found", id));
-//    }
-
-    // todo: fix
-//    @ExceptionHandler({PurchaseNotFoundException.class})
-//    @ResponseStatus(HttpStatus.NOT_FOUND)
-//    @RequestMapping(produces = "application/json")
-//    private Message certificateNotFound(CertificateNotFoundException ex) {
-//        long id = ex.getCertificateId();
-//        return new Message(HttpStatus.NOT_FOUND, String.format("Certificate %d can not be found", id));
-//    }
 
 }

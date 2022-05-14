@@ -10,6 +10,7 @@ com/epam/esm/controller/api/impl/UserControllerImplTest.java
  com.epam.esm.controller.api.impl.UserControllerImplTest$Data
 com/epam/esm/controller/api/impl/PurchaseControllerImplTest.java
  com.epam.esm.controller.api.impl.PurchaseControllerImplTest
+ com.epam.esm.controller.api.impl.PurchaseControllerImplTest$Data
 com/epam/esm/controller/api/impl/TagControllerImplTest.java
  com.epam.esm.controller.api.impl.TagControllerImplTest
  com.epam.esm.controller.api.impl.TagControllerImplTest$Data

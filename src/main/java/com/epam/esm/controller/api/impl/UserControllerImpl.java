@@ -17,7 +17,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-public class UserControllerImpl implements UserController {
+public class UserControllerImpl extends BaseExceptionHandlingController implements UserController {
 
     @Autowired
     private UserService service;

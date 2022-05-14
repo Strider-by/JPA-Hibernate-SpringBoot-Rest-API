@@ -46,7 +46,7 @@ class TagControllerImplTest {
         mockMvc.perform(get("/tags"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.elements_on_current_page").value(pageSize));
+                .andExpect(jsonPath("$.elements_on_current_page").value(elementOnPage));
     }
 
     @Test
@@ -98,6 +98,7 @@ class TagControllerImplTest {
         static final Tag singleTag = new Tag(tagId, tagName);
         static final int pageNumber = 0;
         static final int pageSize = 10;
+        static final int elementOnPage = pageSize;
         static final Pageable pageable = PageRequest.of(pageNumber, pageSize);
         static final long elementsTotal = 25;
         static final List<Tag> tags = Collections.unmodifiableList(

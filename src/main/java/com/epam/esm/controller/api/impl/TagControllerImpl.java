@@ -23,7 +23,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-public class TagControllerImpl implements TagController {
+public class TagControllerImpl extends BaseExceptionHandlingController implements TagController {
 
     @Autowired
     private final TagsService tagsService;
@@ -64,14 +64,6 @@ public class TagControllerImpl implements TagController {
     public Message deleteTag(String name) {
         tagsService.deleteTag(name);
         return new Message(HttpStatus.OK, String.format("Tag '%s' has been deleted", name));
-    }
-
-    @ExceptionHandler(TagNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @RequestMapping(produces = "application/json") // todo do i need this? // No!?
-    private Message tagNotFound(TagNotFoundException ex) {
-        String tagName = ex.getTagName();
-        return new Message(HttpStatus.NOT_FOUND, String.format("Tag '%s' can not be found", tagName));
     }
 
 }

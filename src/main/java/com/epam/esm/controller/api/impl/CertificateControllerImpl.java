@@ -12,9 +12,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.function.BiFunction;
@@ -24,7 +21,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-public class CertificateControllerImpl implements CertificateController {
+public class CertificateControllerImpl extends BaseExceptionHandlingController implements CertificateController {
 
     @Autowired
     private CertificateService certificateService;
@@ -76,13 +73,13 @@ public class CertificateControllerImpl implements CertificateController {
         return certificate;
     }
 
-    // todo: test with several handlers and ask if it can be > 1 if I would be able to do that
-    @ExceptionHandler({CertificateNotFoundException.class})
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @RequestMapping(produces = "application/json")
-    private Message certificateNotFound(CertificateNotFoundException ex) {
-        long id = ex.getCertificateId();
-        return new Message(HttpStatus.NOT_FOUND, String.format("Certificate %d can not be found", id));
-    }
+//    // todo: test with several handlers and ask if it can be > 1 if I would be able to do that
+//    @ExceptionHandler({CertificateNotFoundException.class})
+//    @ResponseStatus(HttpStatus.NOT_FOUND)
+//    @RequestMapping(produces = "application/json")
+//    private Message certificateNotFound(CertificateNotFoundException ex) {
+//        long id = ex.getCertificateId();
+//        return new Message(HttpStatus.NOT_FOUND, String.format("Certificate %d can not be found", id));
+//    }
 
 }

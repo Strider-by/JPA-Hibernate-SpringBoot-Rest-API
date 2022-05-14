@@ -7,10 +7,8 @@ import com.epam.esm.model.Certificate;
 import com.epam.esm.model.Purchase;
 import com.epam.esm.model.Tag;
 import com.epam.esm.model.User;
-import com.epam.esm.service.CertificateService;
 import com.epam.esm.service.PurchaseService;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.data.domain.Page;
@@ -30,12 +28,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import static com.epam.esm.controller.api.impl.PurchaseControllerImplTest.Data.*;
 
 class PurchaseControllerImplTest {
 
@@ -52,20 +51,16 @@ class PurchaseControllerImplTest {
 
     @Test
     void getPurchaseById_success() throws Exception {
-        long id = 1L;
-        when(service.getPurchaseById(id)).thenReturn(new Purchase());
-
-        mockMvc.perform(get("/purchases/{id}", id))
+        when(service.getPurchaseById(purchaseId)).thenReturn(new Purchase());
+        mockMvc.perform(get("/purchases/{id}", purchaseId))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
 
     @Test
     void getPurchaseById_fail_notFound() throws Exception {
-        long id = 1L;
-        when(service.getPurchaseById(id)).thenThrow(new PurchaseNotFoundException(id));
-
-        mockMvc.perform(get("/purchases/{id}", id))
+        when(service.getPurchaseById(purchaseId)).thenThrow(new PurchaseNotFoundException(purchaseId));
+        mockMvc.perform(get("/purchases/{id}", purchaseId))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
@@ -80,54 +75,26 @@ class PurchaseControllerImplTest {
 
     @Test
     void getAllPurchases() throws Exception {
-        int pageNumber = 0;
-        int pageSize = 10;
-        List<Purchase> expectedContent =
-                IntStream.range(0, pageSize).mapToObj(i -> new Purchase()).collect(Collectors.toList());
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
-        long elementsTotal = 25;
-
-        when(service.getAllPurchases(any())).thenReturn(
-                new PageImpl<>(expectedContent, pageable, elementsTotal));
-
+        when(service.getAllPurchases(any())).thenReturn(purchasesPage);
         mockMvc.perform(get("/purchases/all"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                // todo: remove? this doesn't seems like it should be part of this test
-                .andExpect(jsonPath("$.elements_on_current_page").value(pageSize));
+                .andExpect(jsonPath("$.elements_on_current_page").value(elementsOnPage));
     }
 
     @Test
     void getUserPurchases_success() throws Exception {
-        long userId = 1L;
-        int pageNumber = 0;
-        int pageSize = 10;
-        List<Purchase> expectedContent =
-                IntStream.range(0, pageSize).mapToObj(i -> new Purchase()).collect(Collectors.toList());
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
-        long elementsTotal = 25;
-
         // todo: ask. when(service.getUserPurchases(any(), any())) causes NPE
-        when(service.getUserPurchases(userId, pageable)).thenReturn(
-                new PageImpl<>(expectedContent, pageable, elementsTotal));
-
+        when(service.getUserPurchases(userId, pageable)).thenReturn(purchasesPage);
         mockMvc.perform(get("/purchases/user/{userId}", userId))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                // todo: remove? this doesn't seems like it should be part of this test
-                .andExpect(jsonPath("$.elements_on_current_page").value(pageSize));
+                .andExpect(jsonPath("$.elements_on_current_page").value(elementsOnPage));
     }
 
     @Test
-    @Disabled // fixme
     void getUserPurchases_fail_userNotFound() throws Exception {
-        long userId = 1L;
-        int pageNumber = 0;
-        int pageSize = 10;
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
-
         when(service.getUserPurchases(userId, pageable)).thenThrow(new UserNotFoundException(userId));
-
         mockMvc.perform(get("/purchases/user/{userId}", userId))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
@@ -135,31 +102,16 @@ class PurchaseControllerImplTest {
 
     @Test
     void getUserPrimaryTags_success() throws Exception {
-        long userId = 1L;
-        int pageNumber = 0;
-        int pageSize = 10;
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
-        List<Tag> expectedContent = IntStream.range(0, pageSize).mapToObj(i -> new Tag()).collect(Collectors.toList());
-        Page<Tag> page = new PageImpl<>(expectedContent, pageable, pageSize);
-
-        when(service.getUserPrimaryTags(userId, pageable)).thenReturn(page);
-
+        when(service.getUserPrimaryTags(userId, pageable)).thenReturn(tagPage);
         mockMvc.perform(get("/purchases/primary-tags/user/{userId}", userId))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.elements_on_current_page").value(pageSize));
+                .andExpect(jsonPath("$.elements_on_current_page").value(elementsOnPage));
     }
 
     @Test
-    @Disabled // fixme
     void getUserPrimaryTags_fail_userNotFound() throws Exception {
-        long userId = 1L;
-        int pageNumber = 0;
-        int pageSize = 10;
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
-
         when(service.getUserPrimaryTags(userId, pageable)).thenThrow(new UserNotFoundException(userId));
-
         mockMvc.perform(get("/purchases/primary-tags/user/{userId}", userId))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
@@ -167,106 +119,98 @@ class PurchaseControllerImplTest {
 
     @Test
     void getPrimaryTags() throws Exception {
-        int pageNumber = 0;
-        int pageSize = 10;
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
-        List<Tag> expectedContent = IntStream.range(0, pageSize).mapToObj(i -> new Tag()).collect(Collectors.toList());
-        Page<Tag> page = new PageImpl<>(expectedContent, pageable, pageSize);
-
-        when(service.getPrimaryTags(pageable)).thenReturn(page);
-
+        when(service.getPrimaryTags(pageable)).thenReturn(tagPage);
         mockMvc.perform(get("/purchases/primary-tags/"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.elements_on_current_page").value(pageSize));
+                .andExpect(jsonPath("$.elements_on_current_page").value(elementsOnPage));
     }
-
 
     @Test
     void purchaseCertificate_success() throws Exception {
-        long userId = 1;
-        long certificateId = 2;
-        Purchase expected = new Purchase(new User(), new Certificate());
-
-        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-        params.add("userId", Long.toString(userId));
-        params.add("certificateId", Long.toString(certificateId));
-
         when(service.purchaseCertificate(userId, certificateId)).thenReturn(expected);
 
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/purchases")
+        MockHttpServletRequestBuilder purchaseRequest = MockMvcRequestBuilders.post("/purchases")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .characterEncoding("UTF-8")
-                .params(params);
+                .params(purchaseParams);
 
-        mockMvc.perform(builder)
+        mockMvc.perform(purchaseRequest)
                 .andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
 
     @Test
-    @Disabled // fixme
     void purchaseCertificate_fail_userNotFound() throws Exception {
-        long userId = 1;
-        long certificateId = 2;
-
-        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-        params.add("userId", Long.toString(userId));
-        params.add("certificateId", Long.toString(certificateId));
-
         when(service.purchaseCertificate(userId, certificateId)).thenThrow(new UserNotFoundException(userId));
 
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/purchases")
+        MockHttpServletRequestBuilder purchaseRequest = MockMvcRequestBuilders.post("/purchases")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .characterEncoding("UTF-8")
-                .params(params);
+                .params(purchaseParams);
 
-        mockMvc.perform(builder)
+        mockMvc.perform(purchaseRequest)
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
 
     @Test
-    @Disabled // fixme
     void purchaseCertificate_fail_certificateNotFound() throws Exception {
-        long userId = 1;
-        long certificateId = 2;
-
-        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-        params.add("userId", Long.toString(userId));
-        params.add("certificateId", Long.toString(certificateId));
-
         when(service.purchaseCertificate(userId, certificateId)).thenThrow(new CertificateNotFoundException(certificateId));
 
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/purchases")
+        MockHttpServletRequestBuilder purchaseRequest = MockMvcRequestBuilders.post("/purchases")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .characterEncoding("UTF-8")
-                .params(params);
+                .params(purchaseParams);
 
-        mockMvc.perform(builder)
+        mockMvc.perform(purchaseRequest)
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
 
     @Test
     void deletePurchase_success() throws Exception {
-        long id = 1;
-        mockMvc.perform(delete("/purchases/{id}", id))
+        mockMvc.perform(delete("/purchases/{id}", purchaseId))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.code").value(HttpStatus.OK.value()));
     }
 
     @Test
-    @Disabled // fixme
     void deletePurchase_fail_certificateNotFound() throws Exception {
-        long id = 1;
-
-        doThrow(new CertificateNotFoundException(id)).when(service).deletePurchase(id);
-
-        mockMvc.perform(delete("/purchases/{id}", id))
+        doThrow(new CertificateNotFoundException(certificateId)).when(service).deletePurchase(purchaseId);
+        mockMvc.perform(delete("/purchases/{id}", purchaseId))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+    }
+
+    static class Data {
+
+        static final Long certificateId = 1L;
+        static final Long userId = 2L;
+        static final Long purchaseId = 3L;
+        static final MultiValueMap<String, String> purchaseParams = new LinkedMultiValueMap<>();
+        static final Purchase expected = new Purchase(new User(), new Certificate());
+
+        static final int pageNumber = 0;
+        static final int pageSize = 10;
+        static final int elementsOnPage = pageSize;
+        static final long elementsTotal = 25;
+        static final Pageable pageable = PageRequest.of(pageNumber, pageSize);
+
+        static final List<Purchase> purchases =
+                IntStream.range(0, elementsOnPage).mapToObj(i -> new Purchase()).collect(Collectors.toList());
+        static final Page<Purchase> purchasesPage = new PageImpl<>(purchases, pageable, elementsTotal);
+
+        static final List<Tag> tags =
+                IntStream.range(0, elementsOnPage).mapToObj(i -> new Tag()).collect(Collectors.toList());
+        static final Page<Tag> tagPage = new PageImpl<>(tags, pageable, elementsTotal);
+
+        static {
+            purchaseParams.add("userId", Long.toString(userId));
+            purchaseParams.add("certificateId", Long.toString(certificateId));
+        }
+
     }
 
 }

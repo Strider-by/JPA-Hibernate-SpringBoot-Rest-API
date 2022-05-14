@@ -66,7 +66,7 @@ class CertificateControllerImplTest {
         mockMvc.perform(get("/certificates/"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.elements_on_current_page").value(pageSize));
+                .andExpect(jsonPath("$.elements_on_current_page").value(elementsOnPage));
     }
 
     @Test
@@ -83,7 +83,6 @@ class CertificateControllerImplTest {
         mockMvc.perform(get("/certificates/{id}", certificateId))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                // todo: should it be part of this test?
                 .andExpect(jsonPath("$.code").value(HttpStatus.NOT_FOUND.value()));
     }
 
@@ -147,6 +146,7 @@ class CertificateControllerImplTest {
         static final Certificate certificate = new Certificate();
         static final int pageNumber = 0;
         static final int pageSize = 10;
+        static final int elementsOnPage = pageSize;
         static final Pageable pageable = PageRequest.of(pageNumber, pageSize);
         static final long elementsTotal = 25;
         static final List<Certificate> certificates = Collections.unmodifiableList(

@@ -2,16 +2,12 @@ package com.epam.esm.controller.api.impl;
 
 import com.epam.esm.controller.api.CertificateSearchController;
 import com.epam.esm.controller.api.exception.BadRequestParametersException;
-import com.epam.esm.controller.util.Message;
 import com.epam.esm.model.Certificate;
 import com.epam.esm.model.representation.HateoasView;
 import com.epam.esm.service.CertificateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
@@ -23,7 +19,7 @@ import static com.epam.esm.controller.api.ControllerHelper.*;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @RestController
-public class CertificateSearchControllerImpl implements CertificateSearchController {
+public class CertificateSearchControllerImpl extends BaseExceptionHandlingController implements CertificateSearchController {
 
     @Autowired
     private final CertificateService certificateService;
@@ -54,11 +50,6 @@ public class CertificateSearchControllerImpl implements CertificateSearchControl
         };
     }
 
-    @ExceptionHandler(BadRequestParametersException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    private Message badRequestFound(BadRequestParametersException ex) {
-        return new Message(HttpStatus.BAD_REQUEST, ex.getMessage());
-    }
 
     private enum SearchParametersVerifier {
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.epam.esm.controller.api.impl.CertificateSearchByTagsControllerImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-05-14T21:39:12" hostname="DESKTOP-US0M6L4" time="0.036">
+  <properties/>
+  <testcase name="search()" classname="com.epam.esm.controller.api.impl.CertificateSearchByTagsControllerImplTest" time="0.036"/>
+  <system-out><![CDATA[2022-05-15 00:39:12.220  INFO 7972 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2022-05-15 00:39:12.221  INFO 7972 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-05-15 00:39:12.221  INFO 7972 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

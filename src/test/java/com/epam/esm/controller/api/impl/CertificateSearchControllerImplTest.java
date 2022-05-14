@@ -73,7 +73,7 @@ class CertificateSearchControllerImplTest {
     @Test
     void searchCertificatesByPartOfNameOrDescription_fail_badRequest_badParamName() throws Exception {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-        params.add("bad param name", "bad param value");
+        params.add("bad param name", "irrelevant value");
 
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/search")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
@@ -117,5 +117,6 @@ class CertificateSearchControllerImplTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.code").value(HttpStatus.BAD_REQUEST.value()));
     }
+
 
 }
