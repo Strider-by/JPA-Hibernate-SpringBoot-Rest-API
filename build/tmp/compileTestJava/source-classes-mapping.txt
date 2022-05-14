@@ -1,4 +1,15 @@
-com/epam/esm/util/ContentStringBuilder.java
- com.epam.esm.util.ContentStringBuilder
-com/epam/esm/controller/api/impl/CertificateControllerImplUnitTest.java
- com.epam.esm.controller.api.impl.CertificateControllerImplUnitTest
+com/epam/esm/controller/api/impl/CertificateSearchByTagsControllerImplTest.java
+ com.epam.esm.controller.api.impl.CertificateSearchByTagsControllerImplTest
+com/epam/esm/controller/api/impl/CertificateControllerImplTest.java
+ com.epam.esm.controller.api.impl.CertificateControllerImplTest
+ com.epam.esm.controller.api.impl.CertificateControllerImplTest$Data
+com/epam/esm/controller/api/impl/CertificateSearchControllerImplTest.java
+ com.epam.esm.controller.api.impl.CertificateSearchControllerImplTest
+com/epam/esm/controller/api/impl/UserControllerImplTest.java
+ com.epam.esm.controller.api.impl.UserControllerImplTest
+ com.epam.esm.controller.api.impl.UserControllerImplTest$Data
+com/epam/esm/controller/api/impl/PurchaseControllerImplTest.java
+ com.epam.esm.controller.api.impl.PurchaseControllerImplTest
+com/epam/esm/controller/api/impl/TagControllerImplTest.java
+ com.epam.esm.controller.api.impl.TagControllerImplTest
+ com.epam.esm.controller.api.impl.TagControllerImplTest$Data

@@ -22,6 +22,10 @@ public class UserControllerImpl implements UserController {
     @Autowired
     private UserService service;
 
+    public UserControllerImpl(UserService service) {
+        this.service = service;
+    }
+
     public static final BiFunction<Integer, Integer, String> GET_USERS_HREF_GENERATOR =
             (pageNumber, pageSize) -> linkTo(methodOn(UserController.class).getUsers(pageNumber, pageSize)).toString();
 

@@ -2,6 +2,7 @@ package com.epam.esm.controller.api;
 
 import com.epam.esm.model.User;
 import com.epam.esm.model.representation.HateoasView;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import static com.epam.esm.controller.api.ControllerHelper.*;
@@ -11,6 +12,7 @@ public interface UserController {
 
     @PostMapping(produces = "application/json")
     // todo: ask how to workaround empty post body case
+    @ResponseStatus(HttpStatus.CREATED)
     User createUser(/*@RequestBody UserCreateDto dto*/);
 
     @GetMapping(produces = "application/json")

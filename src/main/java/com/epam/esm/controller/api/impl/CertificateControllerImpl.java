@@ -48,6 +48,7 @@ public class CertificateControllerImpl implements CertificateController {
 
     @Override
     public Certificate getCertificate(long id) {
+        // todo: switch to throwing exceptions on Repository layer
         Certificate certificate = certificateService.getCertificate(id);
         if (certificate == null) {
             throw new CertificateNotFoundException(id);
