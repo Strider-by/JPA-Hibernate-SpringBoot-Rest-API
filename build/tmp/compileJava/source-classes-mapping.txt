@@ -1,126 +1,33 @@
-com/epam/esm/controller/api/exception/PurchaseNotFoundException.java
- com.epam.esm.controller.api.exception.PurchaseNotFoundException
-com/epam/esm/configuration/BeansConfiguration.java
- com.epam.esm.configuration.BeansConfiguration
-com/epam/esm/controller/api/PurchaseController.java
- com.epam.esm.controller.api.PurchaseController
-com/epam/esm/model/User.java
- com.epam.esm.model.User
+com/epam/esm/controller/api/CertificateSearchController.java
+ com.epam.esm.controller.api.CertificateSearchController
+com/epam/esm/controller/api/TagController.java
+ com.epam.esm.controller.api.TagController
 com/epam/esm/controller/api/exception/UserNotFoundException.java
  com.epam.esm.controller.api.exception.UserNotFoundException
 com/epam/esm/repository/JpaTagRepository.java
  com.epam.esm.repository.JpaTagRepository
 com/epam/esm/repository/UserRepository.java
  com.epam.esm.repository.UserRepository
-com/epam/esm/model/dto/CertificateCreateDto.java
- com.epam.esm.model.dto.CertificateCreateDto
-com/epam/esm/model/dto/TagCreateDto.java
- com.epam.esm.model.dto.TagCreateDto
-com/epam/esm/repository/CustomPurchaseRepository.java
- com.epam.esm.repository.CustomPurchaseRepository
-com/epam/esm/model/util/DateConverter.java
- com.epam.esm.model.util.DateConverter
-com/epam/esm/controller/api/exception/BadRequestParametersException.java
- com.epam.esm.controller.api.exception.BadRequestParametersException
-com/epam/esm/controller/api/exception/CertificateNotFoundException.java
- com.epam.esm.controller.api.exception.CertificateNotFoundException
-com/epam/esm/controller/util/Message.java
- com.epam.esm.controller.util.Message
-com/epam/esm/configuration/PersistenceJPAConfig.java
- com.epam.esm.configuration.PersistenceJPAConfig
-com/epam/esm/model/dto/TagUpstreamDto.java
- com.epam.esm.model.dto.TagUpstreamDto
-com/epam/esm/repository/JpaPurchaseRepository.java
- com.epam.esm.repository.JpaPurchaseRepository
-com/epam/esm/repository/util/QueryParametersSetter.java
- com.epam.esm.repository.util.QueryParametersSetter
-com/epam/esm/model/dto/Pair.java
- com.epam.esm.model.dto.Pair
-com/epam/esm/controller/api/ControllerHelper.java
- com.epam.esm.controller.api.ControllerHelper
-com/epam/esm/repository/PurchaseRepository.java
- com.epam.esm.repository.PurchaseRepository
-com/epam/esm/controller/api/exception/TagNotFoundException.java
- com.epam.esm.controller.api.exception.TagNotFoundException
-com/epam/esm/model/dto/CertificateUpstreamDto.java
- com.epam.esm.model.dto.CertificateUpstreamDto
-com/epam/esm/repository/JpaUserRepository.java
- com.epam.esm.repository.JpaUserRepository
-com/epam/esm/service/impl/CertificateServiceImpl.java
- com.epam.esm.service.impl.CertificateServiceImpl
-com/epam/esm/controller/api/exception/TagAlreadyExistsException.java
- com.epam.esm.controller.api.exception.TagAlreadyExistsException
-com/epam/esm/controller/config/RootConfig.java
- com.epam.esm.controller.config.RootConfig
-com/epam/esm/model/dto/UserCreateDto.java
- com.epam.esm.model.dto.UserCreateDto
-com/epam/esm/controller/config/WebAppInitializer.java
- com.epam.esm.controller.config.WebAppInitializer
-com/epam/esm/model/dto/CertificateUpdateDto.java
- com.epam.esm.model.dto.CertificateUpdateDto
-com/epam/esm/repository/JpaCertificateRepository.java
- com.epam.esm.repository.JpaCertificateRepository
-com/epam/esm/Runner.java
- com.epam.esm.Runner
-com/epam/esm/controller/api/CertificateSearchController.java
- com.epam.esm.controller.api.CertificateSearchController
-com/epam/esm/controller/api/TagController.java
- com.epam.esm.controller.api.TagController
-com/epam/esm/service/impl/TagsServiceImpl.java
- com.epam.esm.service.impl.TagsServiceImpl
-com/epam/esm/repository/impl/CustomCertificateRepositoryImpl.java
- com.epam.esm.repository.impl.CustomCertificateRepositoryImpl
- com.epam.esm.repository.impl.CustomCertificateRepositoryImpl$CertificatesSearchConstants
- com.epam.esm.repository.impl.CustomCertificateRepositoryImpl$CertificatesSearchConstants$SortByTemplate
- com.epam.esm.repository.impl.CustomCertificateRepositoryImpl$CertificatesSearchConstants$SortOrder
-com/epam/esm/model/Certificate.java
- com.epam.esm.model.Certificate
-com/epam/esm/controller/api/UserController.java
- com.epam.esm.controller.api.UserController
-com/epam/esm/model/Purchase.java
- com.epam.esm.model.Purchase
-com/epam/esm/service/PurchaseService.java
- com.epam.esm.service.PurchaseService
-com/epam/esm/model/representation/HateoasView.java
- com.epam.esm.model.representation.HateoasView
- com.epam.esm.model.representation.HateoasView$Relation
- com.epam.esm.model.representation.HateoasView$Relation$AdditionPredicate
-com/epam/esm/repository/CustomTagRepository.java
- com.epam.esm.repository.CustomTagRepository
-com/epam/esm/controller/api/CertificateSearchByTagsController.java
- com.epam.esm.controller.api.CertificateSearchByTagsController
-com/epam/esm/service/impl/UserServiceImpl.java
- com.epam.esm.service.impl.UserServiceImpl
-com/epam/esm/repository/impl/CustomPurchaseRepositoryImpl.java
- com.epam.esm.repository.impl.CustomPurchaseRepositoryImpl
-com/epam/esm/service/UserService.java
- com.epam.esm.service.UserService
-com/epam/esm/configuration/ProductionDatasourceConfig.java
- com.epam.esm.configuration.ProductionDatasourceConfig
-com/epam/esm/model/Tag.java
- com.epam.esm.model.Tag
-com/epam/esm/repository/impl/CustomTagRepositoryImpl.java
- com.epam.esm.repository.impl.CustomTagRepositoryImpl
-com/epam/esm/service/TagsService.java
- com.epam.esm.service.TagsService
-com/epam/esm/controller/api/impl/CertificateSearchByTagsControllerImpl.java
- com.epam.esm.controller.api.impl.CertificateSearchByTagsControllerImpl
-com/epam/esm/service/impl/PurchaseServiceImpl.java
- com.epam.esm.service.impl.PurchaseServiceImpl
-com/epam/esm/repository/CertificateRepository.java
- com.epam.esm.repository.CertificateRepository
-com/epam/esm/repository/CustomCertificateRepository.java
- com.epam.esm.repository.CustomCertificateRepository
 com/epam/esm/repository/TagRepository.java
  com.epam.esm.repository.TagRepository
-com/epam/esm/controller/config/WebConfig.java
- com.epam.esm.controller.config.WebConfig
-com/epam/esm/model/util/DtoConverter.java
- com.epam.esm.model.util.DtoConverter
-com/epam/esm/controller/api/CertificateController.java
- com.epam.esm.controller.api.CertificateController
-com/epam/esm/service/CertificateService.java
- com.epam.esm.service.CertificateService
+com/epam/esm/model/dto/TagCreateDto.java
+ com.epam.esm.model.dto.TagCreateDto
+com/epam/esm/controller/api/CertificateSearchByTagsController.java
+ com.epam.esm.controller.api.CertificateSearchByTagsController
+com/epam/esm/controller/api/PurchaseController.java
+ com.epam.esm.controller.api.PurchaseController
+com/epam/esm/service/impl/UserServiceImpl.java
+ com.epam.esm.service.impl.UserServiceImpl
+com/epam/esm/controller/api/exception/CertificateNotFoundException.java
+ com.epam.esm.controller.api.exception.CertificateNotFoundException
+com/epam/esm/repository/impl/CustomTagRepositoryImpl.java
+ com.epam.esm.repository.impl.CustomTagRepositoryImpl
+com/epam/esm/controller/api/impl/UserControllerImpl.java
+ com.epam.esm.controller.api.impl.UserControllerImpl
+com/epam/esm/configuration/BeansConfiguration.java
+ com.epam.esm.configuration.BeansConfiguration
+com/epam/esm/repository/JpaPurchaseRepository.java
+ com.epam.esm.repository.JpaPurchaseRepository
 com/epam/esm/controller/api/impl/CertificateSearchControllerImpl.java
  com.epam.esm.controller.api.impl.CertificateSearchControllerImpl
  com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$1
@@ -132,13 +39,106 @@ com/epam/esm/controller/api/impl/CertificateSearchControllerImpl.java
  com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$5
  com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$6
  com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$7
-com/epam/esm/controller/api/impl/UserControllerImpl.java
- com.epam.esm.controller.api.impl.UserControllerImpl
-com/epam/esm/controller/api/impl/BaseExceptionHandlingController.java
- com.epam.esm.controller.api.impl.BaseExceptionHandlingController
-com/epam/esm/controller/api/impl/TagControllerImpl.java
- com.epam.esm.controller.api.impl.TagControllerImpl
-com/epam/esm/controller/api/impl/CertificateControllerImpl.java
- com.epam.esm.controller.api.impl.CertificateControllerImpl
+com/epam/esm/controller/api/ControllerHelper.java
+ com.epam.esm.controller.api.ControllerHelper
+com/epam/esm/controller/api/CertificateController.java
+ com.epam.esm.controller.api.CertificateController
+com/epam/esm/model/dto/CertificateUpstreamDto.java
+ com.epam.esm.model.dto.CertificateUpstreamDto
+com/epam/esm/repository/JpaUserRepository.java
+ com.epam.esm.repository.JpaUserRepository
+com/epam/esm/controller/api/impl/ControllerExceptionHandlingBase.java
+ com.epam.esm.controller.api.impl.ControllerExceptionHandlingBase
+com/epam/esm/controller/api/impl/CertificateSearchByTagsControllerImpl.java
+ com.epam.esm.controller.api.impl.CertificateSearchByTagsControllerImpl
+com/epam/esm/controller/api/exception/TagAlreadyExistsException.java
+ com.epam.esm.controller.api.exception.TagAlreadyExistsException
+com/epam/esm/repository/impl/CustomCertificateRepositoryImpl.java
+ com.epam.esm.repository.impl.CustomCertificateRepositoryImpl
+ com.epam.esm.repository.impl.CustomCertificateRepositoryImpl$CertificatesSearchConstants
+ com.epam.esm.repository.impl.CustomCertificateRepositoryImpl$CertificatesSearchConstants$SortByTemplate
+ com.epam.esm.repository.impl.CustomCertificateRepositoryImpl$CertificatesSearchConstants$SortOrder
+com/epam/esm/configuration/ProductionDatasourceConfig.java
+ com.epam.esm.configuration.ProductionDatasourceConfig
+com/epam/esm/model/dto/CertificateUpdateDto.java
+ com.epam.esm.model.dto.CertificateUpdateDto
+com/epam/esm/repository/JpaCertificateRepository.java
+ com.epam.esm.repository.JpaCertificateRepository
+com/epam/esm/controller/config/RootConfig.java
+ com.epam.esm.controller.config.RootConfig
+com/epam/esm/repository/util/QueryParametersSetter.java
+ com.epam.esm.repository.util.QueryParametersSetter
+com/epam/esm/controller/api/exception/PurchaseNotFoundException.java
+ com.epam.esm.controller.api.exception.PurchaseNotFoundException
 com/epam/esm/controller/api/impl/PurchaseControllerImpl.java
  com.epam.esm.controller.api.impl.PurchaseControllerImpl
+com/epam/esm/repository/CustomTagRepository.java
+ com.epam.esm.repository.CustomTagRepository
+com/epam/esm/controller/config/WebAppInitializer.java
+ com.epam.esm.controller.config.WebAppInitializer
+com/epam/esm/Runner.java
+ com.epam.esm.Runner
+com/epam/esm/controller/api/exception/TagNotFoundException.java
+ com.epam.esm.controller.api.exception.TagNotFoundException
+com/epam/esm/service/UserService.java
+ com.epam.esm.service.UserService
+com/epam/esm/repository/PurchaseRepository.java
+ com.epam.esm.repository.PurchaseRepository
+com/epam/esm/service/impl/CertificateServiceImpl.java
+ com.epam.esm.service.impl.CertificateServiceImpl
+com/epam/esm/model/util/DateConverter.java
+ com.epam.esm.model.util.DateConverter
+com/epam/esm/model/Tag.java
+ com.epam.esm.model.Tag
+com/epam/esm/controller/api/exception/BadRequestParametersException.java
+ com.epam.esm.controller.api.exception.BadRequestParametersException
+com/epam/esm/model/dto/CertificateCreateDto.java
+ com.epam.esm.model.dto.CertificateCreateDto
+com/epam/esm/model/dto/Pair.java
+ com.epam.esm.model.dto.Pair
+com/epam/esm/model/dto/TagUpstreamDto.java
+ com.epam.esm.model.dto.TagUpstreamDto
+com/epam/esm/configuration/PersistenceJPAConfig.java
+ com.epam.esm.configuration.PersistenceJPAConfig
+com/epam/esm/controller/util/Message.java
+ com.epam.esm.controller.util.Message
+com/epam/esm/service/PurchaseService.java
+ com.epam.esm.service.PurchaseService
+com/epam/esm/model/Certificate.java
+ com.epam.esm.model.Certificate
+com/epam/esm/repository/CertificateRepository.java
+ com.epam.esm.repository.CertificateRepository
+com/epam/esm/controller/api/impl/CertificateControllerImpl.java
+ com.epam.esm.controller.api.impl.CertificateControllerImpl
+com/epam/esm/model/util/DtoConverter.java
+ com.epam.esm.model.util.DtoConverter
+com/epam/esm/model/User.java
+ com.epam.esm.model.User
+com/epam/esm/repository/CustomPurchaseRepository.java
+ com.epam.esm.repository.CustomPurchaseRepository
+com/epam/esm/model/dto/UserCreateDto.java
+ com.epam.esm.model.dto.UserCreateDto
+com/epam/esm/model/representation/HateoasView.java
+ com.epam.esm.model.representation.HateoasView
+ com.epam.esm.model.representation.HateoasView$Relation
+ com.epam.esm.model.representation.HateoasView$Relation$AdditionPredicate
+com/epam/esm/controller/config/WebConfig.java
+ com.epam.esm.controller.config.WebConfig
+com/epam/esm/repository/CustomCertificateRepository.java
+ com.epam.esm.repository.CustomCertificateRepository
+com/epam/esm/service/CertificateService.java
+ com.epam.esm.service.CertificateService
+com/epam/esm/controller/api/UserController.java
+ com.epam.esm.controller.api.UserController
+com/epam/esm/model/Purchase.java
+ com.epam.esm.model.Purchase
+com/epam/esm/repository/impl/CustomPurchaseRepositoryImpl.java
+ com.epam.esm.repository.impl.CustomPurchaseRepositoryImpl
+com/epam/esm/service/TagsService.java
+ com.epam.esm.service.TagsService
+com/epam/esm/service/impl/PurchaseServiceImpl.java
+ com.epam.esm.service.impl.PurchaseServiceImpl
+com/epam/esm/controller/api/impl/TagControllerImpl.java
+ com.epam.esm.controller.api.impl.TagControllerImpl
+com/epam/esm/service/impl/TagsServiceImpl.java
+ com.epam.esm.service.impl.TagsServiceImpl

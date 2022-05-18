@@ -19,7 +19,7 @@ import static com.epam.esm.controller.api.ControllerHelper.*;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @RestController
-public class CertificateSearchControllerImpl extends BaseExceptionHandlingController implements CertificateSearchController {
+public class CertificateSearchControllerImpl extends ControllerExceptionHandlingBase implements CertificateSearchController {
 
     @Autowired
     private final CertificateService certificateService;

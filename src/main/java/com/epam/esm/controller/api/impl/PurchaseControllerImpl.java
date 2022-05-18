@@ -1,10 +1,6 @@
 package com.epam.esm.controller.api.impl;
 
 import com.epam.esm.controller.api.PurchaseController;
-import com.epam.esm.controller.api.exception.BadRequestParametersException;
-import com.epam.esm.controller.api.exception.CertificateNotFoundException;
-import com.epam.esm.controller.api.exception.PurchaseNotFoundException;
-import com.epam.esm.controller.api.exception.UserNotFoundException;
 import com.epam.esm.controller.util.Message;
 import com.epam.esm.model.Purchase;
 import com.epam.esm.model.Tag;
@@ -14,9 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.function.BiFunction;
@@ -25,7 +18,7 @@ import static com.epam.esm.controller.api.ControllerHelper.*;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @RestController
-public class PurchaseControllerImpl extends BaseExceptionHandlingController implements PurchaseController {
+public class PurchaseControllerImpl extends ControllerExceptionHandlingBase implements PurchaseController {
 
     @Autowired
     private PurchaseService service;

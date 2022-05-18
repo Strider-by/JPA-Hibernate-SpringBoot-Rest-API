@@ -136,6 +136,7 @@ public class CustomPurchaseRepositoryImpl implements CustomPurchaseRepository {
 
     @Override
     @Transactional
+    // todo: throw an exception when user can't be found? // tests change shall be necessary
     public Page<Tag> getUserPrimaryTags(long userId, Pageable pageable) {
         List<Tag> tags;
         long elementsTotal;

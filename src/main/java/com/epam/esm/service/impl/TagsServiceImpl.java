@@ -41,9 +41,9 @@ public class TagsServiceImpl implements TagsService {
         return repository.findByName(tagName);
     }
 
-    @Override
-    public Tag getTag(long id) {
-        return repository.findById(id).orElse(null);
-    }
+//    @Override
+//    public Tag getTag(long id) {
+//        return repository.findById(id).orElse(null);
+//    }
 
 }

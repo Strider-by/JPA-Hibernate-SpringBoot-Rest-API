@@ -2,6 +2,7 @@ package com.epam.esm.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "purchase")
@@ -69,6 +70,21 @@ public class Purchase {
 
     public void affixTimestamp() {
         this.timestamp = new Date();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Purchase purchase = (Purchase) o;
+        return Objects.equals(id, purchase.id) && Objects.equals(user, purchase.user)
+                && Objects.equals(certificate, purchase.certificate) && Objects.equals(cost, purchase.cost)
+                && Objects.equals(timestamp, purchase.timestamp);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, user, certificate, cost, timestamp);
     }
 
 }

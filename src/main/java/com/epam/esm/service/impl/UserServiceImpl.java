@@ -1,5 +1,6 @@
 package com.epam.esm.service.impl;
 
+import com.epam.esm.controller.api.exception.UserNotFoundException;
 import com.epam.esm.model.User;
 import com.epam.esm.model.dto.UserCreateDto;
 import com.epam.esm.model.util.DtoConverter;
@@ -22,8 +23,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    // todo: create custom user repo and throw exception there?
     public User getUser(long id) {
-        return repository.findById(id).orElse(null);
+        return repository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.epam.esm.service.impl;
 
 import com.epam.esm.controller.api.exception.CertificateNotFoundException;
+import com.epam.esm.controller.api.exception.PurchaseNotFoundException;
 import com.epam.esm.controller.api.exception.UserNotFoundException;
 import com.epam.esm.model.Certificate;
 import com.epam.esm.model.Purchase;
@@ -25,6 +26,12 @@ public class PurchaseServiceImpl implements PurchaseService {
     @Autowired
     private UserRepository userRepository;
 
+
+    public PurchaseServiceImpl(PurchaseRepository purchaseRepository, CertificateRepository certificateRepository, UserRepository userRepository) {
+        this.purchaseRepository = purchaseRepository;
+        this.certificateRepository = certificateRepository;
+        this.userRepository = userRepository;
+    }
 
     @Override
     public Page<Purchase> getUserPurchases(long userId, Pageable pageable) {
@@ -59,7 +66,8 @@ public class PurchaseServiceImpl implements PurchaseService {
 
     @Override
     public Purchase getPurchaseById(long id) {
-        return purchaseRepository.findById(id).orElse(null);
+        return purchaseRepository.findById(id)
+                .orElseThrow(() -> new PurchaseNotFoundException(id));
     }
 
     @Override

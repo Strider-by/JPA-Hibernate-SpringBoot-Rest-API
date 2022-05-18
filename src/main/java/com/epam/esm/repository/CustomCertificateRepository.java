@@ -13,7 +13,7 @@ public interface CustomCertificateRepository {
 
     Certificate updateCertificate(Certificate certificate);
 
-    Certificate getCertificateForUpdate(long id);
+    Certificate getCertificateById(long id);
 
     void deleteCertificateById(long id);
 

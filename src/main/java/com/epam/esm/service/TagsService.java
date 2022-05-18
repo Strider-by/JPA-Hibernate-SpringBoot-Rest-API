@@ -15,6 +15,6 @@ public interface TagsService {
 
     Tag getTag(String tagName);
 
-    Tag getTag(long id);
+//    Tag getTag(long id);
 
 }

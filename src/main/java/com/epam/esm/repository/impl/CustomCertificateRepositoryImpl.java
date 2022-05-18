@@ -64,7 +64,7 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
 
 
     @Override
-    public Certificate getCertificateForUpdate(long id) {
+    public Certificate getCertificateById(long id) {
         return entityManager.createQuery(GET_CERTIFICATE_BY_ID, Certificate.class)
                 .setParameter(ID_PARAM, id)
                 .getResultList()
@@ -72,7 +72,7 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
                 .findAny()
                 // todo: ask if this inappropriate use of map method looks too bad
                 .map(this::detach)
-                .orElse(null);
+                .orElseThrow(() -> new CertificateNotFoundException(id));
     }
 
 

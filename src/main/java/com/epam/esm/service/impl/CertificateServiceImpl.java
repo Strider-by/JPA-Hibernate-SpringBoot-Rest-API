@@ -8,7 +8,6 @@ import com.epam.esm.repository.CertificateRepository;
 import com.epam.esm.repository.TagRepository;
 import com.epam.esm.service.CertificateService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -30,6 +29,11 @@ public class CertificateServiceImpl implements CertificateService {
     @Autowired
     private TagRepository tagRepository;
 
+    public CertificateServiceImpl(CertificateRepository certificateRepository, TagRepository tagRepository) {
+        this.certificateRepository = certificateRepository;
+        this.tagRepository = tagRepository;
+    }
+
     @Override
     // todo: ask about why rollback doesn't want to work
     @Transactional(rollbackFor = {Throwable.class})
@@ -41,7 +45,7 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public Certificate getCertificate(long id) {
-        Certificate certificate = certificateRepository.findById(id).orElse(null);
+        Certificate certificate = certificateRepository.getCertificateById(id);
         return certificate;
     }
 
@@ -53,7 +57,7 @@ public class CertificateServiceImpl implements CertificateService {
     @Override
     public Certificate updateCertificate(long id, MultiValueMap<String, String> params) {
         // yep, it is required to get detached certificate by calling appropriate method
-        Certificate certificate = certificateRepository.getCertificateForUpdate(id);
+        Certificate certificate = certificateRepository.getCertificateById(id);
         if (certificate != null) {
             updateCertificateProperties(certificate, params);
             certificate = certificateRepository.updateCertificate(certificate);
