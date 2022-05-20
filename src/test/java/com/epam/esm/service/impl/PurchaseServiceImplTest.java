@@ -10,13 +10,9 @@ import com.epam.esm.model.User;
 import com.epam.esm.repository.CertificateRepository;
 import com.epam.esm.repository.PurchaseRepository;
 import com.epam.esm.repository.UserRepository;
-import com.epam.esm.service.PurchaseService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -40,55 +36,82 @@ class PurchaseServiceImplTest {
     private CertificateRepository certificateRepository;
     @Mock
     private UserRepository userRepository;
-    private PurchaseService service;
+    @InjectMocks
+    private PurchaseServiceImpl service;
+    @Captor
+    ArgumentCaptor argCaptor;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        service = new PurchaseServiceImpl(purchaseRepository, certificateRepository, userRepository);
     }
 
     @Test
     void getUserPurchases_success() {
+        when(userRepository.findById(userId)).thenReturn(Optional.of(user));
         when(purchaseRepository.getUserPurchases(userId, pageable)).thenReturn(purchasePage);
         Page<Purchase> actual = service.getUserPurchases(userId, pageable);
-        assertEquals(purchases, actual);
+        assertTrue(purchasePage == actual);
+        verify(purchaseRepository).getUserPurchases(userId, pageable);
     }
 
     @Test
     void getUserPurchases_fail_userNotFound() {
-        when(purchaseRepository.getUserPurchases(userId, pageable)).thenThrow(new UserNotFoundException(userId));
+        when(userRepository.findById(userId)).thenReturn(Optional.empty());
         assertThrows(UserNotFoundException.class, () -> service.getUserPurchases(userId, pageable));
+        verify(userRepository).findById(userId);
+        verifyNoInteractions(purchaseRepository);
     }
 
     @Test
     void getAllPurchases() {
         when(purchaseRepository.findAll(pageable)).thenReturn(purchasePage);
         Page<Purchase> actual = service.getAllPurchases(pageable);
-        assertEquals(purchasePage, actual);
+        assertTrue(purchasePage == actual);
+        verify(purchaseRepository).findAll(pageable);
     }
 
     @Test
     void getPrimaryTags() {
         when(purchaseRepository.getPrimaryTags(pageable)).thenReturn(tagPage);
         Page<Tag> actual = service.getPrimaryTags(pageable);
-        assertEquals(tagPage, actual);
+        assertTrue(tagPage == actual);
+        verify(purchaseRepository).getPrimaryTags(pageable);
     }
 
     @Test
+    // todo: ask. In simple cases (when service does nothing with data)
+    // I can skip   when ... thenReturn   part and just use verify
     void getUserPrimaryTags_success() {
+        when(userRepository.findById(userId)).thenReturn(Optional.of(user));
         when(purchaseRepository.getUserPrimaryTags(userId, pageable)).thenReturn(tagPage);
         Page<Tag> actual = service.getUserPrimaryTags(userId, pageable);
-        assertEquals(tagPage, actual);
+        assertTrue(tagPage == actual);
+        verify(purchaseRepository).getUserPrimaryTags(userId, pageable);
+    }
+
+    @Test
+    void getUserPrimaryTags_fail_userNotFound() {
+        when(userRepository.findById(userId)).thenReturn(Optional.empty());
+        assertThrows(UserNotFoundException.class, () -> service.getUserPrimaryTags(userId, pageable));
+        verify(userRepository).findById(userId);
+        verifyNoInteractions(purchaseRepository);
     }
 
     @Test
     void purchaseCertificate_success() {
         when(userRepository.findById(userId)).thenReturn(Optional.of(user));
         when(certificateRepository.findById(certificateId)).thenReturn(Optional.of(certificate));
-        when(purchaseRepository.save(any())).thenReturn(purchase);
+        when(purchaseRepository.save((Purchase) argCaptor.capture())).thenReturn(purchase);
         Purchase actual = service.purchaseCertificate(userId, certificateId);
-        assertEquals(purchase, actual);
+        assertTrue(purchase == actual);
+
+        Purchase arg = (Purchase) argCaptor.getValue();
+        assertTrue(user == arg.getUser());
+        assertTrue(certificate == arg.getCertificate());
+        assertNull(arg.getId());
+        assertEquals(certificate.getPrice(), arg.getCost());
+        assertNotNull(arg.getTimestamp());
     }
 
     @Test
@@ -97,34 +120,45 @@ class PurchaseServiceImplTest {
         when(certificateRepository.findById(certificateId)).thenReturn(Optional.of(certificate));
         when(purchaseRepository.save(purchase)).thenReturn(purchase);
         assertThrows(UserNotFoundException.class, () -> service.purchaseCertificate(userId, certificateId));
+        verify(userRepository).findById(userId);
+        verifyNoInteractions(purchaseRepository);
     }
 
     @Test
-    // todo: use argument captor; check that methods were actually called
     void purchaseCertificate_fail_certificateNotFound() {
         when(userRepository.findById(userId)).thenReturn(Optional.of(user));
         when(certificateRepository.findById(certificateId)).thenReturn(Optional.empty());
         when(purchaseRepository.save(purchase)).thenReturn(purchase);
         assertThrows(CertificateNotFoundException.class, () -> service.purchaseCertificate(userId, certificateId));
+        verify(certificateRepository).findById(certificateId);
+        verifyNoInteractions(purchaseRepository);
     }
 
     @Test
     void getPurchaseById_success() {
-        when(purchaseRepository.getById(purchaseId)).thenReturn(purchase);
+        when(purchaseRepository.findById(purchaseId)).thenReturn(Optional.of(purchase));
         Purchase actual = service.getPurchaseById(purchaseId);
-        assertEquals(purchase, actual);
+        assertTrue(purchase == actual);
+        verify(purchaseRepository).findById(purchaseId);
     }
 
     @Test
     void getPurchaseById_fail_purchaseNotFound() {
-        when(purchaseRepository.getById(purchaseId)).thenThrow(new PurchaseNotFoundException(purchaseId));
+        when(purchaseRepository.findById(purchaseId)).thenReturn(Optional.empty());
         assertThrows(PurchaseNotFoundException.class, () -> service.getPurchaseById(purchaseId));
     }
 
     @Test
-    // todo: check that repo method called + for other delete methods tests
     void deletePurchase_success() {
         service.deletePurchase(purchaseId);
+        verify(purchaseRepository).deletePurchaseById(purchaseId);
+    }
+
+    @Test
+    void deletePurchase_fail_purchaseNotFound() {
+        doThrow(new PurchaseNotFoundException(purchaseId)).when(purchaseRepository).deletePurchaseById(purchaseId);
+        assertThrows(PurchaseNotFoundException.class, () -> service.deletePurchase(purchaseId));
+        verify(purchaseRepository).deletePurchaseById(purchaseId);
     }
 
     static class Data {
@@ -132,9 +166,11 @@ class PurchaseServiceImplTest {
         static final long userId = 1L;
         static final User user = new User();
         static final long certificateId = 2L;
+        static final int certificatePrice = 40;
         static final Certificate certificate = new Certificate();
         static final long purchaseId = 3L;
         static final Purchase purchase = new Purchase(user, certificate);
+        static final Purchase savedPurchase = new Purchase(user, certificate);
 
         static final int pageNumber = 0;
         static final int pageSize = 10;
@@ -148,6 +184,11 @@ class PurchaseServiceImplTest {
         static final List<Tag> tags = Collections.unmodifiableList(
                 IntStream.range(0, pageSize).mapToObj(i -> new Tag()).collect(Collectors.toList()));
         static final Page<Tag> tagPage = new PageImpl<>(tags, pageable, elementsTotal);
+
+        static {
+            certificate.setPrice(certificatePrice);
+            savedPurchase.setId(purchaseId);
+        }
     }
 
 }

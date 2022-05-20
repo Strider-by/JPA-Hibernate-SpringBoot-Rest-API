@@ -26,6 +26,8 @@ public class PurchaseServiceImpl implements PurchaseService {
     @Autowired
     private UserRepository userRepository;
 
+    public PurchaseServiceImpl() {
+    }
 
     public PurchaseServiceImpl(PurchaseRepository purchaseRepository, CertificateRepository certificateRepository, UserRepository userRepository) {
         this.purchaseRepository = purchaseRepository;
@@ -35,6 +37,8 @@ public class PurchaseServiceImpl implements PurchaseService {
 
     @Override
     public Page<Purchase> getUserPurchases(long userId, Pageable pageable) {
+        userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException(userId));
         return purchaseRepository.getUserPurchases(userId, pageable);
     }
 
@@ -49,7 +53,10 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
     @Override
+    // todo: make separate method to check that user exists
     public Page<Tag> getUserPrimaryTags(long userId, Pageable pageable) {
+        userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException(userId));
         return  purchaseRepository.getUserPrimaryTags(userId, pageable);
     }
 

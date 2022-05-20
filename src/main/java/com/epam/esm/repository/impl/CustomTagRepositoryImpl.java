@@ -72,7 +72,7 @@ public class CustomTagRepositoryImpl implements CustomTagRepository {
                 .setParameter(NAME_PARAM, name)
                 .setMaxResults(1)
                 .getResultList().stream()
-                .findAny().orElse(null);
+                .findAny().orElseThrow(() -> new TagNotFoundException(name));
     }
 
 

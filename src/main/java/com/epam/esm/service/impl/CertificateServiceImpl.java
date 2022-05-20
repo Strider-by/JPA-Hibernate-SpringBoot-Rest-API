@@ -34,6 +34,9 @@ public class CertificateServiceImpl implements CertificateService {
         this.tagRepository = tagRepository;
     }
 
+    public CertificateServiceImpl() {
+    }
+
     @Override
     // todo: ask about why rollback doesn't want to work
     @Transactional(rollbackFor = {Throwable.class})

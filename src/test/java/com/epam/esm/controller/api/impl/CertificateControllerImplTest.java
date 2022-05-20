@@ -2,7 +2,6 @@ package com.epam.esm.controller.api.impl;
 
 import com.epam.esm.controller.api.exception.CertificateNotFoundException;
 import com.epam.esm.model.Certificate;
-import com.epam.esm.model.User;
 import com.epam.esm.model.dto.CertificateCreateDto;
 import com.epam.esm.service.CertificateService;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,15 +26,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static com.epam.esm.controller.api.impl.CertificateControllerImplTest.Data.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static com.epam.esm.controller.api.impl.CertificateControllerImplTest.Data.*;
 
-@SpringBootTest
+//@SpringBootTest
 class CertificateControllerImplTest {
 
     private MockMvc mockMvc;
@@ -67,6 +65,7 @@ class CertificateControllerImplTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.elements_on_current_page").value(elementsOnPage));
+        verify(service).getAllCertificates(any());
     }
 
     @Test
@@ -75,6 +74,7 @@ class CertificateControllerImplTest {
         mockMvc.perform(get("/certificates/{id}", certificateId))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+        verify(service).getCertificate(certificateId);
 
     }
 
@@ -84,11 +84,11 @@ class CertificateControllerImplTest {
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.code").value(HttpStatus.NOT_FOUND.value()));
+        verify(service).getCertificate(certificateId);
     }
 
     @Test
     void createCertificate() throws Exception {
-        long id = 1L;
         String name = "new_name";
         int price = 400;
 
@@ -97,7 +97,7 @@ class CertificateControllerImplTest {
         dto.setPrice(price);
 
         Certificate expected = new Certificate();
-        expected.setId(id);
+        expected.setId(certificateId);
         expected.setName(name);
         expected.setPrice(price);
 
@@ -106,7 +106,7 @@ class CertificateControllerImplTest {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("name", name);
         params.add("price", Integer.toString(price));
-        params.add("id", Long.toString(id));
+        params.add("id", Long.toString(certificateId));
 
 
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/certificates")
@@ -118,9 +118,11 @@ class CertificateControllerImplTest {
         this.mockMvc.perform(builder)
                 .andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id").value(id))
+                .andExpect(jsonPath("$.id").value(certificateId))
                 .andExpect(jsonPath("$.name").value(name))
                 .andExpect(jsonPath("$.price").value(price));
+
+        verify(service).createCertificate(dto);
     }
 
     @Test
@@ -130,18 +132,20 @@ class CertificateControllerImplTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.code").value(HttpStatus.OK.value()));
+        verify(service).deleteCertificate(certificateId);
     }
 
     @Test
     void deleteCertificate_fail_notFound() throws Exception {
-        long id = 404L;
-        doThrow(new CertificateNotFoundException(id)).when(service).deleteCertificate(id);
-        mockMvc.perform(delete("/certificates/{id}", id))
+        doThrow(new CertificateNotFoundException(certificateId)).when(service).deleteCertificate(certificateId);
+        mockMvc.perform(delete("/certificates/{id}", certificateId))
                 .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.code").value(HttpStatus.NOT_FOUND.value()));
+        verify(service).deleteCertificate(certificateId);
     }
 
     static class Data {
+
         static final long certificateId = 1L;
         static final Certificate certificate = new Certificate();
         static final int pageNumber = 0;

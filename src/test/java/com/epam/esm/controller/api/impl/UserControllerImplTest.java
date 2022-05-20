@@ -19,8 +19,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 import static com.epam.esm.controller.api.impl.UserControllerImplTest.Data.*;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -46,15 +46,17 @@ class UserControllerImplTest {
                 .andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.id").value(userId));
+        verify(service).createUser(any());
     }
 
     @Test
     void getUsers() throws Exception {
-        when(service.getUsers(any())).thenReturn(userPage);
+        when(service.getUsers(pageable)).thenReturn(userPage);
         mockMvc.perform(get("/users"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.elements_on_current_page").value(elementsOnPage));
+        verify(service).getUsers(pageable);
     }
 
     static class Data {

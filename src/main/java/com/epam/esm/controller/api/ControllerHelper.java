@@ -38,10 +38,6 @@ public abstract class ControllerHelper {
         return pageNumber(page) - 1;
     }
 
-    public static int calcPageNumberForPageRequest(int pageNumberParam) {
-        return pageNumberParam - FIRST_PAGE_NUMBER;
-    }
-
     public static int getPageNumberParameter(Map<String, String> params) {
         String paramsSetPage = params.get(DEFAULT_PAGE_NUMBER_PARAM_NAME);
         try {
@@ -62,6 +58,10 @@ public abstract class ControllerHelper {
 
     public static Pageable toPageable(int pageNumber, int pageSize) {
         return PageRequest.of(calcPageNumberForPageRequest(pageNumber), pageSize);
+    }
+
+    private static int calcPageNumberForPageRequest(int pageNumberParam) {
+        return pageNumberParam - FIRST_PAGE_NUMBER;
     }
 
 }

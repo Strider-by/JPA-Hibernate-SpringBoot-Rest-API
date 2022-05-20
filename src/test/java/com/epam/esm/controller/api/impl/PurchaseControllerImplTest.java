@@ -28,13 +28,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
 import static com.epam.esm.controller.api.impl.PurchaseControllerImplTest.Data.*;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 class PurchaseControllerImplTest {
 
@@ -51,10 +49,13 @@ class PurchaseControllerImplTest {
 
     @Test
     void getPurchaseById_success() throws Exception {
-        when(service.getPurchaseById(purchaseId)).thenReturn(new Purchase());
+        when(service.getPurchaseById(purchaseId)).thenReturn(purchase);
         mockMvc.perform(get("/purchases/{id}", purchaseId))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.id").value(purchaseId));
+
+        verify(service).getPurchaseById(purchaseId);
     }
 
     @Test
@@ -63,23 +64,17 @@ class PurchaseControllerImplTest {
         mockMvc.perform(get("/purchases/{id}", purchaseId))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
-    }
-
-    @Test
-    // todo: do I need it? It doesn't test my code, it tests Spring MVC
-    void getPurchaseById_fail_badIdParam() throws Exception {
-        String badParam = "badToTheBone";
-        mockMvc.perform(get("/purchases/{id}", badParam))
-                .andExpect(status().isBadRequest());
+        verify(service).getPurchaseById(purchaseId);
     }
 
     @Test
     void getAllPurchases() throws Exception {
-        when(service.getAllPurchases(any())).thenReturn(purchasesPage);
+        when(service.getAllPurchases(pageable)).thenReturn(purchasesPage);
         mockMvc.perform(get("/purchases/all"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.elements_on_current_page").value(elementsOnPage));
+        verify(service).getAllPurchases(pageable);
     }
 
     @Test
@@ -115,6 +110,7 @@ class PurchaseControllerImplTest {
         mockMvc.perform(get("/purchases/primary-tags/user/{userId}", userId))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+        verify(service).getUserPrimaryTags(userId, pageable);
     }
 
     @Test
@@ -124,11 +120,12 @@ class PurchaseControllerImplTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.elements_on_current_page").value(elementsOnPage));
+        verify(service).getPrimaryTags(pageable);
     }
 
     @Test
     void purchaseCertificate_success() throws Exception {
-        when(service.purchaseCertificate(userId, certificateId)).thenReturn(expected);
+        when(service.purchaseCertificate(userId, certificateId)).thenReturn(purchase);
 
         MockHttpServletRequestBuilder purchaseRequest = MockMvcRequestBuilders.post("/purchases")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
@@ -137,7 +134,10 @@ class PurchaseControllerImplTest {
 
         mockMvc.perform(purchaseRequest)
                 .andExpect(status().isCreated())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.id").value(purchaseId));
+
+        verify(service).purchaseCertificate(userId, certificateId);
     }
 
     @Test
@@ -152,6 +152,8 @@ class PurchaseControllerImplTest {
         mockMvc.perform(purchaseRequest)
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+
+        verify(service).purchaseCertificate(userId, certificateId);
     }
 
     @Test
@@ -166,6 +168,8 @@ class PurchaseControllerImplTest {
         mockMvc.perform(purchaseRequest)
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+
+        verify(service).purchaseCertificate(userId, certificateId);
     }
 
     @Test
@@ -174,6 +178,7 @@ class PurchaseControllerImplTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.code").value(HttpStatus.OK.value()));
+        verify(service).deletePurchase(purchaseId);
     }
 
     @Test
@@ -182,6 +187,7 @@ class PurchaseControllerImplTest {
         mockMvc.perform(delete("/purchases/{id}", purchaseId))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+        verify(service).deletePurchase(purchaseId);
     }
 
     static class Data {
@@ -190,7 +196,7 @@ class PurchaseControllerImplTest {
         static final Long userId = 2L;
         static final Long purchaseId = 3L;
         static final MultiValueMap<String, String> purchaseParams = new LinkedMultiValueMap<>();
-        static final Purchase expected = new Purchase(new User(), new Certificate());
+        static final Purchase purchase = new Purchase(new User(), new Certificate());
 
         static final int pageNumber = 0;
         static final int pageSize = 10;
@@ -209,6 +215,7 @@ class PurchaseControllerImplTest {
         static {
             purchaseParams.add("userId", Long.toString(userId));
             purchaseParams.add("certificateId", Long.toString(certificateId));
+            purchase.setId(purchaseId);
         }
 
     }

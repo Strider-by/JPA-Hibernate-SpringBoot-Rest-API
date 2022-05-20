@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 class CertificateSearchControllerImplTest {
@@ -57,6 +57,7 @@ class CertificateSearchControllerImplTest {
 
         Page<Certificate> searchResult = new PageImpl<>(certificates, pageable, total);
 
+        // todo: workaround to use actual parameters instead of any()?
         when(service.searchCertificates(any(), any())).thenReturn(searchResult);
 
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/search")
@@ -68,6 +69,8 @@ class CertificateSearchControllerImplTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.elements_on_current_page").value(certificates.size()));
+
+        verify(service).searchCertificates(any(), any());
     }
 
     @Test
@@ -84,6 +87,8 @@ class CertificateSearchControllerImplTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.code").value(HttpStatus.BAD_REQUEST.value()));
+
+        verifyNoInteractions(service);
     }
 
     @Test
@@ -100,6 +105,8 @@ class CertificateSearchControllerImplTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.code").value(HttpStatus.BAD_REQUEST.value()));
+
+        verifyNoInteractions(service);
     }
 
     @Test
@@ -116,6 +123,8 @@ class CertificateSearchControllerImplTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.code").value(HttpStatus.BAD_REQUEST.value()));
+
+        verifyNoInteractions(service);
     }
 
 

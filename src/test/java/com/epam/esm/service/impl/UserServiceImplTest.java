@@ -6,9 +6,7 @@ import com.epam.esm.model.dto.UserCreateDto;
 import com.epam.esm.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -16,14 +14,14 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static com.epam.esm.service.impl.UserServiceImplTest.Data.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class UserServiceImplTest {
 
@@ -31,6 +29,7 @@ class UserServiceImplTest {
     UserRepository repository;
     @InjectMocks
     UserServiceImpl service;
+
 
     @BeforeEach
     void setUp() {
@@ -42,19 +41,22 @@ class UserServiceImplTest {
         when(repository.findAll(pageable)).thenReturn(userPage);
         Page<User> actual = service.getUsers(pageable);
         assertTrue(userPage == actual);
+        verify(repository).findAll(pageable);
     }
 
     @Test
     void getUser_success() {
-        when(repository.getById(userId)).thenReturn(user);
+        when(repository.findById(userId)).thenReturn(Optional.of(user));
         User actual = service.getUser(userId);
         assertTrue(user == actual);
+        verify(repository).findById(userId);
     }
 
     @Test
     void getUser_fail_userNotFound() {
-        when(repository.getById(userId)).thenThrow(new UserNotFoundException(userId));
+        when(repository.findById(userId)).thenReturn(Optional.empty());
         assertThrows(UserNotFoundException.class, () -> service.getUser(userId));
+        verify(repository).findById(userId);
     }
 
     @Test
@@ -62,6 +64,7 @@ class UserServiceImplTest {
         when(repository.save(any())).thenReturn(createdUser);
         User actual = service.createUser(createDto);
         assertTrue(createdUser == actual);
+        verify(repository).save(any());
     }
 
     static class Data {
