@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.epam.esm.controller.api.impl.UserControllerImplTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-05-21T14:34:16" hostname="DESKTOP-US0M6L4" time="0.076">
+  <properties/>
+  <testcase name="createUser()" classname="com.epam.esm.controller.api.impl.UserControllerImplTest" time="0.054"/>
+  <testcase name="getUsers()" classname="com.epam.esm.controller.api.impl.UserControllerImplTest" time="0.022"/>
+  <system-out><![CDATA[17:34:17.036 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.e.e.c.a.i.UserControllerImpl:
+	{POST [/users], produces [application/json]}: createUser()
+	{GET [/users], produces [application/json]}: getUsers(int,int)
+17:34:17.037 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 2 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+17:34:17.042 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+17:34:17.044 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+17:34:17.044 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+17:34:17.044 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+17:34:17.044 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+17:34:17.044 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+17:34:17.044 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@70957e04
+17:34:17.044 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@1b0744c0
+17:34:17.044 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:34:17.044 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+17:34:17.045 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - POST "/users", parameters={}
+17:34:17.045 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.UserControllerImpl#createUser()
+17:34:17.046 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+17:34:17.046 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.model.User@138d4404]
+17:34:17.047 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 201 CREATED
+17:34:17.047 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+17:34:17.047 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+17:34:17.049 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.e.e.c.a.i.UserControllerImpl:
+	{POST [/users], produces [application/json]}: createUser()
+	{GET [/users], produces [application/json]}: getUsers(int,int)
+17:34:17.050 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 2 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+17:34:17.055 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+17:34:17.057 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+17:34:17.057 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+17:34:17.057 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+17:34:17.057 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+17:34:17.057 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+17:34:17.058 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@29913659
+17:34:17.058 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@44e07c5e
+17:34:17.058 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:34:17.058 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+17:34:17.059 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/users", parameters={}
+17:34:17.059 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.UserControllerImpl#getUsers(int, int)
+17:34:17.064 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+17:34:17.065 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [links: [<http://localhost/users?page=1&limit=10>;rel="self", <http://localhost/users?page=2&limit=10 (truncated)...]
+17:34:17.068 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+17:34:17.069 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['elements_on_current_page']
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

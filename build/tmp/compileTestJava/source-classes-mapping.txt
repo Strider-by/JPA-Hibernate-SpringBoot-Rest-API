@@ -33,3 +33,5 @@ com/epam/esm/service/impl/CertificateServiceImplTest.java
  com.epam.esm.service.impl.CertificateServiceImplTest$Data
 com/epam/esm/model/util/DtoConverterTest.java
  com.epam.esm.model.util.DtoConverterTest
+com/epam/esm/repository/util/QueryParametersSetterTest.java
+ com.epam.esm.repository.util.QueryParametersSetterTest

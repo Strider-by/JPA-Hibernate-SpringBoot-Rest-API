@@ -1,0 +1,801 @@
+)(]17:34:14.059 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+)((	c.e.e.c.a.i.CertificateControllerImpl:
+)(O	{GET [/certificates/{id}], produces [application/json]}: getCertificate(long)
+)(b	{PATCH [/certificates/{id}], produces [application/json]}: updateCertificate(long,MultiValueMap)
+)(U	{DELETE [/certificates/{id}], produces [application/json]}: deleteCertificate(long)
+)(^	{POST [/certificates], produces [application/json]}: createCertificate(CertificateCreateDto)
+)(R	{GET [/certificates], produces [application/json]}: getAllCertificates(int,int)
+)(ÿ17:34:14.072 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+)(€17:34:14.762 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+)(æ17:34:14.815 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+)(Ä17:34:14.839 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+)(v17:34:14.839 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+)(É17:34:14.842 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+)({17:34:14.842 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+)(π17:34:14.843 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@595b73dc
+)(∞17:34:14.843 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@72ccf486
+)(Í17:34:14.843 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+)(17:34:14.843 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 4 ms
+)(â17:34:14.955 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - POST "/certificates", parameters={masked}
+)(‰17:34:14.961 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateControllerImpl#createCertificate(CertificateCreateDto)
+)(ƒ17:34:15.113 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+)(˚17:34:15.207 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [Certificate{id=1, name='new_name', description=[], price=400, duration=null, createDate=null, lastUp (truncated)...]
+)(u17:34:15.224 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 201 CREATED
+)(l17:34:15.293 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+)(l17:34:15.298 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+)(n17:34:15.298 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['name']
+)(o17:34:15.298 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['price']
+)*]17:34:15.313 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+)*(	c.e.e.c.a.i.CertificateControllerImpl:
+)*O	{GET [/certificates/{id}], produces [application/json]}: getCertificate(long)
+)*b	{PATCH [/certificates/{id}], produces [application/json]}: updateCertificate(long,MultiValueMap)
+)*U	{DELETE [/certificates/{id}], produces [application/json]}: deleteCertificate(long)
+)*^	{POST [/certificates], produces [application/json]}: createCertificate(CertificateCreateDto)
+)*R	{GET [/certificates], produces [application/json]}: getAllCertificates(int,int)
+)*ÿ17:34:15.315 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+)*€17:34:15.321 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+)*æ17:34:15.325 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+)*Ä17:34:15.325 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+)*v17:34:15.325 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+)*É17:34:15.325 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+)*{17:34:15.325 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+)*π17:34:15.326 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@10684d9b
+)*Ø17:34:15.326 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@9f07113
+)*Í17:34:15.326 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+)*17:34:15.326 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+)*Ñ17:34:15.327 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/certificates/1", parameters={}
+)*—17:34:15.328 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateControllerImpl#getCertificate(long)
+)*Å17:34:15.335 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.CertificateControllerImpl#certificateNotFound(CertificateNotFoundException)
+)*ÿ17:34:15.336 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+)*µ17:34:15.336 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@4913436a]
+)* 17:34:15.337 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.CertificateNotFoundException]
+)*w17:34:15.337 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+)*n17:34:15.337 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['code']
+)+]17:34:15.344 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+)+(	c.e.e.c.a.i.CertificateControllerImpl:
+)+O	{GET [/certificates/{id}], produces [application/json]}: getCertificate(long)
+)+b	{PATCH [/certificates/{id}], produces [application/json]}: updateCertificate(long,MultiValueMap)
+)+U	{DELETE [/certificates/{id}], produces [application/json]}: deleteCertificate(long)
+)+^	{POST [/certificates], produces [application/json]}: createCertificate(CertificateCreateDto)
+)+R	{GET [/certificates], produces [application/json]}: getAllCertificates(int,int)
+)+ÿ17:34:15.345 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+)+€17:34:15.349 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+)+æ17:34:15.351 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+)+Ä17:34:15.351 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+)+v17:34:15.351 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+)+É17:34:15.351 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+)+{17:34:15.351 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+)+π17:34:15.351 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@498ef070
+)+∞17:34:15.351 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@7417d703
+)+Í17:34:15.351 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+)+17:34:15.351 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+)+á17:34:15.354 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - DELETE "/certificates/1", parameters={}
+)+‘17:34:15.355 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateControllerImpl#deleteCertificate(long)
+)+Å17:34:15.357 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.CertificateControllerImpl#certificateNotFound(CertificateNotFoundException)
+)+ÿ17:34:15.358 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+)+¥17:34:15.358 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@9b29304]
+)+ 17:34:15.358 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.CertificateNotFoundException]
+)+w17:34:15.359 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+)+n17:34:15.359 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['code']
+),]17:34:15.366 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+),(	c.e.e.c.a.i.CertificateControllerImpl:
+),O	{GET [/certificates/{id}], produces [application/json]}: getCertificate(long)
+),b	{PATCH [/certificates/{id}], produces [application/json]}: updateCertificate(long,MultiValueMap)
+),U	{DELETE [/certificates/{id}], produces [application/json]}: deleteCertificate(long)
+),^	{POST [/certificates], produces [application/json]}: createCertificate(CertificateCreateDto)
+),R	{GET [/certificates], produces [application/json]}: getAllCertificates(int,int)
+),ÿ17:34:15.368 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+),€17:34:15.376 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+),æ17:34:15.386 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+),Ä17:34:15.386 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+),v17:34:15.386 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+),É17:34:15.386 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+),{17:34:15.387 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+),π17:34:15.387 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4e62e1b5
+),Ø17:34:15.387 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@1b5c9ff
+),Í17:34:15.387 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+),17:34:15.387 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+),Ñ17:34:15.390 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/certificates/1", parameters={}
+),—17:34:15.391 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateControllerImpl#getCertificate(long)
+),ƒ17:34:15.396 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+),˚17:34:15.398 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [Certificate{id=1, name='null', description=[], price=null, duration=null, createDate=null, lastUpdat (truncated)...]
+),p17:34:15.402 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+)-]17:34:15.462 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+)-(	c.e.e.c.a.i.CertificateControllerImpl:
+)-O	{GET [/certificates/{id}], produces [application/json]}: getCertificate(long)
+)-b	{PATCH [/certificates/{id}], produces [application/json]}: updateCertificate(long,MultiValueMap)
+)-U	{DELETE [/certificates/{id}], produces [application/json]}: deleteCertificate(long)
+)-^	{POST [/certificates], produces [application/json]}: createCertificate(CertificateCreateDto)
+)-R	{GET [/certificates], produces [application/json]}: getAllCertificates(int,int)
+)-ÿ17:34:15.467 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+)-€17:34:15.480 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+)-æ17:34:15.487 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+)-Ä17:34:15.488 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+)-v17:34:15.488 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+)-É17:34:15.489 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+)-{17:34:15.489 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+)-∏17:34:15.490 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@83483e0
+)-∞17:34:15.491 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@1c2ae39b
+)-Í17:34:15.491 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+)-17:34:15.491 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 3 ms
+)-É17:34:15.496 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/certificates/", parameters={}
+)-Ÿ17:34:15.497 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateControllerImpl#getAllCertificates(int, int)
+)-ƒ17:34:15.815 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+)-˚17:34:15.820 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [links: [<http://localhost/certificates?page=1&limit=10>;rel="self", <http://localhost/certificates?p (truncated)...]
+)-p17:34:15.858 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+)-Ç17:34:15.858 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['elements_on_current_page']
+).]17:34:15.862 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+).(	c.e.e.c.a.i.CertificateControllerImpl:
+).O	{GET [/certificates/{id}], produces [application/json]}: getCertificate(long)
+).b	{PATCH [/certificates/{id}], produces [application/json]}: updateCertificate(long,MultiValueMap)
+).U	{DELETE [/certificates/{id}], produces [application/json]}: deleteCertificate(long)
+).^	{POST [/certificates], produces [application/json]}: createCertificate(CertificateCreateDto)
+).R	{GET [/certificates], produces [application/json]}: getAllCertificates(int,int)
+).ÿ17:34:15.863 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+).€17:34:15.868 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+).æ17:34:15.871 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+).Ä17:34:15.871 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+).v17:34:15.871 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+).É17:34:15.872 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+).{17:34:15.872 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+).∏17:34:15.873 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@b6e116d
+).∞17:34:15.873 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@52c7dcf9
+).Í17:34:15.873 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+).17:34:15.873 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+).á17:34:15.873 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - DELETE "/certificates/1", parameters={}
+).‘17:34:15.873 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateControllerImpl#deleteCertificate(long)
+).ƒ17:34:15.875 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+).µ17:34:15.875 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@1cfc38b0]
+).p17:34:15.876 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+).n17:34:15.876 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['code']
+0/]17:34:15.944 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+0/4	c.e.e.c.a.i.CertificateSearchByTagsControllerImpl:
+0/K	{GET [/searchByTags], produces [application/json]}: search(List,int,int)
+0/ÿ17:34:15.944 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 1 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+0/€17:34:15.951 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+0/æ17:34:15.954 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+0/Ä17:34:15.954 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+0/v17:34:15.954 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+0/É17:34:15.955 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+0/{17:34:15.955 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+0/π17:34:15.955 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3f9d9e44
+0/∞17:34:15.955 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@4f6ea956
+0/Í17:34:15.955 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+0/17:34:15.955 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+0/à17:34:15.957 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/searchByTags", parameters={masked}
+0/ﬂ17:34:15.958 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateSearchByTagsControllerImpl#search(List, int, int)
+0/ƒ17:34:15.970 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+0/˚17:34:15.972 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [links: [<http://localhost/searchByTags?tag=0&tag=1&tag=2&tag=3&tag=4&tag=5&tag=6&page=1&limit=10>;re (truncated)...]
+0/p17:34:15.978 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+0/Ç17:34:15.979 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['elements_on_current_page']
+21]17:34:16.040 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+21.	c.e.e.c.a.i.CertificateSearchControllerImpl:
+21a	{GET [/search], produces [application/json]}: searchCertificatesByPartOfNameOrDescription(Map)
+21ÿ17:34:16.041 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 1 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+21€17:34:16.045 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+21æ17:34:16.048 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+21Ä17:34:16.048 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+21v17:34:16.048 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+21É17:34:16.048 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+21{17:34:16.048 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+21∏17:34:16.048 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6fd961e
+21∞17:34:16.049 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@2526e85c
+21Í17:34:16.049 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2117:34:16.049 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+21Ç17:34:16.049 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/search", parameters={masked}
+21Û17:34:16.050 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateSearchControllerImpl#searchCertificatesByPartOfNameOrDescription(Map)
+21Ñ17:34:16.207 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.CertificateSearchControllerImpl#badRequestFound(BadRequestParametersException)
+21ÿ17:34:16.207 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+21µ17:34:16.208 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@5c355586]
+21˙17:34:16.208 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.BadRequestParametersException: Sent parameters does not meet expected values]
+21y17:34:16.208 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 400 BAD_REQUEST
+21n17:34:16.208 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['code']
+23]17:34:16.211 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+23.	c.e.e.c.a.i.CertificateSearchControllerImpl:
+23a	{GET [/search], produces [application/json]}: searchCertificatesByPartOfNameOrDescription(Map)
+23ÿ17:34:16.212 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 1 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+23€17:34:16.215 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+23æ17:34:16.216 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+23Ä17:34:16.217 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+23v17:34:16.217 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+23É17:34:16.217 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+23{17:34:16.217 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+23π17:34:16.217 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4df28ace
+23∞17:34:16.217 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@58185248
+23Í17:34:16.217 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2317:34:16.217 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+23Ç17:34:16.218 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/search", parameters={masked}
+23Û17:34:16.218 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateSearchControllerImpl#searchCertificatesByPartOfNameOrDescription(Map)
+23Ñ17:34:16.219 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.CertificateSearchControllerImpl#badRequestFound(BadRequestParametersException)
+23ÿ17:34:16.220 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+23µ17:34:16.220 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@3a99beb2]
+23˙17:34:16.221 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.BadRequestParametersException: Sent parameters does not meet expected values]
+23y17:34:16.221 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 400 BAD_REQUEST
+23n17:34:16.221 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['code']
+24]17:34:16.223 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+24.	c.e.e.c.a.i.CertificateSearchControllerImpl:
+24a	{GET [/search], produces [application/json]}: searchCertificatesByPartOfNameOrDescription(Map)
+24ÿ17:34:16.224 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 1 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+24€17:34:16.226 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+24æ17:34:16.228 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+24Ä17:34:16.228 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+24v17:34:16.228 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+24É17:34:16.228 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+24{17:34:16.228 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+24π17:34:16.228 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2868467b
+24∞17:34:16.228 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@14bfa633
+24Í17:34:16.228 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2417:34:16.229 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+24Ç17:34:16.229 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/search", parameters={masked}
+24Û17:34:16.229 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateSearchControllerImpl#searchCertificatesByPartOfNameOrDescription(Map)
+24Ñ17:34:16.230 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.CertificateSearchControllerImpl#badRequestFound(BadRequestParametersException)
+24ÿ17:34:16.231 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+24µ17:34:16.231 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@39abbbec]
+24˙17:34:16.231 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.BadRequestParametersException: Sent parameters does not meet expected values]
+24y17:34:16.231 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 400 BAD_REQUEST
+24n17:34:16.231 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['code']
+25]17:34:16.235 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+25.	c.e.e.c.a.i.CertificateSearchControllerImpl:
+25a	{GET [/search], produces [application/json]}: searchCertificatesByPartOfNameOrDescription(Map)
+25ÿ17:34:16.235 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 1 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+25€17:34:16.238 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+25æ17:34:16.240 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+25Ä17:34:16.240 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+25v17:34:16.240 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+25É17:34:16.240 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+25{17:34:16.240 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+25π17:34:16.240 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@79fe35d7
+25∞17:34:16.240 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@2d4d1ef9
+25Í17:34:16.240 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2517:34:16.240 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+25Ç17:34:16.240 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/search", parameters={masked}
+25Û17:34:16.241 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateSearchControllerImpl#searchCertificatesByPartOfNameOrDescription(Map)
+25ƒ17:34:16.246 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+25˚17:34:16.247 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [links: [<http://localhost/search?sort_by=name&order=desc&contains=text&tag=tag_name_example&page=2&l (truncated)...]
+25p17:34:16.252 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+25Ç17:34:16.252 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['elements_on_current_page']
+76]17:34:16.376 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+76%	c.e.e.c.a.i.PurchaseControllerImpl:
+76R	{POST [/purchases], produces [application/json]}: purchaseCertificate(long,long)
+76O	{GET [/purchases/all], produces [application/json]}: getAllPurchases(int,int)
+76X	{GET [/purchases/primary-tags/], produces [application/json]}: getPrimaryTags(int,int)
+76n	{GET [/purchases/primary-tags/user/{userId}], produces [application/json]}: getUserPrimaryTags(long,int,int)
+76M	{GET [/purchases/{id}], produces [application/json]}: getPurchaseById(long)
+76O	{DELETE [/purchases/{id}], produces [application/json]}: deletePurchase(long)
+76_	{GET [/purchases/user/{userId}], produces [application/json]}: getUserPurchases(long,int,int)
+76c	{PATCH [/purchases/{id}], produces [application/json]}: updatePurchase(long,HttpServletResponse)
+76ÿ17:34:16.378 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 8 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+76€17:34:16.384 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+76æ17:34:16.388 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+76Ä17:34:16.388 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+76v17:34:16.388 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+76É17:34:16.388 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+76{17:34:16.388 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+76π17:34:16.388 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@424388c2
+76Ø17:34:16.389 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@e8b15ea
+76Í17:34:16.389 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+7617:34:16.389 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+76ì17:34:16.391 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/purchases/primary-tags/user/2", parameters={}
+76‹17:34:16.392 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.PurchaseControllerImpl#getUserPrimaryTags(long, int, int)
+76ƒ17:34:16.403 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+76˚17:34:16.404 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [links: [<http://localhost/purchases/primary-tags/user/2?page=1&limit=10>;rel="self", <http://localho (truncated)...]
+76p17:34:16.410 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+76Ç17:34:16.410 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['elements_on_current_page']
+78]17:34:16.417 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+78%	c.e.e.c.a.i.PurchaseControllerImpl:
+78R	{POST [/purchases], produces [application/json]}: purchaseCertificate(long,long)
+78O	{GET [/purchases/all], produces [application/json]}: getAllPurchases(int,int)
+78X	{GET [/purchases/primary-tags/], produces [application/json]}: getPrimaryTags(int,int)
+78n	{GET [/purchases/primary-tags/user/{userId}], produces [application/json]}: getUserPrimaryTags(long,int,int)
+78M	{GET [/purchases/{id}], produces [application/json]}: getPurchaseById(long)
+78O	{DELETE [/purchases/{id}], produces [application/json]}: deletePurchase(long)
+78_	{GET [/purchases/user/{userId}], produces [application/json]}: getUserPurchases(long,int,int)
+78c	{PATCH [/purchases/{id}], produces [application/json]}: updatePurchase(long,HttpServletResponse)
+78ÿ17:34:16.419 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 8 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+78€17:34:16.426 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+78æ17:34:16.429 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+78Ä17:34:16.429 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+78v17:34:16.429 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+78É17:34:16.429 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+78{17:34:16.429 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+78π17:34:16.429 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5b223a5f
+78Ø17:34:16.430 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@167a5f4
+78Í17:34:16.430 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+7817:34:16.430 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+78Ñ17:34:16.430 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - DELETE "/purchases/3", parameters={}
+78Œ17:34:16.431 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.PurchaseControllerImpl#deletePurchase(long)
+78ƒ17:34:16.433 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+78µ17:34:16.434 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@7e77bcdd]
+78p17:34:16.436 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+78n17:34:16.437 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['code']
+79]17:34:16.448 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+79%	c.e.e.c.a.i.PurchaseControllerImpl:
+79R	{POST [/purchases], produces [application/json]}: purchaseCertificate(long,long)
+79O	{GET [/purchases/all], produces [application/json]}: getAllPurchases(int,int)
+79X	{GET [/purchases/primary-tags/], produces [application/json]}: getPrimaryTags(int,int)
+79n	{GET [/purchases/primary-tags/user/{userId}], produces [application/json]}: getUserPrimaryTags(long,int,int)
+79M	{GET [/purchases/{id}], produces [application/json]}: getPurchaseById(long)
+79O	{DELETE [/purchases/{id}], produces [application/json]}: deletePurchase(long)
+79_	{GET [/purchases/user/{userId}], produces [application/json]}: getUserPurchases(long,int,int)
+79c	{PATCH [/purchases/{id}], produces [application/json]}: updatePurchase(long,HttpServletResponse)
+79ÿ17:34:16.449 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 8 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+79€17:34:16.457 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+79æ17:34:16.459 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+79Ä17:34:16.459 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+79v17:34:16.459 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+79É17:34:16.459 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+79{17:34:16.459 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+79π17:34:16.460 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@270ba37b
+79∞17:34:16.460 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@31c4742f
+79Í17:34:16.460 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+7917:34:16.460 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+79Å17:34:16.461 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/purchases/3", parameters={}
+79œ17:34:16.461 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.PurchaseControllerImpl#getPurchaseById(long)
+79¯17:34:16.463 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.PurchaseControllerImpl#purchaseNotFound(PurchaseNotFoundException)
+79ÿ17:34:16.464 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+79µ17:34:16.465 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@395b68fd]
+79«17:34:16.467 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.PurchaseNotFoundException]
+79w17:34:16.467 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+7:]17:34:16.478 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+7:%	c.e.e.c.a.i.PurchaseControllerImpl:
+7:R	{POST [/purchases], produces [application/json]}: purchaseCertificate(long,long)
+7:O	{GET [/purchases/all], produces [application/json]}: getAllPurchases(int,int)
+7:X	{GET [/purchases/primary-tags/], produces [application/json]}: getPrimaryTags(int,int)
+7:n	{GET [/purchases/primary-tags/user/{userId}], produces [application/json]}: getUserPrimaryTags(long,int,int)
+7:M	{GET [/purchases/{id}], produces [application/json]}: getPurchaseById(long)
+7:O	{DELETE [/purchases/{id}], produces [application/json]}: deletePurchase(long)
+7:_	{GET [/purchases/user/{userId}], produces [application/json]}: getUserPurchases(long,int,int)
+7:c	{PATCH [/purchases/{id}], produces [application/json]}: updatePurchase(long,HttpServletResponse)
+7:ÿ17:34:16.487 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 8 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+7:€17:34:16.494 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+7:æ17:34:16.496 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+7:Ä17:34:16.496 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+7:v17:34:16.496 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+7:É17:34:16.497 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+7:{17:34:16.497 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+7:π17:34:16.497 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@38e09e46
+7:∞17:34:16.497 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@479af10d
+7:Í17:34:16.497 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+7:17:34:16.497 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+7:ç17:34:16.498 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/purchases/primary-tags/", parameters={}
+7:“17:34:16.499 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.PurchaseControllerImpl#getPrimaryTags(int, int)
+7:ƒ17:34:16.506 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+7:˚17:34:16.508 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [links: [<http://localhost/purchases/primary-tags/?page=1&limit=10>;rel="self", <http://localhost/pur (truncated)...]
+7:p17:34:16.513 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+7:Ç17:34:16.514 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['elements_on_current_page']
+7;]17:34:16.520 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+7;%	c.e.e.c.a.i.PurchaseControllerImpl:
+7;R	{POST [/purchases], produces [application/json]}: purchaseCertificate(long,long)
+7;O	{GET [/purchases/all], produces [application/json]}: getAllPurchases(int,int)
+7;X	{GET [/purchases/primary-tags/], produces [application/json]}: getPrimaryTags(int,int)
+7;n	{GET [/purchases/primary-tags/user/{userId}], produces [application/json]}: getUserPrimaryTags(long,int,int)
+7;M	{GET [/purchases/{id}], produces [application/json]}: getPurchaseById(long)
+7;O	{DELETE [/purchases/{id}], produces [application/json]}: deletePurchase(long)
+7;_	{GET [/purchases/user/{userId}], produces [application/json]}: getUserPurchases(long,int,int)
+7;c	{PATCH [/purchases/{id}], produces [application/json]}: updatePurchase(long,HttpServletResponse)
+7;ÿ17:34:16.521 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 8 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+7;€17:34:16.526 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+7;æ17:34:16.528 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+7;Ä17:34:16.529 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+7;v17:34:16.529 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+7;É17:34:16.529 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+7;{17:34:16.529 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+7;π17:34:16.529 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3009baf6
+7;∞17:34:16.530 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@181507d5
+7;Í17:34:16.530 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+7;17:34:16.530 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+7;Ü17:34:16.531 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/purchases/user/2", parameters={}
+7;⁄17:34:16.532 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.PurchaseControllerImpl#getUserPurchases(long, int, int)
+7;17:34:16.537 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.PurchaseControllerImpl#userNotFound(UserNotFoundException)
+7;ÿ17:34:16.538 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+7;µ17:34:16.539 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@31d1574f]
+7;√17:34:16.539 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.UserNotFoundException]
+7;w17:34:16.539 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+7<]17:34:16.549 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+7<%	c.e.e.c.a.i.PurchaseControllerImpl:
+7<R	{POST [/purchases], produces [application/json]}: purchaseCertificate(long,long)
+7<O	{GET [/purchases/all], produces [application/json]}: getAllPurchases(int,int)
+7<X	{GET [/purchases/primary-tags/], produces [application/json]}: getPrimaryTags(int,int)
+7<n	{GET [/purchases/primary-tags/user/{userId}], produces [application/json]}: getUserPrimaryTags(long,int,int)
+7<M	{GET [/purchases/{id}], produces [application/json]}: getPurchaseById(long)
+7<O	{DELETE [/purchases/{id}], produces [application/json]}: deletePurchase(long)
+7<_	{GET [/purchases/user/{userId}], produces [application/json]}: getUserPurchases(long,int,int)
+7<c	{PATCH [/purchases/{id}], produces [application/json]}: updatePurchase(long,HttpServletResponse)
+7<ÿ17:34:16.550 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 8 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+7<€17:34:16.557 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+7<æ17:34:16.559 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+7<Ä17:34:16.559 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+7<v17:34:16.559 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+7<É17:34:16.559 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+7<{17:34:16.559 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+7<π17:34:16.560 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@200e104c
+7<Ø17:34:16.560 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@393f0ec
+7<Í17:34:16.560 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+7<17:34:16.560 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+7<Ü17:34:16.561 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/purchases/user/2", parameters={}
+7<⁄17:34:16.561 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.PurchaseControllerImpl#getUserPurchases(long, int, int)
+7<ƒ17:34:16.565 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+7<˚17:34:16.567 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [links: [<http://localhost/purchases/user/2?page=1&limit=10>;rel="self", <http://localhost/purchases/ (truncated)...]
+7<p17:34:16.572 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+7<Ç17:34:16.572 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['elements_on_current_page']
+7=]17:34:16.580 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+7=%	c.e.e.c.a.i.PurchaseControllerImpl:
+7=R	{POST [/purchases], produces [application/json]}: purchaseCertificate(long,long)
+7=O	{GET [/purchases/all], produces [application/json]}: getAllPurchases(int,int)
+7=X	{GET [/purchases/primary-tags/], produces [application/json]}: getPrimaryTags(int,int)
+7=n	{GET [/purchases/primary-tags/user/{userId}], produces [application/json]}: getUserPrimaryTags(long,int,int)
+7=M	{GET [/purchases/{id}], produces [application/json]}: getPurchaseById(long)
+7=O	{DELETE [/purchases/{id}], produces [application/json]}: deletePurchase(long)
+7=_	{GET [/purchases/user/{userId}], produces [application/json]}: getUserPurchases(long,int,int)
+7=c	{PATCH [/purchases/{id}], produces [application/json]}: updatePurchase(long,HttpServletResponse)
+7=ÿ17:34:16.589 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 8 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+7=€17:34:16.596 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+7=æ17:34:16.598 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+7=Ä17:34:16.598 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+7=v17:34:16.598 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+7=É17:34:16.599 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+7={17:34:16.599 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+7=π17:34:16.599 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@63b7723f
+7=∞17:34:16.599 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@6c8c7d50
+7=Í17:34:16.599 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+7=17:34:16.599 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+7=Å17:34:16.600 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/purchases/3", parameters={}
+7=œ17:34:16.601 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.PurchaseControllerImpl#getPurchaseById(long)
+7=ƒ17:34:16.603 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+7=¨17:34:16.605 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.model.Purchase@dbfb2aec]
+7=p17:34:16.612 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+7=l17:34:16.613 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+7=l17:34:16.613 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+7>]17:34:16.617 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+7>%	c.e.e.c.a.i.PurchaseControllerImpl:
+7>R	{POST [/purchases], produces [application/json]}: purchaseCertificate(long,long)
+7>O	{GET [/purchases/all], produces [application/json]}: getAllPurchases(int,int)
+7>X	{GET [/purchases/primary-tags/], produces [application/json]}: getPrimaryTags(int,int)
+7>n	{GET [/purchases/primary-tags/user/{userId}], produces [application/json]}: getUserPrimaryTags(long,int,int)
+7>M	{GET [/purchases/{id}], produces [application/json]}: getPurchaseById(long)
+7>O	{DELETE [/purchases/{id}], produces [application/json]}: deletePurchase(long)
+7>_	{GET [/purchases/user/{userId}], produces [application/json]}: getUserPurchases(long,int,int)
+7>c	{PATCH [/purchases/{id}], produces [application/json]}: updatePurchase(long,HttpServletResponse)
+7>ÿ17:34:16.621 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 8 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+7>€17:34:16.626 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+7>æ17:34:16.627 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+7>Ä17:34:16.628 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+7>v17:34:16.628 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+7>É17:34:16.628 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+7>{17:34:16.628 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+7>π17:34:16.628 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2387db8a
+7>Æ17:34:16.628 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@e0ab95
+7>Í17:34:16.628 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+7>17:34:16.628 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+7>Ü17:34:16.629 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - POST "/purchases", parameters={masked}
+7>Ÿ17:34:16.630 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.PurchaseControllerImpl#purchaseCertificate(long, long)
+7>17:34:16.632 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.PurchaseControllerImpl#userNotFound(UserNotFoundException)
+7>ÿ17:34:16.633 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+7>µ17:34:16.633 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@2220ff5e]
+7>√17:34:16.633 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.UserNotFoundException]
+7>w17:34:16.634 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+7?]17:34:16.643 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+7?%	c.e.e.c.a.i.PurchaseControllerImpl:
+7?R	{POST [/purchases], produces [application/json]}: purchaseCertificate(long,long)
+7?O	{GET [/purchases/all], produces [application/json]}: getAllPurchases(int,int)
+7?X	{GET [/purchases/primary-tags/], produces [application/json]}: getPrimaryTags(int,int)
+7?n	{GET [/purchases/primary-tags/user/{userId}], produces [application/json]}: getUserPrimaryTags(long,int,int)
+7?M	{GET [/purchases/{id}], produces [application/json]}: getPurchaseById(long)
+7?O	{DELETE [/purchases/{id}], produces [application/json]}: deletePurchase(long)
+7?_	{GET [/purchases/user/{userId}], produces [application/json]}: getUserPurchases(long,int,int)
+7?c	{PATCH [/purchases/{id}], produces [application/json]}: updatePurchase(long,HttpServletResponse)
+7?ÿ17:34:16.644 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 8 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+7?€17:34:16.652 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+7?æ17:34:16.654 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+7?Ä17:34:16.655 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+7?v17:34:16.655 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+7?É17:34:16.655 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+7?{17:34:16.655 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+7?∏17:34:16.656 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@651be81
+7?∞17:34:16.656 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@78a4003f
+7?Í17:34:16.656 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+7?17:34:16.656 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+7?É17:34:16.657 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/purchases/all", parameters={}
+7?”17:34:16.657 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.PurchaseControllerImpl#getAllPurchases(int, int)
+7?ƒ17:34:16.662 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+7?˚17:34:16.663 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [links: [<http://localhost/purchases/all?page=1&limit=10>;rel="self", <http://localhost/purchases/all (truncated)...]
+7?p17:34:16.667 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+7?Ç17:34:16.667 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['elements_on_current_page']
+7@]17:34:16.673 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+7@%	c.e.e.c.a.i.PurchaseControllerImpl:
+7@R	{POST [/purchases], produces [application/json]}: purchaseCertificate(long,long)
+7@O	{GET [/purchases/all], produces [application/json]}: getAllPurchases(int,int)
+7@X	{GET [/purchases/primary-tags/], produces [application/json]}: getPrimaryTags(int,int)
+7@n	{GET [/purchases/primary-tags/user/{userId}], produces [application/json]}: getUserPrimaryTags(long,int,int)
+7@M	{GET [/purchases/{id}], produces [application/json]}: getPurchaseById(long)
+7@O	{DELETE [/purchases/{id}], produces [application/json]}: deletePurchase(long)
+7@_	{GET [/purchases/user/{userId}], produces [application/json]}: getUserPurchases(long,int,int)
+7@c	{PATCH [/purchases/{id}], produces [application/json]}: updatePurchase(long,HttpServletResponse)
+7@ÿ17:34:16.675 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 8 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+7@€17:34:16.686 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+7@æ17:34:16.688 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+7@Ä17:34:16.688 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+7@v17:34:16.688 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+7@É17:34:16.689 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+7@{17:34:16.689 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+7@π17:34:16.689 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@29b38702
+7@Ø17:34:16.689 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@4ca19e1
+7@Í17:34:16.689 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+7@17:34:16.689 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+7@Ü17:34:16.690 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - POST "/purchases", parameters={masked}
+7@Ÿ17:34:16.690 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.PurchaseControllerImpl#purchaseCertificate(long, long)
+7@˛17:34:16.692 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.PurchaseControllerImpl#certificateNotFound(CertificateNotFoundException)
+7@ÿ17:34:16.693 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+7@µ17:34:16.693 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@2c79a7e1]
+7@ 17:34:16.694 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.CertificateNotFoundException]
+7@w17:34:16.694 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+7A]17:34:16.700 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+7A%	c.e.e.c.a.i.PurchaseControllerImpl:
+7AR	{POST [/purchases], produces [application/json]}: purchaseCertificate(long,long)
+7AO	{GET [/purchases/all], produces [application/json]}: getAllPurchases(int,int)
+7AX	{GET [/purchases/primary-tags/], produces [application/json]}: getPrimaryTags(int,int)
+7An	{GET [/purchases/primary-tags/user/{userId}], produces [application/json]}: getUserPrimaryTags(long,int,int)
+7AM	{GET [/purchases/{id}], produces [application/json]}: getPurchaseById(long)
+7AO	{DELETE [/purchases/{id}], produces [application/json]}: deletePurchase(long)
+7A_	{GET [/purchases/user/{userId}], produces [application/json]}: getUserPurchases(long,int,int)
+7Ac	{PATCH [/purchases/{id}], produces [application/json]}: updatePurchase(long,HttpServletResponse)
+7Aÿ17:34:16.701 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 8 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+7A€17:34:16.710 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+7Aæ17:34:16.713 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+7AÄ17:34:16.714 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+7Av17:34:16.714 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+7AÉ17:34:16.714 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+7A{17:34:16.714 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+7Aπ17:34:16.714 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@52e3b582
+7A∞17:34:16.714 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@68801599
+7AÍ17:34:16.714 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+7A17:34:16.714 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+7Aì17:34:16.715 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/purchases/primary-tags/user/2", parameters={}
+7A‹17:34:16.715 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.PurchaseControllerImpl#getUserPrimaryTags(long, int, int)
+7A17:34:16.718 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.PurchaseControllerImpl#userNotFound(UserNotFoundException)
+7Aÿ17:34:16.719 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+7A¥17:34:16.720 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@ed18b71]
+7A√17:34:16.720 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.UserNotFoundException]
+7Aw17:34:16.720 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+7B]17:34:16.726 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+7B%	c.e.e.c.a.i.PurchaseControllerImpl:
+7BR	{POST [/purchases], produces [application/json]}: purchaseCertificate(long,long)
+7BO	{GET [/purchases/all], produces [application/json]}: getAllPurchases(int,int)
+7BX	{GET [/purchases/primary-tags/], produces [application/json]}: getPrimaryTags(int,int)
+7Bn	{GET [/purchases/primary-tags/user/{userId}], produces [application/json]}: getUserPrimaryTags(long,int,int)
+7BM	{GET [/purchases/{id}], produces [application/json]}: getPurchaseById(long)
+7BO	{DELETE [/purchases/{id}], produces [application/json]}: deletePurchase(long)
+7B_	{GET [/purchases/user/{userId}], produces [application/json]}: getUserPurchases(long,int,int)
+7Bc	{PATCH [/purchases/{id}], produces [application/json]}: updatePurchase(long,HttpServletResponse)
+7Bÿ17:34:16.727 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 8 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+7B€17:34:16.730 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+7Bæ17:34:16.731 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+7BÄ17:34:16.731 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+7Bv17:34:16.731 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+7BÉ17:34:16.731 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+7B{17:34:16.731 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+7Bπ17:34:16.732 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5cc3cce0
+7B∞17:34:16.732 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@5b1c6363
+7BÍ17:34:16.732 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+7B17:34:16.732 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+7BÜ17:34:16.732 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - POST "/purchases", parameters={masked}
+7BŸ17:34:16.732 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.PurchaseControllerImpl#purchaseCertificate(long, long)
+7Bƒ17:34:16.733 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+7B¨17:34:16.734 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.model.Purchase@dbfb2aec]
+7Bu17:34:16.738 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 201 CREATED
+7Bl17:34:16.739 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+7Bl17:34:16.739 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+7C]17:34:16.744 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+7C%	c.e.e.c.a.i.PurchaseControllerImpl:
+7CR	{POST [/purchases], produces [application/json]}: purchaseCertificate(long,long)
+7CO	{GET [/purchases/all], produces [application/json]}: getAllPurchases(int,int)
+7CX	{GET [/purchases/primary-tags/], produces [application/json]}: getPrimaryTags(int,int)
+7Cn	{GET [/purchases/primary-tags/user/{userId}], produces [application/json]}: getUserPrimaryTags(long,int,int)
+7CM	{GET [/purchases/{id}], produces [application/json]}: getPurchaseById(long)
+7CO	{DELETE [/purchases/{id}], produces [application/json]}: deletePurchase(long)
+7C_	{GET [/purchases/user/{userId}], produces [application/json]}: getUserPurchases(long,int,int)
+7Cc	{PATCH [/purchases/{id}], produces [application/json]}: updatePurchase(long,HttpServletResponse)
+7Cÿ17:34:16.746 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 8 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+7C€17:34:16.750 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+7Cæ17:34:16.754 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+7CÄ17:34:16.754 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+7Cv17:34:16.754 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+7CÉ17:34:16.754 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+7C{17:34:16.754 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+7Cπ17:34:16.754 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5b020197
+7C∞17:34:16.754 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@34072f51
+7CÍ17:34:16.754 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+7C17:34:16.754 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+7CÑ17:34:16.755 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - DELETE "/purchases/3", parameters={}
+7CŒ17:34:16.756 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.PurchaseControllerImpl#deletePurchase(long)
+7C˛17:34:16.758 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.PurchaseControllerImpl#certificateNotFound(CertificateNotFoundException)
+7Cÿ17:34:16.759 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+7C¥17:34:16.759 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@38b96f2]
+7C 17:34:16.760 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.CertificateNotFoundException]
+7Cw17:34:16.760 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+ED]17:34:16.856 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+ED 	c.e.e.c.a.i.TagControllerImpl:
+EDF	{POST [/tags], produces [application/json]}: createTag(TagCreateDto)
+EDC	{GET [/tags/{name}], produces [application/json]}: getTag(String)
+EDI	{DELETE [/tags/{name}], produces [application/json]}: deleteTag(String)
+EDB	{GET [/tags], produces [application/json]}: getAllTags(int,int)
+EDÿ17:34:16.857 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 4 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+ED€17:34:16.861 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+EDæ17:34:16.863 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+EDÄ17:34:16.863 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+EDv17:34:16.863 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+EDÉ17:34:16.863 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+ED{17:34:16.863 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+EDπ17:34:16.863 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@53b6c792
+ED∞17:34:16.864 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@465545c0
+EDÍ17:34:16.864 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+ED17:34:16.864 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+EDâ17:34:16.865 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/tags/generic%20name", parameters={}
+ED√17:34:16.866 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.TagControllerImpl#getTag(String)
+EDƒ17:34:16.867 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+ED¶17:34:16.868 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [Tag{id=1, name='generic name'}]
+EDp17:34:16.868 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+EDl17:34:16.869 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+EDl17:34:16.869 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+EDn17:34:16.870 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['name']
+EF]17:34:16.873 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+EF 	c.e.e.c.a.i.TagControllerImpl:
+EFF	{POST [/tags], produces [application/json]}: createTag(TagCreateDto)
+EFC	{GET [/tags/{name}], produces [application/json]}: getTag(String)
+EFI	{DELETE [/tags/{name}], produces [application/json]}: deleteTag(String)
+EFB	{GET [/tags], produces [application/json]}: getAllTags(int,int)
+EFÿ17:34:16.874 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 4 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+EF€17:34:16.878 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+EFæ17:34:16.880 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+EFÄ17:34:16.881 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+EFv17:34:16.881 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+EFÉ17:34:16.881 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+EF{17:34:16.881 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+EFπ17:34:16.881 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7fdf9213
+EF∞17:34:16.881 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@307cf996
+EFÍ17:34:16.881 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+EF17:34:16.881 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+EFâ17:34:16.883 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/tags/generic%20name", parameters={}
+EF√17:34:16.884 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.TagControllerImpl#getTag(String)
+EFÈ17:34:16.887 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.TagControllerImpl#tagNotFound(TagNotFoundException)
+EFÿ17:34:16.888 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+EF¥17:34:16.888 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@ed584a5]
+EF¬17:34:16.888 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.TagNotFoundException]
+EFw17:34:16.889 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+EG]17:34:16.893 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+EG 	c.e.e.c.a.i.TagControllerImpl:
+EGF	{POST [/tags], produces [application/json]}: createTag(TagCreateDto)
+EGC	{GET [/tags/{name}], produces [application/json]}: getTag(String)
+EGI	{DELETE [/tags/{name}], produces [application/json]}: deleteTag(String)
+EGB	{GET [/tags], produces [application/json]}: getAllTags(int,int)
+EGÿ17:34:16.893 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 4 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+EG€17:34:16.898 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+EGæ17:34:16.899 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+EGÄ17:34:16.900 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+EGv17:34:16.900 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+EGÉ17:34:16.900 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+EG{17:34:16.900 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+EG∏17:34:16.900 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@71df52a
+EG∞17:34:16.900 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@6eec57f0
+EGÍ17:34:16.900 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+EG17:34:16.900 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+EGå17:34:16.901 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - DELETE "/tags/generic%20name", parameters={}
+EG∆17:34:16.901 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.TagControllerImpl#deleteTag(String)
+EGƒ17:34:16.902 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+EGµ17:34:16.903 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@15f013a6]
+EGp17:34:16.904 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+EH]17:34:16.908 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+EH 	c.e.e.c.a.i.TagControllerImpl:
+EHF	{POST [/tags], produces [application/json]}: createTag(TagCreateDto)
+EHC	{GET [/tags/{name}], produces [application/json]}: getTag(String)
+EHI	{DELETE [/tags/{name}], produces [application/json]}: deleteTag(String)
+EHB	{GET [/tags], produces [application/json]}: getAllTags(int,int)
+EHÿ17:34:16.909 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 4 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+EH€17:34:16.913 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+EHæ17:34:16.916 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+EHÄ17:34:16.916 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+EHv17:34:16.916 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+EHÉ17:34:16.916 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+EH{17:34:16.916 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+EHπ17:34:16.916 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7bca780d
+EH∞17:34:16.916 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@277c7be4
+EHÍ17:34:16.916 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+EH17:34:16.916 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+EHz17:34:16.918 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/tags", parameters={}
+EH…17:34:16.918 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.TagControllerImpl#getAllTags(int, int)
+EHƒ17:34:16.924 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+EH˚17:34:16.926 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [links: [<http://localhost/tags?page=1&limit=10>;rel="self", <http://localhost/tags?page=2&limit=10>; (truncated)...]
+EHp17:34:16.932 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+EHÇ17:34:16.933 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['elements_on_current_page']
+EI]17:34:16.937 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+EI 	c.e.e.c.a.i.TagControllerImpl:
+EIF	{POST [/tags], produces [application/json]}: createTag(TagCreateDto)
+EIC	{GET [/tags/{name}], produces [application/json]}: getTag(String)
+EII	{DELETE [/tags/{name}], produces [application/json]}: deleteTag(String)
+EIB	{GET [/tags], produces [application/json]}: getAllTags(int,int)
+EIÿ17:34:16.938 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 4 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+EI€17:34:16.944 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+EIæ17:34:16.946 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+EIÄ17:34:16.947 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+EIv17:34:16.947 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+EIÉ17:34:16.947 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+EI{17:34:16.947 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+EIπ17:34:16.947 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@35ff926f
+EIØ17:34:16.947 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@5967abe
+EIÍ17:34:16.947 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+EI17:34:16.947 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+EIÅ17:34:16.948 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - POST "/tags", parameters={masked}
+EIÃ17:34:16.949 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.TagControllerImpl#createTag(TagCreateDto)
+EIƒ17:34:16.954 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+EI¶17:34:16.955 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [Tag{id=1, name='generic name'}]
+EIu17:34:16.956 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 201 CREATED
+EIl17:34:16.956 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+EIl17:34:16.956 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+EIn17:34:16.956 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['name']
+EJ]17:34:16.964 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+EJ 	c.e.e.c.a.i.TagControllerImpl:
+EJF	{POST [/tags], produces [application/json]}: createTag(TagCreateDto)
+EJC	{GET [/tags/{name}], produces [application/json]}: getTag(String)
+EJI	{DELETE [/tags/{name}], produces [application/json]}: deleteTag(String)
+EJB	{GET [/tags], produces [application/json]}: getAllTags(int,int)
+EJÿ17:34:16.965 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 4 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+EJ€17:34:16.971 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+EJæ17:34:16.974 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+EJÄ17:34:16.974 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+EJv17:34:16.974 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+EJÉ17:34:16.974 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+EJ{17:34:16.974 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+EJπ17:34:16.975 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@59eb4126
+EJ∞17:34:16.975 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@14ae89d1
+EJÍ17:34:16.975 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+EJ17:34:16.977 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 3 ms
+EJå17:34:16.979 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - DELETE "/tags/generic%20name", parameters={}
+EJ∆17:34:16.980 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.TagControllerImpl#deleteTag(String)
+EJÈ17:34:16.983 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.TagControllerImpl#tagNotFound(TagNotFoundException)
+EJÿ17:34:16.984 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+EJµ17:34:16.984 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@3c5435ce]
+EJ¬17:34:16.986 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.TagNotFoundException]
+EJw17:34:16.986 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+LK]17:34:17.036 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+LK!	c.e.e.c.a.i.UserControllerImpl:
+LK<	{POST [/users], produces [application/json]}: createUser()
+LKA	{GET [/users], produces [application/json]}: getUsers(int,int)
+LKÿ17:34:17.037 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 2 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+LK€17:34:17.042 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+LKæ17:34:17.044 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+LKÄ17:34:17.044 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+LKv17:34:17.044 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+LKÉ17:34:17.044 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+LK{17:34:17.044 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+LKπ17:34:17.044 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@70957e04
+LK∞17:34:17.044 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@1b0744c0
+LKÍ17:34:17.044 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+LK17:34:17.044 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+LK|17:34:17.045 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - POST "/users", parameters={}
+LK¬17:34:17.045 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.UserControllerImpl#createUser()
+LKƒ17:34:17.046 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+LK®17:34:17.046 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.model.User@138d4404]
+LKu17:34:17.047 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 201 CREATED
+LKl17:34:17.047 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+LKl17:34:17.047 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+LM]17:34:17.049 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+LM!	c.e.e.c.a.i.UserControllerImpl:
+LM<	{POST [/users], produces [application/json]}: createUser()
+LMA	{GET [/users], produces [application/json]}: getUsers(int,int)
+LMÿ17:34:17.050 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 2 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+LM€17:34:17.055 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+LMæ17:34:17.057 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+LMÄ17:34:17.057 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+LMv17:34:17.057 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+LMÉ17:34:17.057 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+LM{17:34:17.057 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+LMπ17:34:17.058 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@29913659
+LM∞17:34:17.058 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@44e07c5e
+LMÍ17:34:17.058 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+LM17:34:17.058 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+LM{17:34:17.059 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/users", parameters={}
+LM»17:34:17.059 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.UserControllerImpl#getUsers(int, int)
+LMƒ17:34:17.064 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+LM˚17:34:17.065 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [links: [<http://localhost/users?page=1&limit=10>;rel="self", <http://localhost/users?page=2&limit=10 (truncated)...]
+LMp17:34:17.068 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+LMÇ17:34:17.069 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['elements_on_current_page']

@@ -27,16 +27,4 @@ public class QueryParametersSetter {
         return this;
     }
 
-    public QueryParametersSetter set(int paramPosition, Object paramValue) {
-        query.setParameter(paramPosition, paramValue);
-        return this;
-    }
-
-    public QueryParametersSetter setIf(boolean condition, int paramPosition, Object paramValue) {
-        if (condition) {
-            query.setParameter(paramPosition, paramValue);
-        }
-        return this;
-    }
-
 }

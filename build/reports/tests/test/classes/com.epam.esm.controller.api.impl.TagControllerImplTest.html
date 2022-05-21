@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - TagControllerImplTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>TagControllerImplTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.epam.esm.controller.api.impl.html">com.epam.esm.controller.api.impl</a> &gt; TagControllerImplTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.181s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">createTag()</td>
+<td class="success">0.023s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">deleteTag_fail_tagNotFound()</td>
+<td class="success">0.029s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">deleteTag_success()</td>
+<td class="success">0.015s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getAllTags()</td>
+<td class="success">0.028s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getTag_fail_tagNotFound()</td>
+<td class="success">0.018s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getTag_success()</td>
+<td class="success">0.068s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>17:34:16.856 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.e.e.c.a.i.TagControllerImpl:
+	{POST [/tags], produces [application/json]}: createTag(TagCreateDto)
+	{GET [/tags/{name}], produces [application/json]}: getTag(String)
+	{DELETE [/tags/{name}], produces [application/json]}: deleteTag(String)
+	{GET [/tags], produces [application/json]}: getAllTags(int,int)
+17:34:16.857 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 4 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+17:34:16.861 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+17:34:16.863 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+17:34:16.863 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+17:34:16.863 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+17:34:16.863 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+17:34:16.863 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+17:34:16.863 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@53b6c792
+17:34:16.864 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@465545c0
+17:34:16.864 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:34:16.864 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+17:34:16.865 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET &quot;/tags/generic%20name&quot;, parameters={}
+17:34:16.866 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.TagControllerImpl#getTag(String)
+17:34:16.867 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+17:34:16.868 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [Tag{id=1, name='generic name'}]
+17:34:16.868 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+17:34:16.869 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+17:34:16.869 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+17:34:16.870 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['name']
+17:34:16.873 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.e.e.c.a.i.TagControllerImpl:
+	{POST [/tags], produces [application/json]}: createTag(TagCreateDto)
+	{GET [/tags/{name}], produces [application/json]}: getTag(String)
+	{DELETE [/tags/{name}], produces [application/json]}: deleteTag(String)
+	{GET [/tags], produces [application/json]}: getAllTags(int,int)
+17:34:16.874 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 4 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+17:34:16.878 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+17:34:16.880 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+17:34:16.881 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+17:34:16.881 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+17:34:16.881 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+17:34:16.881 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+17:34:16.881 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7fdf9213
+17:34:16.881 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@307cf996
+17:34:16.881 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:34:16.881 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+17:34:16.883 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET &quot;/tags/generic%20name&quot;, parameters={}
+17:34:16.884 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.TagControllerImpl#getTag(String)
+17:34:16.887 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.TagControllerImpl#tagNotFound(TagNotFoundException)
+17:34:16.888 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+17:34:16.888 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@ed584a5]
+17:34:16.888 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.TagNotFoundException]
+17:34:16.889 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+17:34:16.893 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.e.e.c.a.i.TagControllerImpl:
+	{POST [/tags], produces [application/json]}: createTag(TagCreateDto)
+	{GET [/tags/{name}], produces [application/json]}: getTag(String)
+	{DELETE [/tags/{name}], produces [application/json]}: deleteTag(String)
+	{GET [/tags], produces [application/json]}: getAllTags(int,int)
+17:34:16.893 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 4 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+17:34:16.898 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+17:34:16.899 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+17:34:16.900 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+17:34:16.900 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+17:34:16.900 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+17:34:16.900 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+17:34:16.900 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@71df52a
+17:34:16.900 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@6eec57f0
+17:34:16.900 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:34:16.900 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+17:34:16.901 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - DELETE &quot;/tags/generic%20name&quot;, parameters={}
+17:34:16.901 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.TagControllerImpl#deleteTag(String)
+17:34:16.902 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+17:34:16.903 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@15f013a6]
+17:34:16.904 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+17:34:16.908 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.e.e.c.a.i.TagControllerImpl:
+	{POST [/tags], produces [application/json]}: createTag(TagCreateDto)
+	{GET [/tags/{name}], produces [application/json]}: getTag(String)
+	{DELETE [/tags/{name}], produces [application/json]}: deleteTag(String)
+	{GET [/tags], produces [application/json]}: getAllTags(int,int)
+17:34:16.909 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 4 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+17:34:16.913 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+17:34:16.916 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+17:34:16.916 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+17:34:16.916 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+17:34:16.916 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+17:34:16.916 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+17:34:16.916 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7bca780d
+17:34:16.916 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@277c7be4
+17:34:16.916 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:34:16.916 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+17:34:16.918 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET &quot;/tags&quot;, parameters={}
+17:34:16.918 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.TagControllerImpl#getAllTags(int, int)
+17:34:16.924 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+17:34:16.926 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [links: [&lt;http://localhost/tags?page=1&amp;limit=10&gt;;rel=&quot;self&quot;, &lt;http://localhost/tags?page=2&amp;limit=10&gt;; (truncated)...]
+17:34:16.932 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+17:34:16.933 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['elements_on_current_page']
+17:34:16.937 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.e.e.c.a.i.TagControllerImpl:
+	{POST [/tags], produces [application/json]}: createTag(TagCreateDto)
+	{GET [/tags/{name}], produces [application/json]}: getTag(String)
+	{DELETE [/tags/{name}], produces [application/json]}: deleteTag(String)
+	{GET [/tags], produces [application/json]}: getAllTags(int,int)
+17:34:16.938 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 4 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+17:34:16.944 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+17:34:16.946 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+17:34:16.947 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+17:34:16.947 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+17:34:16.947 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+17:34:16.947 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+17:34:16.947 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@35ff926f
+17:34:16.947 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@5967abe
+17:34:16.947 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:34:16.947 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+17:34:16.948 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - POST &quot;/tags&quot;, parameters={masked}
+17:34:16.949 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.TagControllerImpl#createTag(TagCreateDto)
+17:34:16.954 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+17:34:16.955 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [Tag{id=1, name='generic name'}]
+17:34:16.956 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 201 CREATED
+17:34:16.956 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+17:34:16.956 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['id']
+17:34:16.956 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['name']
+17:34:16.964 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.e.e.c.a.i.TagControllerImpl:
+	{POST [/tags], produces [application/json]}: createTag(TagCreateDto)
+	{GET [/tags/{name}], produces [application/json]}: getTag(String)
+	{DELETE [/tags/{name}], produces [application/json]}: deleteTag(String)
+	{GET [/tags], produces [application/json]}: getAllTags(int,int)
+17:34:16.965 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 4 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+17:34:16.971 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+17:34:16.974 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+17:34:16.974 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+17:34:16.974 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+17:34:16.974 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+17:34:16.974 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+17:34:16.975 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@59eb4126
+17:34:16.975 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@14ae89d1
+17:34:16.975 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:34:16.977 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 3 ms
+17:34:16.979 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - DELETE &quot;/tags/generic%20name&quot;, parameters={}
+17:34:16.980 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.TagControllerImpl#deleteTag(String)
+17:34:16.983 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.TagControllerImpl#tagNotFound(TagNotFoundException)
+17:34:16.984 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+17:34:16.984 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@3c5435ce]
+17:34:16.986 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.TagNotFoundException]
+17:34:16.986 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.8</a> at 21.05.2022 17:34:17</p>
+</div>
+</div>
+</body>
+</html>

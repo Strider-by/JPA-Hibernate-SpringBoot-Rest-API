@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.epam.esm.repository.util.QueryParametersSetterTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2022-05-21T14:34:17" hostname="DESKTOP-US0M6L4" time="0.124">
+  <properties/>
+  <testcase name="[1] paramName=param1, paramValue=114" classname="com.epam.esm.repository.util.QueryParametersSetterTest" time="0.1"/>
+  <testcase name="[2] paramName=param2, paramValue=Some random value" classname="com.epam.esm.repository.util.QueryParametersSetterTest" time="0.001"/>
+  <testcase name="[3] paramName=param3, paramValue=java.lang.Object@65152264" classname="com.epam.esm.repository.util.QueryParametersSetterTest" time="0.002"/>
+  <testcase name="[4] paramName=param4, paramValue=null" classname="com.epam.esm.repository.util.QueryParametersSetterTest" time="0.001"/>
+  <testcase name="[1] paramName=param1, paramValue=114, condition=true" classname="com.epam.esm.repository.util.QueryParametersSetterTest" time="0.001"/>
+  <testcase name="[2] paramName=param1, paramValue=114, condition=false" classname="com.epam.esm.repository.util.QueryParametersSetterTest" time="0.001"/>
+  <testcase name="[3] paramName=param2, paramValue=Some random value, condition=true" classname="com.epam.esm.repository.util.QueryParametersSetterTest" time="0.001"/>
+  <testcase name="[4] paramName=param2, paramValue=Some random value, condition=false" classname="com.epam.esm.repository.util.QueryParametersSetterTest" time="0.0"/>
+  <testcase name="[5] paramName=param3, paramValue=java.lang.Object@2a31cee8, condition=true" classname="com.epam.esm.repository.util.QueryParametersSetterTest" time="0.001"/>
+  <testcase name="[6] paramName=param3, paramValue=java.lang.Object@2a31cee8, condition=false" classname="com.epam.esm.repository.util.QueryParametersSetterTest" time="0.001"/>
+  <testcase name="[7] paramName=param4, paramValue=null, condition=true" classname="com.epam.esm.repository.util.QueryParametersSetterTest" time="0.001"/>
+  <testcase name="[8] paramName=param4, paramValue=null, condition=false" classname="com.epam.esm.repository.util.QueryParametersSetterTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
