@@ -3,7 +3,7 @@ package com.epam.esm.controller.api.impl;
 import com.epam.esm.controller.api.exception.TagNotFoundException;
 import com.epam.esm.model.Tag;
 import com.epam.esm.model.dto.TagCreateDto;
-import com.epam.esm.service.TagsService;
+import com.epam.esm.service.TagService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -15,7 +15,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -34,11 +33,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class TagControllerImplTest {
 
     private MockMvc mockMvc;
-    private TagsService service;
+    private TagService service;
 
     @BeforeEach
     void setUp() {
-        service = Mockito.mock(TagsService.class);
+        service = Mockito.mock(TagService.class);
         mockMvc = MockMvcBuilders.standaloneSetup(new TagControllerImpl(service))
                 .build();
     }

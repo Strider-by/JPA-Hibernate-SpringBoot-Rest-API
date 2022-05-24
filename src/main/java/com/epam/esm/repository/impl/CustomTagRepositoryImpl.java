@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -89,11 +90,13 @@ public class CustomTagRepositoryImpl implements CustomTagRepository {
     @Override
     @Transactional
     public Tag createTag(Tag tag) {
-        tag = findByName(tag.getName());
-        if (tag == null) {
-            tag = repository.save(tag);
-        }
-        return tag;
+        Optional<Tag> foundTag = entityManager.createQuery(GET_TAG_WITH_SELECTED_NAME, Tag.class)
+                .setParameter(NAME_PARAM, tag.getName())
+                .setMaxResults(1)
+                .getResultList().stream()
+                .findAny();
+
+        return foundTag.isPresent() ? foundTag.get() : repository.save(tag);
     }
 
 }
