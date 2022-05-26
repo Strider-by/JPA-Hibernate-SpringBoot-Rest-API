@@ -1,10 +1,14 @@
 package com.epam.esm.model;
 
+//import com.epam.esm.model.audit.TagAuditListener;
+import com.epam.esm.model.audit.TagEventLogger;
+import com.epam.esm.model.audit.TagEventLogger_old;
+
 import javax.persistence.*;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
+@EntityListeners(TagEventLogger.class)
 public class Tag {
 
     @Id

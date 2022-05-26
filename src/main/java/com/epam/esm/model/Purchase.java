@@ -1,10 +1,13 @@
 package com.epam.esm.model;
 
+import com.epam.esm.model.audit.PurchaseEventLogger;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
+@EntityListeners(PurchaseEventLogger.class)
 @Table(name = "purchase")
 public class Purchase {
 

@@ -1,5 +1,7 @@
 package com.epam.esm.model;
 
+import com.epam.esm.model.audit.CertificateEventLogger;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,6 +10,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "certificate")
+@EntityListeners(CertificateEventLogger.class)
 public class Certificate {
 
     @Id

@@ -1,10 +1,13 @@
 package com.epam.esm.model;
 
+import com.epam.esm.model.audit.UserEventLogger;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@EntityListeners(UserEventLogger.class)
 @Table(name = "user")
 public class User {
 
