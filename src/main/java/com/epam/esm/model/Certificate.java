@@ -31,17 +31,6 @@ public class Certificate {
         this.description = new ArrayList<>();
     }
 
-//    public Certificate(
-//            Long id, String name, List<Tag> description, int price, int duration, Date createDate, Date lastUpdateDate) {
-//        this.id = id;
-//        this.name = name;
-//        this.description = description;
-//        this.price = price;
-//        this.duration = duration;
-//        this.createDate = createDate;
-//        this.lastUpdateDate = lastUpdateDate;
-//    }
-
     public Long getId() {
         return id;
     }

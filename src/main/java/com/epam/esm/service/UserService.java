@@ -9,10 +9,6 @@ import java.util.List;
 
 public interface UserService {
 
-//    List<User> getAllUsers(long limit, long offset);
-//
-//    List<User> getAllUsersV2(long limit, long previousId);
-
     Page<User> getUsers(Pageable pageable);
 
     User getUser(long id);

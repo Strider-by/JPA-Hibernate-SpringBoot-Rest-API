@@ -57,14 +57,12 @@ public class CustomTagRepositoryImpl implements CustomTagRepository {
         return persistedTags;
     }
 
-
     @Transactional
     private void persistTransientTags(List<Tag> tagsToPersist) {
         for (int i = 0; i < tagsToPersist.size(); i++) {
             entityManager.persist(tagsToPersist.get(i));
         }
     }
-
 
     @Override
     public Tag findByName(String name) {
@@ -74,7 +72,6 @@ public class CustomTagRepositoryImpl implements CustomTagRepository {
                 .getResultList().stream()
                 .findAny().orElseThrow(() -> new TagNotFoundException(name));
     }
-
 
     @Override
     @Transactional

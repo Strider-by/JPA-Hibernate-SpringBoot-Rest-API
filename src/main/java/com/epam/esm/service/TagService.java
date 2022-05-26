@@ -15,6 +15,4 @@ public interface TagService {
 
     Tag getTag(String tagName);
 
-//    Tag getTag(long id);
-
 }

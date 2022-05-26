@@ -48,12 +48,10 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
         return save(certificate);
     }
 
-
     @Override
     public Certificate updateCertificate(Certificate certificate) {
         return save(certificate);
     }
-
 
     @Transactional
     private Certificate save(Certificate certificate) {
@@ -61,7 +59,6 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
         certificate.setDescription(tagRepository.persistTags(description));
         return certificateRepository.save(certificate);
     }
-
 
     @Override
     public Certificate getCertificateById(long id) {
@@ -75,7 +72,6 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
                 .orElseThrow(() -> new CertificateNotFoundException(id));
     }
 
-
     @Override
     @Transactional
     public void deleteCertificateById(long id) {
@@ -85,7 +81,6 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
         }
         certificateRepository.delete(certificate);
     }
-
 
     @Override
     @Transactional
@@ -107,7 +102,6 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
         return page;
     }
 
-
     @Override
     @Transactional
     public Page<Certificate> searchCertificatesByTagNames(List<String> tagNames, Pageable pageable) {
@@ -127,13 +121,11 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
         return page;
     }
 
-
     private void mapSearchCertificatesByTagNamesQueryParameters(Query query, List<String> tagNames) {
         for (int i = 0; i < tagNames.size(); i++) {
             query.setParameter(i, tagNames.get(i));
         }
     }
-
 
     private void mapSearchCertificatesQueryParameters(Query query, Map<String, String> parameters) {
         QueryParametersSetter.of(query)
@@ -145,22 +137,18 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
                         CERTIFICATE_NAME_LIKE_PARAM, parameters.get(CONTAINS_PARAM));
     }
 
-
     private Certificate detach(Certificate certificate) {
         entityManager.detach(certificate);
         return certificate;
     }
 
-
     private String buildSearchCertificatesQueryString(Map<String, String> parameters) {
         return buildSearchCertificatesQueryString(false, parameters);
     }
 
-
     private String buildSearchCertificatesCountingQueryString(Map<String, String> parameters) {
         return buildSearchCertificatesQueryString(true, parameters);
     }
-
 
     private String buildSearchCertificatesQueryString(boolean countingQuery, Map<String, String> parameters) {
         boolean searchByTagName = parameters.containsKey("tag");
@@ -195,7 +183,6 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
         return sb.toString();
     }
 
-
     private String defineSortByFieldParam(String sortOrderParam) {
         String sortByField;
         switch (sortOrderParam) {
@@ -214,16 +201,13 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
         return sortByField;
     }
 
-
     private String buildSearchCertificatesByTagNamesQueryString(int tagsQuantity) {
         return buildSearchCertificatesByTagNamesQueryString(false, tagsQuantity);
     }
 
-
     private String buildSearchCertificatesByTagNamesCountingQueryString(int tagsQuantity) {
         return buildSearchCertificatesByTagNamesQueryString(true, tagsQuantity);
     }
-
 
     private String buildSearchCertificatesByTagNamesQueryString(boolean countQuery, int tagsQuantity) {
         StringBuilder sb = new StringBuilder();
@@ -288,7 +272,6 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
         }
 
     }
-
 
     private String multiplyAndJoin(String string, String delimiter, int count) {
         return Arrays.stream(new String[count])

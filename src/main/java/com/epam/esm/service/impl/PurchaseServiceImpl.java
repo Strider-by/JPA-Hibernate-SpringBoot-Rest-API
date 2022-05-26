@@ -35,6 +35,7 @@ public class PurchaseServiceImpl implements PurchaseService {
         this.userRepository = userRepository;
     }
 
+    // todo: ask about throwing exception on this (service) level
     @Override
     public Page<Purchase> getUserPurchases(long userId, Pageable pageable) {
         userRepository.findById(userId)

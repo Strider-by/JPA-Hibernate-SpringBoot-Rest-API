@@ -93,7 +93,6 @@ public class CustomPurchaseRepositoryImpl implements CustomPurchaseRepository {
         return page;
     }
 
-
     @Override
     @Transactional
     public Page<Tag> getPrimaryTags(Pageable pageable) {
@@ -112,12 +111,6 @@ public class CustomPurchaseRepositoryImpl implements CustomPurchaseRepository {
                     .setMaxResults(pageable.getPageSize())
                     .getResultList();
 
-//            CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-//            CriteriaQuery<Long> cq = cb.createQuery(Long.class);
-//            Root<Purchase> root = cq.from(Purchase.class);
-//            cq.select(cb.count(cq.from(Tag.class)));
-//            cq.groupBy(root.get());
-
             // todo: fix this abomination
             elementsTotal = entityManager.createQuery(COUNT_MOST_WIDELY_USED_IN_PURCHASES_TAGS, Integer.class)
                     .setParameter(QUANTITY_PARAM, mostRepeatedTimes)
@@ -132,7 +125,6 @@ public class CustomPurchaseRepositoryImpl implements CustomPurchaseRepository {
 
         return page;
     }
-
 
     @Override
     @Transactional
@@ -166,7 +158,6 @@ public class CustomPurchaseRepositoryImpl implements CustomPurchaseRepository {
         Page<Tag> page = new PageImpl<>(tags, pageable, elementsTotal);
         return page;
     }
-
 
     @Override
     @Transactional

@@ -1,0 +1,26 @@
+]00:03:40.847 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+(	c.e.e.c.a.i.CertificateControllerImpl:
+O	{GET [/certificates/{id}], produces [application/json]}: getCertificate(long)
+b	{PATCH [/certificates/{id}], produces [application/json]}: updateCertificate(long,MultiValueMap)
+Q	{GET [/certificates], produces [application/json]}: getAllCertificates(int,int)
+U	{DELETE [/certificates/{id}], produces [application/json]}: deleteCertificate(long)
+_	{POST [/certificates], produces [application/json]}: createCertificate(CertificateCreateDto)
+ÿ00:03:40.899 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+€00:03:42.190 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+æ00:03:42.256 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+Ä00:03:42.456 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+v00:03:42.456 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+É00:03:42.467 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+{00:03:42.467 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+π00:03:42.469 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@457628cf
+∞00:03:42.469 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@643983d0
+Í00:03:42.470 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+Ä00:03:42.470 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 13 ms
+Ñ00:03:42.931 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/certificates/1", parameters={}
+—00:03:42.945 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateControllerImpl#getCertificate(long)
+Å00:03:43.154 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.CertificateControllerImpl#certificateNotFound(CertificateNotFoundException)
+ÿ00:03:43.303 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+µ00:03:43.303 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@76e45399]
+ 00:03:43.336 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.CertificateNotFoundException]
+w00:03:43.336 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+n00:03:43.919 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['code']

@@ -17,12 +17,13 @@ public abstract class ControllerHelper {
     public static final int FIRST_PAGE_NUMBER = 1;
     public static final String FIRST_PAGE_NUMBER_AS_STRING = "1";
     public static final int DEFAULT_PAGE_SIZE = 10;
+    // can't use Integer.toString(...) here
     public static final String DEFAULT_PAGE_SIZE_AS_STRING = "10";
     public static final String DEFAULT_PAGE_NUMBER_PARAM_NAME = "page";
     public static final String DEFAULT_PAGE_SIZE_PARAM_NAME = "limit";
 
 
-    public static int pageNumber(Page page) {
+    public static int pageNumber(Page<?> page) {
         return page.getNumber() + FIRST_PAGE_NUMBER;
     }
 
@@ -30,11 +31,11 @@ public abstract class ControllerHelper {
         return FIRST_PAGE_NUMBER;
     }
 
-    public static int nextPageNumber(Page page) {
+    public static int nextPageNumber(Page<?> page) {
         return page.getNumber() + 1 + FIRST_PAGE_NUMBER;
     }
 
-    public static int previousPageNumber(Page page) {
+    public static int previousPageNumber(Page<?> page) {
         return pageNumber(page) - 1;
     }
 

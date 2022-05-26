@@ -57,15 +57,12 @@ public class CertificateServiceImpl implements CertificateService {
         return certificateRepository.findAll(pageable);
     }
 
+    // todo: ask if I should search for certificate on repo level
     @Override
     public Certificate updateCertificate(long id, MultiValueMap<String, String> params) {
-        // yep, it is required to get detached certificate by calling appropriate method
         Certificate certificate = certificateRepository.getCertificateById(id);
-        if (certificate != null) {
-            updateCertificateProperties(certificate, params);
-            certificate = certificateRepository.updateCertificate(certificate);
-        }
-        return certificate;
+        updateCertificateProperties(certificate, params);
+        return certificateRepository.updateCertificate(certificate);
     }
 
     @Override

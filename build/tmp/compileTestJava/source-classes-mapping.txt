@@ -1,0 +1,41 @@
+com/epam/esm/controller/api/impl/CertificateControllerImplTest.java
+ com.epam.esm.controller.api.impl.CertificateControllerImplTest
+ com.epam.esm.controller.api.impl.CertificateControllerImplTest$Data
+com/epam/esm/model/util/DtoConverterTest.java
+ com.epam.esm.model.util.DtoConverterTest
+com/epam/esm/controller/api/impl/CertificateSearchControllerImplTest.java
+ com.epam.esm.controller.api.impl.CertificateSearchControllerImplTest
+com/epam/esm/service/impl/UserServiceImplTest.java
+ com.epam.esm.service.impl.UserServiceImplTest
+ com.epam.esm.service.impl.UserServiceImplTest$Data
+com/epam/esm/model/representation/HateoasViewTest.java
+ com.epam.esm.model.representation.HateoasViewTest
+ com.epam.esm.model.representation.HateoasViewTest$Data
+com/epam/esm/service/impl/TagServiceImplTest.java
+ com.epam.esm.service.impl.TagServiceImplTest
+ com.epam.esm.service.impl.TagServiceImplTest$Data
+com/epam/esm/controller/api/impl/PurchaseControllerImplTest.java
+ com.epam.esm.controller.api.impl.PurchaseControllerImplTest
+ com.epam.esm.controller.api.impl.PurchaseControllerImplTest$Data
+com/epam/esm/service/impl/PurchaseServiceImplTest.java
+ com.epam.esm.service.impl.PurchaseServiceImplTest
+ com.epam.esm.service.impl.PurchaseServiceImplTest$Data
+com/epam/esm/controller/api/impl/TagControllerImplTest.java
+ com.epam.esm.controller.api.impl.TagControllerImplTest
+ com.epam.esm.controller.api.impl.TagControllerImplTest$Data
+com/epam/esm/service/impl/TagServiceImpl_UsingInnerDBTest.java
+ com.epam.esm.service.impl.TagServiceImpl_UsingInnerDBTest
+com/epam/esm/controller/api/impl/CertificateSearchByTagsControllerImplTest.java
+ com.epam.esm.controller.api.impl.CertificateSearchByTagsControllerImplTest
+com/epam/esm/controller/api/impl/UserControllerImplTest.java
+ com.epam.esm.controller.api.impl.UserControllerImplTest
+ com.epam.esm.controller.api.impl.UserControllerImplTest$Data
+com/epam/esm/service/impl/CertificateServiceImpl_UsingInnerDB_Test.java
+ com.epam.esm.service.impl.CertificateServiceImpl_UsingInnerDB_Test
+com/epam/esm/repository/util/QueryParametersSetterTest.java
+ com.epam.esm.repository.util.QueryParametersSetterTest
+com/epam/esm/service/impl/CertificateServiceImplTest.java
+ com.epam.esm.service.impl.CertificateServiceImplTest
+ com.epam.esm.service.impl.CertificateServiceImplTest$Data
+com/epam/esm/controller/api/ControllerHelperTest.java
+ com.epam.esm.controller.api.ControllerHelperTest

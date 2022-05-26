@@ -80,6 +80,7 @@ class CertificateControllerImplTest {
 
     @Test
     void getCertificate_fail_notFound() throws Exception {
+        when(service.getCertificate(certificateId)).thenThrow(new CertificateNotFoundException(certificateId));
         mockMvc.perform(get("/certificates/{id}", certificateId))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
