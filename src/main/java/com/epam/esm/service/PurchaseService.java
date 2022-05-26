@@ -6,7 +6,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
-@Component // todo: move to implementation?
 public interface PurchaseService {
 
     Page<Purchase> getUserPurchases(long userId, Pageable pageable);

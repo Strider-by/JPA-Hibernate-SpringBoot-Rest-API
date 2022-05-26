@@ -5,7 +5,6 @@
 //import java.util.Date;
 //import java.util.TimeZone;
 //
-// todo: try to make 'proper' date format for views without implicit upstream entity classes
 //public class DateConverter {
 //
 //    public static String toISO8601DateString(Date date) {

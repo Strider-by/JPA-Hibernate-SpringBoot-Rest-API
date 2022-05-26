@@ -2,7 +2,6 @@ package com.epam.esm.model;
 
 //import com.epam.esm.model.audit.TagAuditListener;
 import com.epam.esm.model.audit.TagEventLogger;
-import com.epam.esm.model.audit.TagEventLogger_old;
 
 import javax.persistence.*;
 import java.util.Objects;

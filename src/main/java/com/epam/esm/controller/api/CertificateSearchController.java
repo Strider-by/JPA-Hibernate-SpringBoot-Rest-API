@@ -11,7 +11,6 @@ import java.util.Map;
 @RequestMapping("/search")
 public interface CertificateSearchController {
 
-    // todo: somehow set default page number and page size?
     @GetMapping(produces = "application/json")
     HateoasView<Certificate> searchCertificatesByPartOfNameOrDescription(@RequestParam Map<String, String> params);
 }

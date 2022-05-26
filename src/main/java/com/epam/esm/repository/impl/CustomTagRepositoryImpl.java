@@ -58,7 +58,6 @@ public class CustomTagRepositoryImpl implements CustomTagRepository {
     }
 
 
-    // todo: ask if transaction usage is correct here
     @Transactional
     private void persistTransientTags(List<Tag> tagsToPersist) {
         for (int i = 0; i < tagsToPersist.size(); i++) {

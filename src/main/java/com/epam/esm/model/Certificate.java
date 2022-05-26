@@ -1,6 +1,7 @@
 package com.epam.esm.model;
 
 import com.epam.esm.model.audit.CertificateEventLogger;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,23 +22,25 @@ public class Certificate {
     private List<Tag> description;
     private Integer price;
     private Integer duration;
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Date createDate;
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Date lastUpdateDate;
 
     public Certificate() {
         this.description = new ArrayList<>();
     }
 
-    public Certificate(
-            Long id, String name, List<Tag> description, int price, int duration, Date createDate, Date lastUpdateDate) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.duration = duration;
-        this.createDate = createDate;
-        this.lastUpdateDate = lastUpdateDate;
-    }
+//    public Certificate(
+//            Long id, String name, List<Tag> description, int price, int duration, Date createDate, Date lastUpdateDate) {
+//        this.id = id;
+//        this.name = name;
+//        this.description = description;
+//        this.price = price;
+//        this.duration = duration;
+//        this.createDate = createDate;
+//        this.lastUpdateDate = lastUpdateDate;
+//    }
 
     public Long getId() {
         return id;

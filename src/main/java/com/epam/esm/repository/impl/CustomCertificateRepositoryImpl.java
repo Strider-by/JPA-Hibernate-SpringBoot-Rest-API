@@ -163,7 +163,6 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
 
 
     private String buildSearchCertificatesQueryString(boolean countingQuery, Map<String, String> parameters) {
-        // todo: make separate methods for defining parameters values
         boolean searchByTagName = parameters.containsKey("tag");
         boolean searchByContent = parameters.containsKey("contains");
 

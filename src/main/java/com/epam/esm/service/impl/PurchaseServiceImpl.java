@@ -53,7 +53,6 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
     @Override
-    // todo: make separate method to check that user exists
     public Page<Tag> getUserPrimaryTags(long userId, Pageable pageable) {
         userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(userId));

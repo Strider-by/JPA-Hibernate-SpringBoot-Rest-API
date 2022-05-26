@@ -45,12 +45,7 @@ public class CertificateControllerImpl extends ControllerExceptionHandlingBase i
 
     @Override
     public Certificate getCertificate(long id) {
-        // todo: switch to throwing exceptions on Repository layer
-        Certificate certificate = certificateService.getCertificate(id);
-        if (certificate == null) {
-            throw new CertificateNotFoundException(id);
-        }
-        return certificate;
+        return certificateService.getCertificate(id);
     }
 
     @Override
@@ -66,20 +61,7 @@ public class CertificateControllerImpl extends ControllerExceptionHandlingBase i
 
     @Override
     public Certificate updateCertificate(long id, MultiValueMap<String, String> params) {
-        Certificate certificate = certificateService.updateCertificate(id, params);
-        if (certificate == null) {
-            throw new CertificateNotFoundException(id);
-        }
-        return certificate;
+        return certificateService.updateCertificate(id, params);
     }
-
-//    // todo: test with several handlers and ask if it can be > 1 if I would be able to do that
-//    @ExceptionHandler({CertificateNotFoundException.class})
-//    @ResponseStatus(HttpStatus.NOT_FOUND)
-//    @RequestMapping(produces = "application/json")
-//    private Message certificateNotFound(CertificateNotFoundException ex) {
-//        long id = ex.getCertificateId();
-//        return new Message(HttpStatus.NOT_FOUND, String.format("Certificate %d can not be found", id));
-//    }
 
 }

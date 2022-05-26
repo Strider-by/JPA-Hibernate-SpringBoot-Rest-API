@@ -11,7 +11,7 @@ public class CertificateCreateDto {
     private int price;
     private int duration;
 
-    // todo: this is for testing only. rework?
+    // todo: this is for testing only. rework somehow?
     public CertificateCreateDto() {
         description = new ArrayList<>();
     }
