@@ -33,23 +33,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-//@SpringBootTest
 class CertificateControllerImplTest {
 
     private MockMvc mockMvc;
     private CertificateService service;
-
-//    @Test
-//    void getAllCertificates() {
-//        Pageable pageable = PageRequest.of(0, 10);
-//        Page<Certificate> certificates = service.getAllCertificates(pageable);
-//        assertEquals(0, certificates.getContent().size());
-//
-//        //add3certificates();
-//        Certificate certificate = service.createCertificate(new CertificateCreateDto());
-//        certificates = service.getAllCertificates(pageable);
-//        assertEquals(1, certificates.getContent().size());
-//    }
 
     @BeforeEach
     void setUp() {

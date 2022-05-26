@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">6.372s</div>
+<div class="counter">2.166s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">getCertificate_fail_notFound()</td>
-<td class="success">6.372s</td>
+<td class="success">2.166s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,32 +87,32 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>00:03:40.847 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+<pre>00:45:26.211 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
 	c.e.e.c.a.i.CertificateControllerImpl:
 	{GET [/certificates/{id}], produces [application/json]}: getCertificate(long)
-	{PATCH [/certificates/{id}], produces [application/json]}: updateCertificate(long,MultiValueMap)
 	{GET [/certificates], produces [application/json]}: getAllCertificates(int,int)
-	{DELETE [/certificates/{id}], produces [application/json]}: deleteCertificate(long)
 	{POST [/certificates], produces [application/json]}: createCertificate(CertificateCreateDto)
-00:03:40.899 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
-00:03:42.190 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-00:03:42.256 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-00:03:42.456 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
-00:03:42.456 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
-00:03:42.467 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
-00:03:42.467 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
-00:03:42.469 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@457628cf
-00:03:42.469 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@643983d0
-00:03:42.470 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-00:03:42.470 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 13 ms
-00:03:42.931 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET &quot;/certificates/1&quot;, parameters={}
-00:03:42.945 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateControllerImpl#getCertificate(long)
-00:03:43.154 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.CertificateControllerImpl#certificateNotFound(CertificateNotFoundException)
-00:03:43.303 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-00:03:43.303 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@76e45399]
-00:03:43.336 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.CertificateNotFoundException]
-00:03:43.336 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
-00:03:43.919 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['code']
+	{DELETE [/certificates/{id}], produces [application/json]}: deleteCertificate(long)
+	{PATCH [/certificates/{id}], produces [application/json]}: updateCertificate(long,MultiValueMap)
+00:45:26.230 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+00:45:26.639 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+00:45:26.706 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+00:45:26.743 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+00:45:26.743 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+00:45:26.749 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+00:45:26.749 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+00:45:26.751 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1b63fcea
+00:45:26.751 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@415141ee
+00:45:26.751 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+00:45:26.751 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 7 ms
+00:45:27.021 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET &quot;/certificates/1&quot;, parameters={}
+00:45:27.030 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.epam.esm.controller.api.impl.CertificateControllerImpl#getCertificate(long)
+00:45:27.111 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.epam.esm.controller.api.impl.CertificateControllerImpl#certificateNotFound(CertificateNotFoundException)
+00:45:27.241 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+00:45:27.241 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Writing [com.epam.esm.controller.util.Message@7cd2475e]
+00:45:27.266 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.epam.esm.controller.api.exception.CertificateNotFoundException]
+00:45:27.266 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+00:45:27.338 [Test worker] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['code']
 </pre>
 </span>
 </div>
@@ -124,7 +124,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.8</a> at 27.05.2022 0:03:45</p>
+<a href="http://www.gradle.org">Gradle 6.8</a> at 27.05.2022 0:45:27</p>
 </div>
 </div>
 </body>
