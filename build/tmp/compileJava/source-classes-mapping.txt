@@ -116,6 +116,10 @@ com/epam/esm/repository/CertificateRepository.java
  com.epam.esm.repository.CertificateRepository
 com/epam/esm/controller/api/impl/CertificateControllerImpl.java
  com.epam.esm.controller.api.impl.CertificateControllerImpl
+com/epam/esm/model/audit/show___doesnt_work/superclassbased/EventsConsumersManager.java
+ com.epam.esm.model.audit.show___doesnt_work.superclassbased.EventsConsumersManager
+com/epam/esm/model/audit/show___doesnt_work/interfacebased/EventLogger.java
+ com.epam.esm.model.audit.show___doesnt_work.interfacebased.EventLogger
 com/epam/esm/controller/api/TagController.java
  com.epam.esm.controller.api.TagController
 com/epam/esm/model/audit/show___doesnt_work/interfacebased/TagEventLoggerImpl.java
@@ -124,8 +128,6 @@ com/epam/esm/service/impl/TagServiceImpl.java
  com.epam.esm.service.impl.TagServiceImpl
 com/epam/esm/repository/impl/CustomTagRepositoryImpl.java
  com.epam.esm.repository.impl.CustomTagRepositoryImpl
-com/epam/esm/model/audit/show___doesnt_work/interfacebased/EventLogger.java
- com.epam.esm.model.audit.show___doesnt_work.interfacebased.EventLogger
 com/epam/esm/model/audit/show___doesnt_work/superclassbased/SimpleTagEventLogger.java
  com.epam.esm.model.audit.show___doesnt_work.superclassbased.SimpleTagEventLogger
 com/epam/esm/model/util/DtoConverter.java
@@ -146,5 +148,3 @@ com/epam/esm/repository/TagRepository.java
  com.epam.esm.repository.TagRepository
 com/epam/esm/service/TagService.java
  com.epam.esm.service.TagService
-com/epam/esm/model/audit/show___doesnt_work/superclassbased/EventsConsumersManager.java
- com.epam.esm.model.audit.show___doesnt_work.superclassbased.EventsConsumersManager
