@@ -24,7 +24,8 @@ class DtoConverterTest {
                 .map(TagCreateDto::new)
                 .collect(Collectors.toList());
         List<Tag> description = createDescription.stream()
-                .map(tagCreateDto -> new Tag(null, tagCreateDto.getName()))
+                //testme
+                .map(tagCreateDto -> new Tag(tagCreateDto.getName()))
                 .collect(Collectors.toList());
 
         CertificateCreateDto dto = new CertificateCreateDto();
@@ -48,7 +49,7 @@ class DtoConverterTest {
     void toTag_fromTagCreateDto() {
         String name = "generic name";
         TagCreateDto tagCreateDto = new TagCreateDto(name);
-        Tag expected = new Tag(null, name);
+        Tag expected = new Tag(name);
         Tag actual = DtoConverter.toTag(tagCreateDto);
         assertEquals(expected, actual);
     }
@@ -56,7 +57,7 @@ class DtoConverterTest {
     @Test
     void toTag_fromString() {
         String name = "generic name";
-        Tag expected = new Tag(null, name);
+        Tag expected = new Tag(name);
         Tag actual = DtoConverter.toTag(name);
         assertEquals(expected, actual);
     }
@@ -68,7 +69,7 @@ class DtoConverterTest {
                 .collect(Collectors.toList());
 
         List<Tag> expected = tagCreateDtos.stream()
-                .map(tagCreateDto -> new Tag(null, tagCreateDto.getName()))
+                .map(tagCreateDto -> new Tag(tagCreateDto.getName()))
                 .collect(Collectors.toList());
 
         List<Tag> actual = DtoConverter.toTags(tagCreateDtos);

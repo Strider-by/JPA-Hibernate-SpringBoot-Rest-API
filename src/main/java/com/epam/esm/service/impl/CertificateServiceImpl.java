@@ -57,7 +57,6 @@ public class CertificateServiceImpl implements CertificateService {
         return certificateRepository.findAll(pageable);
     }
 
-    // todo: ask if I should search for certificate on repo level
     @Override
     public Certificate updateCertificate(long id, MultiValueMap<String, String> params) {
         Certificate certificate = certificateRepository.getCertificateById(id);

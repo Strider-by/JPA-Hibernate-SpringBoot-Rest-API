@@ -4,10 +4,7 @@ import com.epam.esm.model.audit.CertificateEventLogger;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "certificate")
@@ -15,10 +12,12 @@ import java.util.Objects;
 public class Certificate {
 
     @Id
-    @GeneratedValue//(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    // I had to set Eager fetch since otherwise I got LazyInitialization exception during tests when deleting certificates
+    // (the fun part - it is thrown when getting data during Entity event logging, in Certificate::toString method)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<Tag> description;
     private Integer price;
     private Integer duration;
@@ -91,17 +90,58 @@ public class Certificate {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Certificate that = (Certificate) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(price, that.price) && Objects.equals(duration, that.duration) && Objects.equals(createDate, that.createDate) && Objects.equals(lastUpdateDate, that.lastUpdateDate);
+
+        if (!Objects.equals(id, that.id)) return false;
+        if (!Objects.equals(name, that.name)) return false;
+        // broken and fixed: Hibernate uses PersistentBag instead of standard List. PersistentBag does not care about the
+        // fact that Lists should be adequately comparable.
+        if (!listsAreEqual(description, that.description)) return false;
+        if (!Objects.equals(price, that.price)) return false;
+        if (!Objects.equals(duration, that.duration)) return false;
+        if (!Objects.equals(createDate, that.createDate)) return false;
+        return Objects.equals(lastUpdateDate, that.lastUpdateDate);
+    }
+
+    private boolean listsAreEqual(List<?> l1, List<?> l2) {
+        // this guarantees that both lists aren't null
+        if (l1 == l2) return true;
+        if (l1 == null || l2 == null) return false;
+
+        Object[] arr1 = l1.stream().toArray();
+        Object[] arr2 = l2.stream().toArray();
+        return Arrays.equals(arr1, arr2);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, price, duration, createDate, lastUpdateDate);
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + (duration != null ? duration.hashCode() : 0);
+        result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
+        result = 31 * result + (lastUpdateDate != null ? lastUpdateDate.hashCode() : 0);
+        return result;
     }
+
+    //    @Override
+//    public String toString() {
+//        return "Certificate{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", description=" + description +
+//                ", price=" + price +
+//                ", duration=" + duration +
+//                ", createDate=" + createDate +
+//                ", lastUpdateDate=" + lastUpdateDate +
+//                '}';
+//    }
 
     @Override
     public String toString() {
+
         return "Certificate{" +
                 "id=" + id +
                 ", name='" + name + '\'' +

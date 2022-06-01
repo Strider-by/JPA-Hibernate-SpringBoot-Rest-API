@@ -131,7 +131,7 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
         QueryParametersSetter.of(query)
                 .setIf(parameters.containsKey(TAG_PARAM),
                         TAG_NAME_PARAM, parameters.get(TAG_PARAM))
-                .setIf(parameters.containsKey("CONTAINS_PARAM"),
+                .setIf(parameters.containsKey(CONTAINS_PARAM),
                         TAG_NAME_LIKE_PARAM, parameters.get(CONTAINS_PARAM))
                 .setIf(parameters.containsKey(CONTAINS_PARAM),
                         CERTIFICATE_NAME_LIKE_PARAM, parameters.get(CONTAINS_PARAM));
@@ -178,8 +178,10 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
             sb.append(WHERE_CLAUSE_DUMMY_VALUE);
         }
 
-        String orderQlSubstring = String.format(ORDER_BY_TEMPLATE, String.format(sortByField, sortOrder));
-        sb.append(orderQlSubstring);
+        if (!countingQuery) {
+            String orderQlSubstring = String.format(ORDER_BY_TEMPLATE, String.format(sortByField, sortOrder));
+            sb.append(orderQlSubstring);
+        }
         return sb.toString();
     }
 
@@ -230,9 +232,9 @@ public class CustomCertificateRepositoryImpl implements CustomCertificateReposit
     static class CertificatesSearchConstants {
 
         static final String SEARCH_FOR_CERTIFICATES =
-                "SELECT DISTINCT c FROM Certificate c JOIN c.description d WHERE ";
+                "SELECT DISTINCT c FROM Certificate c LEFT JOIN c.description d WHERE ";
         static final String COUNT_SEARCH_FOR_CERTIFICATES_RESULTS =
-                "SELECT COUNT(DISTINCT c) FROM Certificate c JOIN c.description d WHERE";
+                "SELECT COUNT(DISTINCT c) FROM Certificate c LEFT JOIN c.description d WHERE";
         static final String SEARCH_BY_TAGS_NAMES =
                 "SELECT DISTINCT c FROM Certificate c WHERE ";
         static final String COUNT_SEARCH_BY_TAGS_NAMES_RESULTS =

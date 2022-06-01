@@ -1,19 +1,19 @@
 package com.epam.esm.service.impl;
 
 import com.epam.esm.controller.api.exception.TagNotFoundException;
-import com.epam.esm.model.Certificate;
 import com.epam.esm.model.Tag;
-import com.epam.esm.model.dto.CertificateCreateDto;
 import com.epam.esm.model.dto.TagCreateDto;
+import com.epam.esm.repository.TagRepository;
 import com.epam.esm.service.TagService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import static com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test.Data.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -22,50 +22,104 @@ class TagServiceImpl_UsingInnerDB_Test {
 
     @Autowired
     TagService service;
+    @Autowired
+    TagRepository repository;
 
-    @Test
-    void getAllTags() {
-        Pageable pageable = PageRequest.of(0, 10);
-        Page<Tag> tagsBefore = service.getAllTags(pageable);
-        // works properly, db finds 3 instances of Tag that were loaded manually via "import.sql" file usage
-        assertEquals(3, tagsBefore.getContent().size());
+    @BeforeEach
+    void setUp() {
+        Data.init();
+        clearTagRepository();
+        setInitialTags();
     }
 
     @Test
-    void createTag() {
-        Pageable pageable = PageRequest.of(0, 10);
-        Tag tag = service.createTag(new TagCreateDto("tag4"));
+    void getAllTags() {
+        Page<Tag> tagsBefore = service.getAllTags(pageable);
+        assertEquals(initialTagsQuantity, tagsBefore.getTotalElements());
+        assertEquals(initialTagsQuantity, tagsBefore.getContent().size());
+    }
+
+    @Test
+    void createTag_thatNotExistsYet() {
+        Tag tag = service.createTag(createDtoForTagThatNotExistsYet);
         assertNotNull(tag.getId());
         Page<Tag> tagsAfter = service.getAllTags(pageable);
-        // should find 3 tags added via "import.sql" + newly added tag
-        assertEquals(4, tagsAfter.getContent().size());
+        assertEquals(initialTagsQuantity + 1, tagsAfter.getContent().size());
+    }
+
+    @Test
+    void createTag_thatAlreadyExists_noNewTagShouldBeCreated() {
+        Tag tag = service.createTag(createDtoForTagThatAlreadyExists);
+        assertNotNull(tag.getId());
+        Page<Tag> tagsAfter = service.getAllTags(pageable);
+        assertEquals(initialTagsQuantity, tagsAfter.getContent().size());
     }
 
     @Test
     void deleteTag_tagExists() {
-        Pageable pageable = PageRequest.of(0, 10);
+        service.deleteTag(initialTags[0].getName());
         Page<Tag> tags = service.getAllTags(pageable);
-        assertEquals(3, tags.getContent().size());
-
-        service.deleteTag("tag1");
-        tags = service.getAllTags(pageable);
-        assertEquals(2, tags.getContent().size());
+        assertEquals(initialTagsQuantity - 1, tags.getContent().size());
     }
 
     @Test
     void deleteTag_tagNotFound() {
-        assertThrows(TagNotFoundException.class, () -> service.deleteTag("tag_404"));
+        assertThrows(TagNotFoundException.class, () -> service.deleteTag(tagThatNotPersistsYet.getName()));
     }
 
     @Test
     void getTagByName_tagExists() {
-        Tag tag = service.getTag("tag1");
+        Tag tag = service.getTag(initialTags[0].getName());
         assertNotNull(tag.getId());
     }
 
     @Test
     void getTagByName_tagNotFound() {
-        assertThrows(TagNotFoundException.class, () -> service.getTag("tag_404"));
+        assertThrows(TagNotFoundException.class, () -> service.getTag(tagThatNotPersistsYet.getName()));
+    }
+
+    void clearTagRepository() {
+        repository.deleteAll();
+        long count = repository.count();
+        assertEquals(count, 0);
+    }
+
+    void setInitialTags() {
+        for (Tag tag : initialTags) {
+            Tag savedTag = repository.save(tag);
+            assertNotNull(savedTag.getId());
+        }
+
+        long countAfterInsertion = repository.count();
+        assertEquals(countAfterInsertion, initialTagsQuantity);
+    }
+
+    static class Data {
+        static Pageable pageable;
+
+        static Tag tag1;
+        static Tag tag2;
+        static Tag tag3;
+        static Tag[] initialTags;
+        static int initialTagsQuantity;
+
+        static Tag tagThatNotPersistsYet;
+        static TagCreateDto createDtoForTagThatNotExistsYet;
+        static TagCreateDto createDtoForTagThatAlreadyExists;
+        
+        static void init() {
+            pageable = PageRequest.of(0, 10);
+
+            tag1 = new Tag("tag1");
+            tag2 = new Tag("tag2");
+            tag3 = new Tag("tag3");
+            initialTags = new Tag[] {tag1, tag2, tag3};
+            initialTagsQuantity = initialTags.length;
+
+            tagThatNotPersistsYet = new Tag("tag4");
+            createDtoForTagThatNotExistsYet = new TagCreateDto(tagThatNotPersistsYet.getName());
+            createDtoForTagThatAlreadyExists = new TagCreateDto(tag1.getName());
+        }
     }
 
 

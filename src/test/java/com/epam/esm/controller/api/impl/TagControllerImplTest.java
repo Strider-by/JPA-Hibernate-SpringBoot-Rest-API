@@ -110,7 +110,8 @@ class TagControllerImplTest {
     final static class Data {
         static final long tagId = 1;
         static final String tagName = "generic name";
-        static final Tag singleTag = new Tag(tagId, tagName);
+        // testme
+        static final Tag singleTag = new Tag(tagName);
         static final MultiValueMap<String, String> createParams = new LinkedMultiValueMap();
         static final TagCreateDto dto = new TagCreateDto(tagName);
         static final int pageNumber = 0;

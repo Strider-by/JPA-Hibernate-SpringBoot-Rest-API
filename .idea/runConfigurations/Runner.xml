@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Runner" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="com.epam.esm.Runner" />
+    <module name="jpa-plus-hibernate-plus-spring-boot-based-rest-api.main" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.epam.esm.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
