@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-06-03T19:50:15" hostname="DESKTOP-US0M6L4" time="0.882">
+  <properties/>
+  <testcase name="deleteTag_tagExists()" classname="com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test" time="0.623"/>
+  <testcase name="getAllTags()" classname="com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test" time="0.036"/>
+  <testcase name="getTagByName_tagNotFound()" classname="com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test" time="0.065"/>
+  <testcase name="createTag_thatAlreadyExists_noNewTagShouldBeCreated()" classname="com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test" time="0.039"/>
+  <testcase name="createTag_thatNotExistsYet()" classname="com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test" time="0.042"/>
+  <testcase name="deleteTag_tagNotFound()" classname="com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test" time="0.041"/>
+  <testcase name="getTagByName_tagExists()" classname="com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test" time="0.03"/>
+  <system-out><![CDATA[22:50:04.250 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+22:50:04.263 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+22:50:04.300 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+22:50:04.315 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test], using SpringBootContextLoader
+22:50:04.320 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test]: class path resource [com/epam/esm/service/impl/TagServiceImpl_UsingInnerDB_Test-context.xml] does not exist
+22:50:04.320 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test]: class path resource [com/epam/esm/service/impl/TagServiceImpl_UsingInnerDB_TestContext.groovy] does not exist
+22:50:04.320 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test]: no resource found for suffixes {-context.xml, Context.groovy}.
+22:50:04.322 [Test worker] DEBUG org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Ignoring class [com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test$Data]; it must be static, non-private, non-final, and annotated with @Configuration to be considered a default configuration class.
+22:50:04.323 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test]: TagServiceImpl_UsingInnerDB_Test does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:50:04.387 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test]
+22:50:04.499 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Java\Labs\SpringBoot\jpa-plus-hibernate-plus-spring-boot-based-rest-api\build\classes\java\main\com\epam\esm\Runner.class]
+22:50:04.500 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.epam.esm.Runner for test class com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test
+22:50:04.619 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.epam.esm.service.impl.TagServiceImpl_UsingInnerDB_Test]: using defaults.
+22:50:04.620 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+22:50:04.641 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4c70083c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5e2028d, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6fe6423b, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6b675835, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@279a8c8d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@32790499, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6f537f77, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3ea42458, org.springframework.test.context.event.EventPublishingTestExecutionListener@4d2939e5, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@370ea115, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4352c844, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5ccbb292, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@58295eff, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@1a6d4ae6, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4f28a107]
+22:50:04.645 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@667ac5ab testClass = TagServiceImpl_UsingInnerDB_Test, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7a16dd77 testClass = TagServiceImpl_UsingInnerDB_Test, locations = '{}', classes = '{class com.epam.esm.Runner}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@27a629e8, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@8917269, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@708e5ee6, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@538108cb, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4daefafb, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@5748cd74], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+2022-06-03 22:50:05.045  INFO 5844 --- [    Test worker] e.e.s.i.TagServiceImpl_UsingInnerDB_Test : Starting TagServiceImpl_UsingInnerDB_Test using Java 1.8.0_302 on DESKTOP-US0M6L4 with PID 5844 (started by Vox in C:\Java\Labs\SpringBoot\jpa-plus-hibernate-plus-spring-boot-based-rest-api)
+2022-06-03 22:50:05.046  INFO 5844 --- [    Test worker] e.e.s.i.TagServiceImpl_UsingInnerDB_Test : The following 1 profile is active: "production"
+2022-06-03 22:50:06.456  INFO 5844 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-03 22:50:06.573  INFO 5844 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 101 ms. Found 8 JPA repository interfaces.
+2022-06-03 22:50:07.977  INFO 5844 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-03 22:50:08.051  INFO 5844 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-06-03 22:50:08.276  INFO 5844 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-03 22:50:08.332 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@2bdc01bf
+2022-06-03 22:50:08.332 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@2bdc01bf
+2022-06-03 22:50:08.332 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@2bdc01bf
+2022-06-03 22:50:08.333 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@787d1a3
+2022-06-03 22:50:08.334 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration true_false -> org.hibernate.type.TrueFalseType@6a61e225
+2022-06-03 22:50:08.334 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration yes_no -> org.hibernate.type.YesNoType@1cf58f
+2022-06-03 22:50:08.335 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@3e973ab1
+2022-06-03 22:50:08.336 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@3e973ab1
+2022-06-03 22:50:08.336 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@3e973ab1
+2022-06-03 22:50:08.337 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration character -> org.hibernate.type.CharacterType@1d764631
+2022-06-03 22:50:08.337 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration char -> org.hibernate.type.CharacterType@1d764631
+2022-06-03 22:50:08.337 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@1d764631
+2022-06-03 22:50:08.340 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@5ac4b9a8
+2022-06-03 22:50:08.340 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@5ac4b9a8
+2022-06-03 22:50:08.340 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Short -> org.hibernate.type.ShortType@5ac4b9a8
+2022-06-03 22:50:08.342 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration integer -> org.hibernate.type.IntegerType@30f6ab54
+2022-06-03 22:50:08.342 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration int -> org.hibernate.type.IntegerType@30f6ab54
+2022-06-03 22:50:08.342 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@30f6ab54
+2022-06-03 22:50:08.343 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@76778c05
+2022-06-03 22:50:08.343 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@76778c05
+2022-06-03 22:50:08.344 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Long -> org.hibernate.type.LongType@76778c05
+2022-06-03 22:50:08.345 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@6c9338d2
+2022-06-03 22:50:08.345 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@6c9338d2
+2022-06-03 22:50:08.345 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Float -> org.hibernate.type.FloatType@6c9338d2
+2022-06-03 22:50:08.346 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@54e3ee05
+2022-06-03 22:50:08.346 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@54e3ee05
+2022-06-03 22:50:08.346 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@54e3ee05
+2022-06-03 22:50:08.347 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@2da3ff0d
+2022-06-03 22:50:08.348 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@2da3ff0d
+2022-06-03 22:50:08.349 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_integer -> org.hibernate.type.BigIntegerType@401c90f3
+2022-06-03 22:50:08.349 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@401c90f3
+2022-06-03 22:50:08.350 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration string -> org.hibernate.type.StringType@409a0718
+2022-06-03 22:50:08.350 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.String -> org.hibernate.type.StringType@409a0718
+2022-06-03 22:50:08.351 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration nstring -> org.hibernate.type.StringNVarcharType@6956593
+2022-06-03 22:50:08.351 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@61802543
+2022-06-03 22:50:08.353 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration url -> org.hibernate.type.UrlType@5197c2d4
+2022-06-03 22:50:08.353 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.net.URL -> org.hibernate.type.UrlType@5197c2d4
+2022-06-03 22:50:08.355 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -> org.hibernate.type.DurationType@2df02325
+2022-06-03 22:50:08.356 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -> org.hibernate.type.DurationType@2df02325
+2022-06-03 22:50:08.359 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration Instant -> org.hibernate.type.InstantType@19066d71
+2022-06-03 22:50:08.360 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Instant -> org.hibernate.type.InstantType@19066d71
+2022-06-03 22:50:08.361 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@691c9c4c
+2022-06-03 22:50:08.361 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@691c9c4c
+2022-06-03 22:50:08.363 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDate -> org.hibernate.type.LocalDateType@1e8dc89
+2022-06-03 22:50:08.363 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@1e8dc89
+2022-06-03 22:50:08.364 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@51bc61aa
+2022-06-03 22:50:08.364 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@51bc61aa
+2022-06-03 22:50:08.366 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@2a2fda84
+2022-06-03 22:50:08.367 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@2a2fda84
+2022-06-03 22:50:08.368 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@17707bb7
+2022-06-03 22:50:08.369 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@17707bb7
+2022-06-03 22:50:08.373 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@46b5eff9
+2022-06-03 22:50:08.373 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@46b5eff9
+2022-06-03 22:50:08.375 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration date -> org.hibernate.type.DateType@34dc8c5c
+2022-06-03 22:50:08.375 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Date -> org.hibernate.type.DateType@34dc8c5c
+2022-06-03 22:50:08.376 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration time -> org.hibernate.type.TimeType@733a79b0
+2022-06-03 22:50:08.377 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Time -> org.hibernate.type.TimeType@733a79b0
+2022-06-03 22:50:08.378 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration timestamp -> org.hibernate.type.TimestampType@7846ef3c
+2022-06-03 22:50:08.378 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@7846ef3c
+2022-06-03 22:50:08.378 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Date -> org.hibernate.type.TimestampType@7846ef3c
+2022-06-03 22:50:08.380 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@25d2b639
+2022-06-03 22:50:08.381 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar -> org.hibernate.type.CalendarType@72d3ecb
+2022-06-03 22:50:08.381 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@72d3ecb
+2022-06-03 22:50:08.381 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@72d3ecb
+2022-06-03 22:50:08.382 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@538e6aee
+2022-06-03 22:50:08.383 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_time -> org.hibernate.type.CalendarTimeType@1796694a
+2022-06-03 22:50:08.384 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration locale -> org.hibernate.type.LocaleType@6ea80fca
+2022-06-03 22:50:08.384 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@6ea80fca
+2022-06-03 22:50:08.386 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration currency -> org.hibernate.type.CurrencyType@2954f02
+2022-06-03 22:50:08.386 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@2954f02
+2022-06-03 22:50:08.387 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration timezone -> org.hibernate.type.TimeZoneType@3170a208
+2022-06-03 22:50:08.389 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@3170a208
+2022-06-03 22:50:08.392 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration class -> org.hibernate.type.ClassType@65363536
+2022-06-03 22:50:08.392 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Class -> org.hibernate.type.ClassType@65363536
+2022-06-03 22:50:08.393 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@1cc07522
+2022-06-03 22:50:08.393 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@1cc07522
+2022-06-03 22:50:08.394 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@2cfd5bfe
+2022-06-03 22:50:08.396 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary -> org.hibernate.type.BinaryType@c54b656
+2022-06-03 22:50:08.396 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte[] -> org.hibernate.type.BinaryType@c54b656
+2022-06-03 22:50:08.396 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [B -> org.hibernate.type.BinaryType@c54b656
+2022-06-03 22:50:08.397 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@4068e516
+2022-06-03 22:50:08.397 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@4068e516
+2022-06-03 22:50:08.397 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@4068e516
+2022-06-03 22:50:08.399 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration row_version -> org.hibernate.type.RowVersionType@64244794
+2022-06-03 22:50:08.399 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration image -> org.hibernate.type.ImageType@3ae7c8c1
+2022-06-03 22:50:08.400 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration characters -> org.hibernate.type.CharArrayType@2eb711ea
+2022-06-03 22:50:08.400 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration char[] -> org.hibernate.type.CharArrayType@2eb711ea
+2022-06-03 22:50:08.400 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [C -> org.hibernate.type.CharArrayType@2eb711ea
+2022-06-03 22:50:08.402 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@4331a681
+2022-06-03 22:50:08.402 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@4331a681
+2022-06-03 22:50:08.402 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@4331a681
+2022-06-03 22:50:08.402 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration text -> org.hibernate.type.TextType@30b3b27c
+2022-06-03 22:50:08.403 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ntext -> org.hibernate.type.NTextType@2e434909
+2022-06-03 22:50:08.405 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration blob -> org.hibernate.type.BlobType@488d9def
+2022-06-03 22:50:08.405 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@488d9def
+2022-06-03 22:50:08.406 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@21ce5912
+2022-06-03 22:50:08.407 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration clob -> org.hibernate.type.ClobType@78a7ec05
+2022-06-03 22:50:08.407 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@78a7ec05
+2022-06-03 22:50:08.408 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration nclob -> org.hibernate.type.NClobType@4348b812
+2022-06-03 22:50:08.409 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@4348b812
+2022-06-03 22:50:08.409 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@735700e9
+2022-06-03 22:50:08.410 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@3d315576
+2022-06-03 22:50:08.411 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration serializable -> org.hibernate.type.SerializableType@695b7e29
+2022-06-03 22:50:08.414 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration object -> org.hibernate.type.ObjectType@642bbb3a
+2022-06-03 22:50:08.414 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@642bbb3a
+2022-06-03 22:50:08.415 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@5cdd3741
+2022-06-03 22:50:08.415 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@6596a58b
+2022-06-03 22:50:08.415 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@7ec7acc0
+2022-06-03 22:50:08.415 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@530c84f5
+2022-06-03 22:50:08.415 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@66dec6ea
+2022-06-03 22:50:08.415 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@36348d47
+2022-06-03 22:50:08.415 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@75d686ed
+2022-06-03 22:50:08.415 DEBUG 5844 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@424a8f8e
+2022-06-03 22:50:09.041  INFO 5844 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-06-03 22:50:09.189 DEBUG 5844 --- [    Test worker] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@7fec4687] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@2647a10]
+2022-06-03 22:50:09.973 DEBUG 5844 --- [    Test worker] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@7fec4687] to SessionFactoryImpl [org.hibernate.internal.SessionFactoryImpl@6cd30ab5]
+2022-06-03 22:50:10.520 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : drop table if exists certificate CASCADE 
+2022-06-03 22:50:10.527 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : drop table if exists certificate_Tag CASCADE 
+2022-06-03 22:50:10.527 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : drop table if exists purchase CASCADE 
+2022-06-03 22:50:10.527 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : drop table if exists Tag CASCADE 
+2022-06-03 22:50:10.527 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : drop table if exists user CASCADE 
+2022-06-03 22:50:10.527 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : drop table if exists user_purchase CASCADE 
+2022-06-03 22:50:10.530 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : create table certificate (id bigint generated by default as identity, createDate timestamp, duration integer, lastUpdateDate timestamp, name varchar(255), price integer, primary key (id))
+2022-06-03 22:50:10.537 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : create table certificate_Tag (Certificate_id bigint not null, description_id bigint not null)
+2022-06-03 22:50:10.538 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : create table purchase (id bigint generated by default as identity, cost integer, timestamp timestamp, certificate_id bigint, user_id bigint, primary key (id))
+2022-06-03 22:50:10.539 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : create table Tag (id bigint generated by default as identity, name varchar(255), primary key (id))
+2022-06-03 22:50:10.540 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : create table user (id bigint generated by default as identity, primary key (id))
+2022-06-03 22:50:10.541 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : create table user_purchase (User_id bigint not null, purchases_id bigint not null)
+2022-06-03 22:50:10.541 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : alter table Tag add constraint UK_24642shpebunaq3ggshotv9hk unique (name)
+2022-06-03 22:50:10.544 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : alter table user_purchase add constraint UK_7rmpmviite1smah65caj672sc unique (purchases_id)
+2022-06-03 22:50:10.545 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : alter table certificate_Tag add constraint FK46o2fnhvhcjcyvny5lvdg6xbw foreign key (description_id) references Tag
+2022-06-03 22:50:10.551 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : alter table certificate_Tag add constraint FKab4xfsgf58gvdvcw9k22ur01g foreign key (Certificate_id) references certificate
+2022-06-03 22:50:10.553 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : alter table purchase add constraint FKhgxcp4wnvr6iyybhp261ia8ef foreign key (certificate_id) references certificate
+2022-06-03 22:50:10.554 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : alter table purchase add constraint FK86i0stm7cqsglqptdvjij1k3m foreign key (user_id) references user
+2022-06-03 22:50:10.557 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : alter table user_purchase add constraint FKeatioulucri54r6li94xquuuu foreign key (purchases_id) references purchase
+2022-06-03 22:50:10.558 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : alter table user_purchase add constraint FK94yhegstbjg082lcx7fih70xc foreign key (User_id) references user
+2022-06-03 22:50:10.569  INFO 5844 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-03 22:50:10.580 TRACE 5844 --- [    Test worker] o.h.type.spi.TypeConfiguration$Scope     : Handling #sessionFactoryCreated from [org.hibernate.internal.SessionFactoryImpl@6cd30ab5] for TypeConfiguration
+2022-06-03 22:50:10.581  INFO 5844 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-03 22:50:11.718  WARN 5844 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-06-03 22:50:15.090  INFO 5844 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoint(s) beneath base path '/actuator'
+2022-06-03 22:50:15.183  INFO 5844 --- [    Test worker] e.e.s.i.TagServiceImpl_UsingInnerDB_Test : Started TagServiceImpl_UsingInnerDB_Test in 10.498 seconds (JVM running for 21.284)
+2022-06-03 22:50:15.516 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:15.528 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag1]
+-------------------------------
+Time: 2022-06-03T22:50:15.543
+Tag: {id:1, name:tag1}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:15.567 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:15.568 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag2]
+-------------------------------
+Time: 2022-06-03T22:50:15.569
+Tag: {id:2, name:tag2}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:15.573 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:15.573 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag3]
+-------------------------------
+Time: 2022-06-03T22:50:15.574
+Tag: {id:3, name:tag3}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:15.777 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:15.780 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [3]
+2022-06-03 22:50:15.814 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_ where tag0_.name=? limit ?
+2022-06-03 22:50:15.814 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag1]
+2022-06-03 22:50:15.815 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [1]
+2022-06-03 22:50:15.818 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag1]
+2022-06-03 22:50:15.862 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:15.864 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+-------------------------------
+Time: 2022-06-03T22:50:15.867
+Tag: {id:1, name:tag1}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:15.910 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_ limit ?
+2022-06-03 22:50:15.911 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [2]
+2022-06-03 22:50:15.911 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag2]
+2022-06-03 22:50:15.911 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [3]
+2022-06-03 22:50:15.911 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag3]
+2022-06-03 22:50:15.921 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_
+2022-06-03 22:50:15.923 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [2]
+2022-06-03 22:50:15.925 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag2]
+2022-06-03 22:50:15.925 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [3]
+2022-06-03 22:50:15.925 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag3]
+2022-06-03 22:50:15.926 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:15.927 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+-------------------------------
+Time: 2022-06-03T22:50:15.927
+Tag: {id:2, name:tag2}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:15.928 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:15.928 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [3]
+-------------------------------
+Time: 2022-06-03T22:50:15.929
+Tag: {id:3, name:tag3}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:15.930 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:15.931 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [0]
+2022-06-03 22:50:15.949 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:15.950 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag1]
+-------------------------------
+Time: 2022-06-03T22:50:15.950
+Tag: {id:4, name:tag1}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:15.952 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:15.952 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag2]
+-------------------------------
+Time: 2022-06-03T22:50:15.952
+Tag: {id:5, name:tag2}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:15.954 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:15.955 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag3]
+-------------------------------
+Time: 2022-06-03T22:50:15.958
+Tag: {id:6, name:tag3}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:15.960 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:15.960 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [3]
+2022-06-03 22:50:15.962 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_ limit ?
+2022-06-03 22:50:15.963 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [4]
+2022-06-03 22:50:15.963 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag1]
+2022-06-03 22:50:15.963 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [5]
+2022-06-03 22:50:15.964 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag2]
+2022-06-03 22:50:15.964 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [6]
+2022-06-03 22:50:15.964 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag3]
+2022-06-03 22:50:15.966 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_
+2022-06-03 22:50:15.967 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [4]
+2022-06-03 22:50:15.967 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag1]
+2022-06-03 22:50:15.967 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [5]
+2022-06-03 22:50:15.967 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag2]
+2022-06-03 22:50:15.967 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [6]
+2022-06-03 22:50:15.968 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag3]
+2022-06-03 22:50:15.969 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:15.969 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [4]
+-------------------------------
+Time: 2022-06-03T22:50:15.971
+Tag: {id:4, name:tag1}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:15.972 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:15.973 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [5]
+-------------------------------
+Time: 2022-06-03T22:50:15.974
+Tag: {id:5, name:tag2}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:15.976 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:15.977 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [6]
+-------------------------------
+Time: 2022-06-03T22:50:15.977
+Tag: {id:6, name:tag3}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:15.978 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:15.979 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [0]
+2022-06-03 22:50:15.986 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:15.986 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag1]
+-------------------------------
+Time: 2022-06-03T22:50:15.987
+Tag: {id:7, name:tag1}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:15.992 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:15.992 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag2]
+-------------------------------
+Time: 2022-06-03T22:50:15.993
+Tag: {id:8, name:tag2}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:15.994 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:15.995 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag3]
+-------------------------------
+Time: 2022-06-03T22:50:15.995
+Tag: {id:9, name:tag3}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:15.997 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:15.997 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [3]
+2022-06-03 22:50:16.016 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_ where tag0_.name=? limit ?
+2022-06-03 22:50:16.016 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag4]
+2022-06-03 22:50:16.027 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_
+2022-06-03 22:50:16.028 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [7]
+2022-06-03 22:50:16.028 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag1]
+2022-06-03 22:50:16.028 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [8]
+2022-06-03 22:50:16.029 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag2]
+2022-06-03 22:50:16.029 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [9]
+2022-06-03 22:50:16.029 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag3]
+2022-06-03 22:50:16.031 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.031 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [7]
+-------------------------------
+Time: 2022-06-03T22:50:16.033
+Tag: {id:7, name:tag1}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.033 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.034 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [8]
+-------------------------------
+Time: 2022-06-03T22:50:16.034
+Tag: {id:8, name:tag2}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.035 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.035 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [9]
+-------------------------------
+Time: 2022-06-03T22:50:16.036
+Tag: {id:9, name:tag3}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.039 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:16.039 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [0]
+2022-06-03 22:50:16.051 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:16.052 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag1]
+-------------------------------
+Time: 2022-06-03T22:50:16.053
+Tag: {id:10, name:tag1}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:16.058 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:16.058 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag2]
+-------------------------------
+Time: 2022-06-03T22:50:16.059
+Tag: {id:11, name:tag2}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:16.061 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:16.061 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag3]
+-------------------------------
+Time: 2022-06-03T22:50:16.062
+Tag: {id:12, name:tag3}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:16.064 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:16.064 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [3]
+2022-06-03 22:50:16.067 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_ where tag0_.name=? limit ?
+2022-06-03 22:50:16.067 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag1]
+2022-06-03 22:50:16.068 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [10]
+2022-06-03 22:50:16.069 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag1]
+2022-06-03 22:50:16.072 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_ limit ?
+2022-06-03 22:50:16.073 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [10]
+2022-06-03 22:50:16.073 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag1]
+2022-06-03 22:50:16.073 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [11]
+2022-06-03 22:50:16.074 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag2]
+2022-06-03 22:50:16.074 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [12]
+2022-06-03 22:50:16.074 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag3]
+2022-06-03 22:50:16.075 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_
+2022-06-03 22:50:16.075 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [10]
+2022-06-03 22:50:16.075 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag1]
+2022-06-03 22:50:16.076 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [11]
+2022-06-03 22:50:16.076 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag2]
+2022-06-03 22:50:16.076 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [12]
+2022-06-03 22:50:16.076 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag3]
+2022-06-03 22:50:16.077 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.077 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [10]
+-------------------------------
+Time: 2022-06-03T22:50:16.078
+Tag: {id:10, name:tag1}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.078 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.078 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [11]
+-------------------------------
+Time: 2022-06-03T22:50:16.079
+Tag: {id:11, name:tag2}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.079 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.080 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [12]
+-------------------------------
+Time: 2022-06-03T22:50:16.080
+Tag: {id:12, name:tag3}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.082 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:16.083 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [0]
+2022-06-03 22:50:16.096 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:16.097 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag1]
+-------------------------------
+Time: 2022-06-03T22:50:16.097
+Tag: {id:13, name:tag1}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:16.099 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:16.099 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag2]
+-------------------------------
+Time: 2022-06-03T22:50:16.099
+Tag: {id:14, name:tag2}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:16.101 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:16.101 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag3]
+-------------------------------
+Time: 2022-06-03T22:50:16.101
+Tag: {id:15, name:tag3}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:16.103 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:16.104 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [3]
+2022-06-03 22:50:16.107 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_ where tag0_.name=? limit ?
+2022-06-03 22:50:16.107 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag4]
+2022-06-03 22:50:16.109 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:16.109 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag4]
+-------------------------------
+Time: 2022-06-03T22:50:16.110
+Tag: {id:16, name:tag4}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:16.112 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_ limit ?
+2022-06-03 22:50:16.113 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [13]
+2022-06-03 22:50:16.113 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag1]
+2022-06-03 22:50:16.113 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [14]
+2022-06-03 22:50:16.113 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag2]
+2022-06-03 22:50:16.113 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [15]
+2022-06-03 22:50:16.113 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag3]
+2022-06-03 22:50:16.113 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [16]
+2022-06-03 22:50:16.113 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag4]
+2022-06-03 22:50:16.115 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_
+2022-06-03 22:50:16.115 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [13]
+2022-06-03 22:50:16.115 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag1]
+2022-06-03 22:50:16.115 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [14]
+2022-06-03 22:50:16.115 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag2]
+2022-06-03 22:50:16.115 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [15]
+2022-06-03 22:50:16.115 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag3]
+2022-06-03 22:50:16.116 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [16]
+2022-06-03 22:50:16.116 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag4]
+2022-06-03 22:50:16.117 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.117 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [13]
+-------------------------------
+Time: 2022-06-03T22:50:16.118
+Tag: {id:13, name:tag1}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.118 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.119 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [14]
+-------------------------------
+Time: 2022-06-03T22:50:16.119
+Tag: {id:14, name:tag2}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.120 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.120 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [15]
+-------------------------------
+Time: 2022-06-03T22:50:16.121
+Tag: {id:15, name:tag3}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.121 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.121 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [16]
+-------------------------------
+Time: 2022-06-03T22:50:16.123
+Tag: {id:16, name:tag4}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.127 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:16.128 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [0]
+2022-06-03 22:50:16.135 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:16.135 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag1]
+-------------------------------
+Time: 2022-06-03T22:50:16.136
+Tag: {id:17, name:tag1}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:16.139 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:16.140 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag2]
+-------------------------------
+Time: 2022-06-03T22:50:16.140
+Tag: {id:18, name:tag2}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:16.142 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:16.142 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag3]
+-------------------------------
+Time: 2022-06-03T22:50:16.142
+Tag: {id:19, name:tag3}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:16.144 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:16.145 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [3]
+2022-06-03 22:50:16.147 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_ where tag0_.name=? limit ?
+2022-06-03 22:50:16.147 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag4]
+2022-06-03 22:50:16.153 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_
+2022-06-03 22:50:16.154 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [17]
+2022-06-03 22:50:16.154 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag1]
+2022-06-03 22:50:16.154 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [18]
+2022-06-03 22:50:16.155 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag2]
+2022-06-03 22:50:16.155 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [19]
+2022-06-03 22:50:16.155 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag3]
+2022-06-03 22:50:16.160 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.161 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [17]
+-------------------------------
+Time: 2022-06-03T22:50:16.164
+Tag: {id:17, name:tag1}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.164 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.165 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [18]
+-------------------------------
+Time: 2022-06-03T22:50:16.165
+Tag: {id:18, name:tag2}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.165 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.166 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [19]
+-------------------------------
+Time: 2022-06-03T22:50:16.166
+Tag: {id:19, name:tag3}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.167 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:16.167 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [0]
+2022-06-03 22:50:16.177 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:16.177 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag1]
+-------------------------------
+Time: 2022-06-03T22:50:16.178
+Tag: {id:20, name:tag1}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:16.179 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:16.180 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag2]
+-------------------------------
+Time: 2022-06-03T22:50:16.180
+Tag: {id:21, name:tag2}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:16.182 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : insert into Tag (id, name) values (default, ?)
+2022-06-03 22:50:16.183 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag3]
+-------------------------------
+Time: 2022-06-03T22:50:16.183
+Tag: {id:22, name:tag3}
+Action: CREATED
+-------------------------------
+2022-06-03 22:50:16.185 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:16.185 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [3]
+2022-06-03 22:50:16.187 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_ where tag0_.name=? limit ?
+2022-06-03 22:50:16.188 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [tag1]
+2022-06-03 22:50:16.190 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [20]
+2022-06-03 22:50:16.191 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag1]
+2022-06-03 22:50:16.192 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select tag0_.id as id1_3_, tag0_.name as name2_3_ from Tag tag0_
+2022-06-03 22:50:16.193 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [20]
+2022-06-03 22:50:16.193 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag1]
+2022-06-03 22:50:16.193 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [21]
+2022-06-03 22:50:16.194 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag2]
+2022-06-03 22:50:16.194 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_3_] : [BIGINT]) - [22]
+2022-06-03 22:50:16.194 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_3_] : [VARCHAR]) - [tag3]
+2022-06-03 22:50:16.195 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.195 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [20]
+-------------------------------
+Time: 2022-06-03T22:50:16.196
+Tag: {id:20, name:tag1}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.196 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.196 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [21]
+-------------------------------
+Time: 2022-06-03T22:50:16.197
+Tag: {id:21, name:tag2}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.197 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : delete from Tag where id=?
+2022-06-03 22:50:16.198 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [22]
+-------------------------------
+Time: 2022-06-03T22:50:16.198
+Tag: {id:22, name:tag3}
+Action: DELETED
+-------------------------------
+2022-06-03 22:50:16.200 DEBUG 5844 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from Tag tag0_
+2022-06-03 22:50:16.200 TRACE 5844 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([col_0_0_] : [BIGINT]) - [0]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

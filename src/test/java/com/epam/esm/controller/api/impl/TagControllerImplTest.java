@@ -124,6 +124,7 @@ class TagControllerImplTest {
         static final Page<Tag> tagPage = new PageImpl(tags, pageable, elementsTotal);
 
         static {
+            singleTag.setId(tagId);
             createParams.add("name", tagName);
         }
 

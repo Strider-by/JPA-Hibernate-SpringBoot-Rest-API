@@ -15,9 +15,14 @@ public class Certificate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    // 1.
     // I had to set Eager fetch since otherwise I got LazyInitialization exception during tests when deleting certificates
     // (the fun part - it is thrown when getting data during Entity event logging, in Certificate::toString method)
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    // 2.
+    // CascadeType.PERSIST somehow works perfectly in real work, but causes org.hibernate.PersistentObjectException:
+    // detached entity passed to persist while creating certificates with tags during tests on inner database
+
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Tag> description;
     private Integer price;
     private Integer duration;

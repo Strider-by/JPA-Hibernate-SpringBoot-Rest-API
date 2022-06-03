@@ -5,6 +5,7 @@ import com.epam.esm.model.Tag;
 import com.epam.esm.model.dto.TagCreateDto;
 import com.epam.esm.repository.TagRepository;
 import com.epam.esm.service.TagService;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,12 @@ class TagServiceImpl_UsingInnerDB_Test {
     @BeforeEach
     void setUp() {
         Data.init();
-        clearTagRepository();
         setInitialTags();
+    }
+
+    @AfterEach
+    void cleanUp() {
+        clearTagRepository();
     }
 
     @Test

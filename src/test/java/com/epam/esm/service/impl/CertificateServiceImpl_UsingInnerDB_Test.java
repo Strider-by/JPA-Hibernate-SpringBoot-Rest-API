@@ -8,9 +8,7 @@ import com.epam.esm.model.dto.TagCreateDto;
 import com.epam.esm.repository.CertificateRepository;
 import com.epam.esm.repository.TagRepository;
 import com.epam.esm.service.CertificateService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
@@ -38,9 +36,13 @@ class CertificateServiceImpl_UsingInnerDB_Test {
 
     @BeforeEach
     void setUp() {
-        clearRepositories();
         setInitialDBRecords();
         Data.init();
+    }
+
+    @AfterEach
+    void cleanUp() {
+        clearRepositories();
     }
 
     @Test
@@ -165,19 +167,19 @@ class CertificateServiceImpl_UsingInnerDB_Test {
     void setInitialDBRecords() {
         // tags
         setInitialTagDBRecordsData();
-        for (int i = 0; i < initialTagsQuantity; i++) {
-            Tag savedTag = tagRepository.save(initialTags[i]);
-            assertNotNull(savedTag.getId());
-            initialTags[i] = savedTag;
-        }
-
-        long tagsAfterInsertion = tagRepository.count();
-        assertEquals(tagsAfterInsertion, initialTagsQuantity);
+//        for (int i = 0; i < initialTagsQuantity; i++) {
+//            Tag savedTag = tagRepository.save(initialTags[i]);
+//            assertNotNull(savedTag.getId());
+//            initialTags[i] = savedTag;
+//        }
+//
+//        long tagsAfterInsertion = tagRepository.count();
+//        assertEquals(tagsAfterInsertion, initialTagsQuantity);
 
         // certificates
         setInitialCertificateDBRecordsData();
         for (Certificate certificate : initialCertificates) {
-            Certificate savedCertificate = certificateRepository.save(certificate);
+            Certificate savedCertificate = certificateRepository.createCertificate(certificate);
             assertNotNull(savedCertificate.getId());
             long id = savedCertificate.getId();
             System.out.println(id);
@@ -240,14 +242,20 @@ class CertificateServiceImpl_UsingInnerDB_Test {
         static void init() {
             pageable = PageRequest.of(0, 10);
 
+            setCreateParamValues();
+            setUpdateParamsValues();
+            setSearchParamsValues();
+            setSearchByTagNamesParamValues();
+        }
 
+        static void setCreateParamValues() {
             certificateCreateDto = new CertificateCreateDto();
             certificateName = "C4";
             certificateDuration = 10;
             certificatePrice = 144;
             String tagName1 = "tag1";
             String tagName2 = "tag2";
-            String tagName3 = "tag3";
+            String tagName3 = "tag4";
             description = Arrays.asList(
                     new TagCreateDto(tagName1),
                     new TagCreateDto(tagName2),
@@ -258,10 +266,6 @@ class CertificateServiceImpl_UsingInnerDB_Test {
             certificateCreateDto.setDuration(certificateDuration);
             certificateCreateDto.setPrice(certificatePrice);
             certificateCreateDto.setDescription(description);
-
-            setUpdateParamsValues();
-            setSearchParamsValues();
-            setSearchByTagNamesParamValues();
         }
 
         static void setInitialTagDBRecordsData() {
