@@ -14,9 +14,9 @@ public class Purchase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne//(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private User user;
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne//(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private Certificate certificate;
     private Integer cost;
     private Date timestamp;

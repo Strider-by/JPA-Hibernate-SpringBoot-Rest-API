@@ -92,8 +92,8 @@ com/epam/esm/repository/TagRepository.java
  com.epam.esm.repository.TagRepository
 com/epam/esm/controller/api/impl/TagControllerImpl.java
  com.epam.esm.controller.api.impl.TagControllerImpl
-com/epam/esm/repository/impl/CustomPurchaseRepositoryImpl.java
- com.epam.esm.repository.impl.CustomPurchaseRepositoryImpl
+com/epam/esm/controller/api/impl/CertificateSearchByTagsControllerImpl.java
+ com.epam.esm.controller.api.impl.CertificateSearchByTagsControllerImpl
 com/epam/esm/repository/impl/CustomTagRepositoryImpl.java
  com.epam.esm.repository.impl.CustomTagRepositoryImpl
 com/epam/esm/model/Tag.java
@@ -105,22 +105,22 @@ com/epam/esm/repository/impl/CustomCertificateRepositoryImpl.java
  com.epam.esm.repository.impl.CustomCertificateRepositoryImpl$CertificatesSearchConstants
  com.epam.esm.repository.impl.CustomCertificateRepositoryImpl$CertificatesSearchConstants$SortByTemplate
  com.epam.esm.repository.impl.CustomCertificateRepositoryImpl$CertificatesSearchConstants$SortOrder
-com/epam/esm/service/impl/PurchaseServiceImpl.java
- com.epam.esm.service.impl.PurchaseServiceImpl
+com/epam/esm/service/impl/CertificateServiceImpl.java
+ com.epam.esm.service.impl.CertificateServiceImpl
 com/epam/esm/repository/CertificateRepository.java
  com.epam.esm.repository.CertificateRepository
 com/epam/esm/controller/api/impl/CertificateControllerImpl.java
  com.epam.esm.controller.api.impl.CertificateControllerImpl
 com/epam/esm/model/util/DtoConverter.java
  com.epam.esm.model.util.DtoConverter
-com/epam/esm/controller/api/impl/PurchaseControllerImpl.java
- com.epam.esm.controller.api.impl.PurchaseControllerImpl
-com/epam/esm/controller/api/PurchaseController.java
- com.epam.esm.controller.api.PurchaseController
-com/epam/esm/model/Purchase.java
- com.epam.esm.model.Purchase
-com/epam/esm/service/PurchaseService.java
- com.epam.esm.service.PurchaseService
+com/epam/esm/service/CertificateService.java
+ com.epam.esm.service.CertificateService
+com/epam/esm/controller/api/CertificateController.java
+ com.epam.esm.controller.api.CertificateController
+com/epam/esm/repository/CustomCertificateRepository.java
+ com.epam.esm.repository.CustomCertificateRepository
+com/epam/esm/model/Certificate.java
+ com.epam.esm.model.Certificate
 com/epam/esm/controller/api/impl/CertificateSearchControllerImpl.java
  com.epam.esm.controller.api.impl.CertificateSearchControllerImpl
  com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$1
@@ -136,15 +136,15 @@ com/epam/esm/model/audit/CertificateEventLogger.java
  com.epam.esm.model.audit.CertificateEventLogger
 com/epam/esm/model/audit/PurchaseEventLogger.java
  com.epam.esm.model.audit.PurchaseEventLogger
-com/epam/esm/repository/CustomCertificateRepository.java
- com.epam.esm.repository.CustomCertificateRepository
-com/epam/esm/controller/api/CertificateController.java
- com.epam.esm.controller.api.CertificateController
-com/epam/esm/service/CertificateService.java
- com.epam.esm.service.CertificateService
-com/epam/esm/controller/api/impl/CertificateSearchByTagsControllerImpl.java
- com.epam.esm.controller.api.impl.CertificateSearchByTagsControllerImpl
-com/epam/esm/service/impl/CertificateServiceImpl.java
- com.epam.esm.service.impl.CertificateServiceImpl
-com/epam/esm/model/Certificate.java
- com.epam.esm.model.Certificate
+com/epam/esm/service/impl/PurchaseServiceImpl.java
+ com.epam.esm.service.impl.PurchaseServiceImpl
+com/epam/esm/repository/impl/CustomPurchaseRepositoryImpl.java
+ com.epam.esm.repository.impl.CustomPurchaseRepositoryImpl
+com/epam/esm/controller/api/impl/PurchaseControllerImpl.java
+ com.epam.esm.controller.api.impl.PurchaseControllerImpl
+com/epam/esm/controller/api/PurchaseController.java
+ com.epam.esm.controller.api.PurchaseController
+com/epam/esm/model/Purchase.java
+ com.epam.esm.model.Purchase
+com/epam/esm/service/PurchaseService.java
+ com.epam.esm.service.PurchaseService

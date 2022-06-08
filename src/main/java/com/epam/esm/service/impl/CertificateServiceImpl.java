@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.MultiValueMap;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -80,14 +81,14 @@ public class CertificateServiceImpl implements CertificateService {
     }
 
     private void affixTimestampsOnCreation(Certificate certificate) {
-        Date date = new Date();
+        Timestamp date = new Timestamp(new Date().getTime());
         certificate.setCreateDate(date);
         certificate.setLastUpdateDate(date);
     }
 
     private void affixTimestampOnUpdate(Certificate certificate) {
         if (certificate != null) {
-            Date date = new Date();
+            Timestamp date = new Timestamp(new Date().getTime());
             certificate.setLastUpdateDate(date);
         }
     }

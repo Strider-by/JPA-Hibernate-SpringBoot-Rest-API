@@ -19,6 +19,7 @@ import org.springframework.util.MultiValueMap;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static com.epam.esm.service.impl.CertificateServiceImpl_UsingInnerDB_Test.Data.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -52,8 +53,6 @@ class CertificateServiceImpl_UsingInnerDB_Test {
     }
 
     @Test
-    // fixme: disabled for repair
-    @Disabled
     void createCertificate() {
         Certificate createdCertificate = service.createCertificate(certificateCreateDto);
         assertNotNull(createdCertificate.getId());
@@ -61,12 +60,22 @@ class CertificateServiceImpl_UsingInnerDB_Test {
         assertEquals(certificates.getTotalElements(), initialCertificatesQuantity + 1);
         Certificate certificateGottenFromDb = certificates.getContent().stream()
                 .filter(cert -> cert.getName().equals(certificateName)).findAny().get();
-
-        // fixme: failed, somehow the instance I get from database has Timestamp fields instead of Date fields
-        // so it fails when equals method is being called
-        // change initial type from Date to Timestamp?
         assertEquals(createdCertificate, certificateGottenFromDb);
 
+        Set<String> tagsFromCreateDto = certificateCreateDto.getDescription().stream()
+                .map(TagCreateDto::getName)
+                .collect(Collectors.toSet());
+
+        Set<String>  certificateTagsAfterItHasBeenGottenFromDb = certificateGottenFromDb.getDescription().stream()
+                .map(Tag::getName)
+                .collect(Collectors.toSet());
+
+        assertTrue(tagsFromCreateDto.equals(certificateTagsAfterItHasBeenGottenFromDb));
+        assertEquals(certificateGottenFromDb.getDuration(), certificateDuration);
+        assertEquals(certificateGottenFromDb.getPrice(), certificatePrice);
+        assertEquals(certificateGottenFromDb.getName(), certificateName);
+        assertNotNull(certificateGottenFromDb.getCreateDate());
+        assertEquals(certificateGottenFromDb.getCreateDate(), certificateGottenFromDb.getLastUpdateDate());
     }
 
     @Test
@@ -141,8 +150,45 @@ class CertificateServiceImpl_UsingInnerDB_Test {
     }
 
     @Test
-    void searchCertificatesByTagNames_case1() {
+    void searchCertificates_case4() {
+        Page<Certificate> foundCertificatesPage = service.searchCertificates(searchParams4, pageable);
+        Certificate[] actualFoundCertificates = foundCertificatesPage.getContent().stream().toArray(Certificate[]::new);
+        assertTrue(Arrays.equals(actualFoundCertificates, expectedFoundCertificates4));
+    }
 
+    @Test
+    void searchCertificates_case5() {
+        Page<Certificate> foundCertificatesPage = service.searchCertificates(searchParams5, pageable);
+        Certificate[] actualFoundCertificates = foundCertificatesPage.getContent().stream().toArray(Certificate[]::new);
+        assertTrue(Arrays.equals(actualFoundCertificates, expectedFoundCertificates5));
+    }
+
+    @Test
+    void searchCertificatesByTagNames_case1() {
+        Page<Certificate> foundCertificatesPage = service.searchCertificatesByTagNames(tagNamesToSearch1, pageable);
+        Set<Certificate> actualFoundCertificates = foundCertificatesPage.getContent().stream().collect(Collectors.toSet());
+        assertEquals(expectedFoundByTagNamesCertificates1, actualFoundCertificates);
+    }
+
+    @Test
+    void searchCertificatesByTagNames_case2() {
+        Page<Certificate> foundCertificatesPage = service.searchCertificatesByTagNames(tagNamesToSearch2, pageable);
+        Set<Certificate> actualFoundCertificates = foundCertificatesPage.getContent().stream().collect(Collectors.toSet());
+        assertEquals(expectedFoundByTagNamesCertificates2, actualFoundCertificates);
+    }
+
+    @Test
+    void searchCertificatesByTagNames_case3() {
+        Page<Certificate> foundCertificatesPage = service.searchCertificatesByTagNames(tagNamesToSearch3, pageable);
+        Set<Certificate> actualFoundCertificates = foundCertificatesPage.getContent().stream().collect(Collectors.toSet());
+        assertEquals(expectedFoundByTagNamesCertificates3, actualFoundCertificates);
+    }
+
+    @Test
+    void searchCertificatesByTagNames_case4() {
+        Page<Certificate> foundCertificatesPage = service.searchCertificatesByTagNames(tagNamesToSearch4, pageable);
+        Set<Certificate> actualFoundCertificates = foundCertificatesPage.getContent().stream().collect(Collectors.toSet());
+        assertEquals(expectedFoundByTagNamesCertificates4, actualFoundCertificates);
     }
 
     long getCertificateIdThatIsPresentInDB() {
@@ -167,22 +213,12 @@ class CertificateServiceImpl_UsingInnerDB_Test {
     void setInitialDBRecords() {
         // tags
         setInitialTagDBRecordsData();
-//        for (int i = 0; i < initialTagsQuantity; i++) {
-//            Tag savedTag = tagRepository.save(initialTags[i]);
-//            assertNotNull(savedTag.getId());
-//            initialTags[i] = savedTag;
-//        }
-//
-//        long tagsAfterInsertion = tagRepository.count();
-//        assertEquals(tagsAfterInsertion, initialTagsQuantity);
 
         // certificates
         setInitialCertificateDBRecordsData();
         for (Certificate certificate : initialCertificates) {
             Certificate savedCertificate = certificateRepository.createCertificate(certificate);
             assertNotNull(savedCertificate.getId());
-            long id = savedCertificate.getId();
-            System.out.println(id);
         }
 
         long certificatesAfterInsertion = certificateRepository.count();
@@ -231,31 +267,39 @@ class CertificateServiceImpl_UsingInnerDB_Test {
         static Map<String, String> searchParams3;
         static Certificate[] expectedFoundCertificates3;
 
+        static Map<String, String> searchParams4;
+        static Certificate[] expectedFoundCertificates4;
+
+        static Map<String, String> searchParams5;
+        static Certificate[] expectedFoundCertificates5;
+
         // search certificates by tag names data
         static List<String> tagNamesToSearch1;
-        static Certificate[] expectedFoundByTagNamesCertificates1;
+        static Set<Certificate> expectedFoundByTagNamesCertificates1;
         static List<String> tagNamesToSearch2;
-        static Certificate[] expectedFoundByTagNamesCertificates2;
+        static Set<Certificate> expectedFoundByTagNamesCertificates2;
         static List<String> tagNamesToSearch3;
-        static List<String> expectedFoundByTagNamesCertificates3;
+        static Set<Certificate> expectedFoundByTagNamesCertificates3;
+        static List<String> tagNamesToSearch4;
+        static Set<Certificate> expectedFoundByTagNamesCertificates4;
 
         static void init() {
             pageable = PageRequest.of(0, 10);
 
-            setCreateParamValues();
+            setCreateParamsValues();
             setUpdateParamsValues();
             setSearchParamsValues();
-            setSearchByTagNamesParamValues();
+            setSearchByTagNamesParamsValues();
         }
 
-        static void setCreateParamValues() {
+        static void setCreateParamsValues() {
             certificateCreateDto = new CertificateCreateDto();
             certificateName = "C4";
             certificateDuration = 10;
             certificatePrice = 144;
-            String tagName1 = "tag1";
-            String tagName2 = "tag2";
-            String tagName3 = "tag4";
+            String tagName1 = "tag_for_create_cert_test_1";
+            String tagName2 = "tag_for_create_cert_test_2";
+            String tagName3 = "tag1";
             description = Arrays.asList(
                     new TagCreateDto(tagName1),
                     new TagCreateDto(tagName2),
@@ -283,7 +327,7 @@ class CertificateServiceImpl_UsingInnerDB_Test {
             certificate1.setDescription(Arrays.asList(initialTags[0]));
             certificate2 = new Certificate();
             certificate2.setName("B2");
-            certificate2.setDescription(Arrays.asList(initialTags[1], initialTags[2]));
+            certificate2.setDescription(Arrays.asList(initialTags[0], initialTags[2]));
             certificate3 = new Certificate();
             certificate3.setName("B1");
             certificate3.setDescription(Collections.emptyList());
@@ -304,7 +348,6 @@ class CertificateServiceImpl_UsingInnerDB_Test {
             updateParams.put("description", newDescription);
         }
 
-        // todo: workaround search by tags
         static void setSearchParamsValues() {
             String tagKey = "tag";
             String containsKey = "contains";
@@ -316,17 +359,33 @@ class CertificateServiceImpl_UsingInnerDB_Test {
             expectedFoundCertificates1 = new Certificate[] {certificate2};
 
             searchParams2 = new HashMap<>();
-            searchParams2.put(tagKey, "tag404");
+            searchParams2.put(tagKey, initialTags[1].getName());
             expectedFoundCertificates2 = new Certificate[] {};
 
             searchParams3 = new HashMap<>();
             searchParams3.put(orderKey, "desc");
             searchParams3.put(sortByKey, "name");
             expectedFoundCertificates3 = new Certificate[] {certificate2, certificate3, certificate1};
+
+            searchParams4 = new HashMap<>();
+            searchParams4.put(sortByKey, "id");
+            searchParams4.put(tagKey, initialTags[0].getName());
+            expectedFoundCertificates4 = new Certificate[] {certificate1, certificate2};
+
+            searchParams5 = new HashMap<>();
+            searchParams5.put(tagKey, initialTags[2].getName());
+            expectedFoundCertificates5 = new Certificate[] {certificate2};
         }
 
-        static void setSearchByTagNamesParamValues() {
-//            tagNamesToSearch1 = Arrays.asList("tag1")
+        static void setSearchByTagNamesParamsValues() {
+            tagNamesToSearch1 = Arrays.asList(initialTags[0].getName());
+            expectedFoundByTagNamesCertificates1 = Stream.of(certificate1, certificate2).collect(Collectors.toSet());
+            tagNamesToSearch2 = Arrays.asList(initialTags[2].getName());
+            expectedFoundByTagNamesCertificates2 = Stream.of(certificate2).collect(Collectors.toSet());
+            tagNamesToSearch3 = Arrays.asList(initialTags[1].getName());
+            expectedFoundByTagNamesCertificates3 = Collections.emptySet();
+            tagNamesToSearch4 = Arrays.asList(initialTags[0].getName(), initialTags[1].getName());
+            expectedFoundByTagNamesCertificates4 = Collections.emptySet();
         }
     }
 
