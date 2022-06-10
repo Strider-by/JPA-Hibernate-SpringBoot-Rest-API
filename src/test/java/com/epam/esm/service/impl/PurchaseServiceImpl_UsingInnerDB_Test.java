@@ -30,7 +30,6 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-
 @SpringBootTest
 class PurchaseServiceImpl_UsingInnerDB_Test {
 
@@ -48,7 +47,6 @@ class PurchaseServiceImpl_UsingInnerDB_Test {
 
     @BeforeEach
     void setUp() {
-        Data.init();
         setInitialDbRecords();
     }
 
@@ -60,7 +58,7 @@ class PurchaseServiceImpl_UsingInnerDB_Test {
 
     @Test
     public void getPurchaseById_success() {
-        List<Long> purchasesIds =  getPurchasesIdsThatIsPresentInDB();
+        List<Long> purchasesIds = getPurchasesIdsThatIsPresentInDB();
         for (long id : purchasesIds) {
             Purchase purchase = service.getPurchaseById(id);
             assertEquals(purchase.getId(), id);
@@ -77,8 +75,8 @@ class PurchaseServiceImpl_UsingInnerDB_Test {
     public void getAllPurchases() {
         Pageable pageable = Data.pageable;
         Page<Purchase> purchasePage = service.getAllPurchases(pageable);
-        assertEquals(purchasePage.getTotalElements(), Data.initialDbRecords.initialPurchases.length);
-        assertEquals(purchasePage.getContent().size(), Data.initialDbRecords.initialPurchases.length);
+        assertEquals(purchasePage.getTotalElements(), Data.InitialDbRecords.initialPurchases.length);
+        assertEquals(purchasePage.getContent().size(), Data.InitialDbRecords.initialPurchases.length);
     }
 
     @Test
@@ -91,11 +89,11 @@ class PurchaseServiceImpl_UsingInnerDB_Test {
         for (long userId : registeredUsersIds) {
             Page<Purchase> purchasePage = service.getUserPurchases(userId, pageable);
             Set<Long> purchaseIdsFromDb = purchasePage.getContent().stream().map(Purchase::getId).collect(Collectors.toSet());
-            Set<Long> purchaseIdsThatBelongToCurrentUser = Arrays.stream(Data.initialDbRecords.initialPurchases)
+            Set<Long> purchaseIdsThatBelongToCurrentUser = Arrays.stream(Data.InitialDbRecords.initialPurchases)
                     .filter(purchase -> purchase.getUser().getId() == userId)
                     .map(Purchase::getId)
                     .collect(Collectors.toSet());
-            assertTrue(purchaseIdsFromDb.equals(purchaseIdsThatBelongToCurrentUser));
+            assertEquals(purchaseIdsFromDb, purchaseIdsThatBelongToCurrentUser);
         }
     }
 
@@ -110,9 +108,9 @@ class PurchaseServiceImpl_UsingInnerDB_Test {
     // Warning: since pagination involved, make sure the returned page can fit all the tags, else the test can fail.
     public void getUserPrimaryTags_success() {
         List<Long> registeredUsersIds = getRegisteredUsersIds();
-        for (int i = 0; i < registeredUsersIds.size(); i++) {
-            Set<Tag> expectedUserPrimaryTags = getUserPrimaryTags(registeredUsersIds.get(i));
-            Page<Tag> actualUserPrimaryTagsPage = service.getUserPrimaryTags(registeredUsersIds.get(i), Data.pageable);
+        for (Long registeredUsersId : registeredUsersIds) {
+            Set<Tag> expectedUserPrimaryTags = getUserPrimaryTags(registeredUsersId);
+            Page<Tag> actualUserPrimaryTagsPage = service.getUserPrimaryTags(registeredUsersId, Data.pageable);
             Set<Tag> actualUserPrimaryTags = new HashSet<>(actualUserPrimaryTagsPage.getContent());
             assertEquals(expectedUserPrimaryTags, actualUserPrimaryTags);
         }
@@ -136,9 +134,9 @@ class PurchaseServiceImpl_UsingInnerDB_Test {
 
     @Test
     public void purchaseCertificate_success() {
-        User user = Data.initialDbRecords.initialUsers[0];
+        User user = Data.InitialDbRecords.initialUsers[0];
         long userId = user.getId();
-        Certificate certificate = Data.initialDbRecords.initialCertificates[0];
+        Certificate certificate = Data.InitialDbRecords.initialCertificates[0];
         long certificateId = certificate.getId();
 
         Purchase createdPurchase = service.purchaseCertificate(userId, certificateId);
@@ -147,29 +145,29 @@ class PurchaseServiceImpl_UsingInnerDB_Test {
         assertEquals(createdPurchase.getCertificate(), certificate);
         assertEquals(createdPurchase.getCost(), certificate.getPrice());
 
-        assertEquals(Data.initialDbRecords.initialPurchases.length + 1, purchaseRepository.count());
+        assertEquals(Data.InitialDbRecords.initialPurchases.length + 1, purchaseRepository.count());
     }
 
     @Test
     public void purchaseCertificate_fail_userNotExists() {
         long userId = getUserIdThatIsNotPresentInDB();
-        long certificateId = Data.initialDbRecords.initialCertificates[0].getId();
+        long certificateId = Data.InitialDbRecords.initialCertificates[0].getId();
         assertThrows(UserNotFoundException.class, () -> service.purchaseCertificate(userId, certificateId));
     }
 
     @Test
     public void purchaseCertificate_fail_certificateNotExists() {
-        long userId = Data.initialDbRecords.initialUsers[0].getId();
+        long userId = Data.InitialDbRecords.initialUsers[0].getId();
         long certificateId = getCertificateIdThatIsNotPresentInDB();
         assertThrows(CertificateNotFoundException.class, () -> service.purchaseCertificate(userId, certificateId));
     }
 
     @Test
     public void deletePurchase_success() {
-        long purchaseId = Data.initialDbRecords.initialPurchases[0].getId();
+        long purchaseId = Data.InitialDbRecords.initialPurchases[0].getId();
         assertNotNull(service.getPurchaseById(purchaseId));
         service.deletePurchase(purchaseId);
-        assertEquals(Data.initialDbRecords.initialPurchases.length - 1, purchaseRepository.count());
+        assertEquals(Data.InitialDbRecords.initialPurchases.length - 1, purchaseRepository.count());
         assertThrows(PurchaseNotFoundException.class, () -> service.deletePurchase(purchaseId));
     }
 
@@ -194,7 +192,7 @@ class PurchaseServiceImpl_UsingInnerDB_Test {
                         ? purchase.getUser().getId() == userId.getAsLong()
                         : true;
 
-        Map<Tag, Long> tagNamesToCountMap = Arrays.stream(Data.initialDbRecords.initialPurchases)
+        Map<Tag, Long> tagNamesToCountMap = Arrays.stream(Data.InitialDbRecords.initialPurchases)
                 .filter(purchasePredicate)
                 .map(Purchase::getCertificate)
                 .map(Certificate::getDescription)
@@ -204,25 +202,24 @@ class PurchaseServiceImpl_UsingInnerDB_Test {
         Map<Long, Set<Tag>> countToTagNamesMap = tagNamesToCountMap.entrySet().stream()
                 .collect(Collectors.groupingBy(Map.Entry::getValue, Collectors.mapping(Map.Entry::getKey, Collectors.toSet())));
 
-
         Comparator<Map.Entry<Long, Set<Tag>>> comparator = Comparator.comparingLong(Map.Entry::getKey);
         Comparator<Map.Entry<Long, Set<Tag>>> reversedComparator = comparator.reversed();
-        Set<Tag> tagNames = countToTagNamesMap.entrySet().stream()
+        Set<Tag> tags = countToTagNamesMap.entrySet().stream()
                 .sorted(reversedComparator)
                 .map(Map.Entry::getValue)
                 .findFirst()
                 .orElse(Collections.emptySet());
 
-        return tagNames;
+        return tags;
     }
 
 
     static List<Long> getRegisteredUsersIds() {
-        return Arrays.stream(Data.initialDbRecords.initialUsers).map(User::getId).collect(Collectors.toList());
+        return Arrays.stream(Data.InitialDbRecords.initialUsers).map(User::getId).collect(Collectors.toList());
     }
 
     static List<Long> getPurchasesIdsThatIsPresentInDB() {
-        return Arrays.stream(Data.initialDbRecords.initialPurchases).map(Purchase::getId).collect(Collectors.toList());
+        return Arrays.stream(Data.InitialDbRecords.initialPurchases).map(Purchase::getId).collect(Collectors.toList());
     }
 
     long getPurchaseIdThatIsNotPresentInDB() {
@@ -238,32 +235,34 @@ class PurchaseServiceImpl_UsingInnerDB_Test {
     }
 
     void setInitialDbRecords() {
-        Certificate[] certificates = Data.initialDbRecords.initialCertificates;
+        Data.InitialDbRecords.initTagsData();
+        Data.InitialDbRecords.initCertificatesData();
+        Certificate[] certificates = Data.InitialDbRecords.initialCertificates;
         for (int i = 0; i < certificates.length; i++) {
             Certificate createdCertificate = certificateRepository.createCertificate(certificates[i]);
             assertNotNull(createdCertificate.getId());
             certificates[i] = createdCertificate;
         }
 
-        User[] users = Data.initialDbRecords.initialUsers;
+        User[] users = Data.InitialDbRecords.initialUsers;
         for (int i = 0; i < users.length; i++) {
             User createdUser = userRepository.save(users[i]);
             assertNotNull(createdUser.getId());
             users[i] = createdUser;
         }
 
-        Data.initialDbRecords.initPurchaseData();
-        Purchase[] purchases = Data.initialDbRecords.initialPurchases;
+        Data.InitialDbRecords.initPurchaseData();
+        Purchase[] purchases = Data.InitialDbRecords.initialPurchases;
         for (int i = 0; i < purchases.length; i++) {
             Purchase createdPurchase = purchaseRepository.save(purchases[i]);
             assertNotNull(createdPurchase.getId());
             purchases[i] = createdPurchase;
         }
 
-        assertEquals(certificateRepository.count(), Data.initialDbRecords.initialCertificates.length);
-        assertEquals(tagRepository.count(), Data.initialDbRecords.initialTags.length);
-        assertEquals(userRepository.count(), Data.initialDbRecords.initialUsers.length);
-        assertEquals(purchaseRepository.count(), Data.initialDbRecords.initialPurchases.length);
+        assertEquals(certificateRepository.count(), Data.InitialDbRecords.initialCertificates.length);
+        assertEquals(tagRepository.count(), Data.InitialDbRecords.initialTags.length);
+        assertEquals(userRepository.count(), Data.InitialDbRecords.initialUsers.length);
+        assertEquals(purchaseRepository.count(), Data.InitialDbRecords.initialPurchases.length);
     }
 
     void clearRepositories() {
@@ -279,23 +278,33 @@ class PurchaseServiceImpl_UsingInnerDB_Test {
     }
 
     static class Data {
-        public static InitialDbRecords initialDbRecords;
-        public static Pageable pageable;
+
+        public static Pageable pageable = PageRequest.of(0, 10);
 
         static class InitialDbRecords {
 
+            static Tag tag1;
+            static Tag tag2;
+            static Tag tag3;
+            public static Tag[] initialTags;
 
-            static Tag tag1 = new Tag("tag1");
-            static Tag tag2 = new Tag("tag2");
-            static Tag tag3 = new Tag("tag3");
-            public static Tag[] initialTags = {tag1, tag2, tag3};
+            static void initTagsData() {
+                tag1 = new Tag("tag1");
+                tag2 = new Tag("tag2");
+                tag3 = new Tag("tag3");
+                initialTags = new Tag[] {tag1, tag2, tag3};
+            }
 
-            static Certificate certificate1 = new Certificate();
-            static Certificate certificate2 = new Certificate();
-            static Certificate certificate3 = new Certificate();
-            public static Certificate[] initialCertificates = {certificate1, certificate2, certificate3};
+            static Certificate certificate1;
+            static Certificate certificate2;
+            static Certificate certificate3;
+            public static Certificate[] initialCertificates;
 
-            static {
+            static void initCertificatesData() {
+                certificate1 = new Certificate();
+                certificate2 = new Certificate();
+                certificate3 = new Certificate();
+                initialCertificates = new Certificate[] {certificate1, certificate2, certificate3};
                 certificate1.setName("certificate1");
                 certificate1.setDescription(Arrays.asList(tag1, tag3));
                 certificate2.setName("certificate2");
@@ -309,55 +318,59 @@ class PurchaseServiceImpl_UsingInnerDB_Test {
             static User user3 = new User();
             public static User[] initialUsers = {user1, user2, user3};
 
-            static Purchase purchase1 = new Purchase();
-            static Purchase purchase2 = new Purchase();
-            static Purchase purchase3 = new Purchase();
-            static Purchase purchase4 = new Purchase();
-            static Purchase purchase5 = new Purchase();
-            static Purchase purchase6 = new Purchase();
-            static Purchase purchase7 = new Purchase();
-            public static Purchase[] initialPurchases = {purchase1, purchase2, purchase3, purchase4, purchase5, purchase6, purchase7};
+            static Purchase purchase1;
+            static Purchase purchase2;
+            static Purchase purchase3;
+            static Purchase purchase4;
+            static Purchase purchase5;
+            static Purchase purchase6;
+            static Purchase purchase7;
+            public static Purchase[] initialPurchases;
 
-            void initPurchaseData() {
+            static void initPurchaseData() {
+                purchase1 = new Purchase();
+                purchase2 = new Purchase();
+                purchase3 = new Purchase();
+                purchase4 = new Purchase();
+                purchase5 = new Purchase();
+                purchase6 = new Purchase();
+                purchase7 = new Purchase();
+
+                initialPurchases = new Purchase[] {purchase1, purchase2, purchase3, purchase4, purchase5, purchase6, purchase7};
+
                 purchase1.setUser(initialUsers[0]);
                 purchase1.setCertificate(initialCertificates[0]);
                 purchase1.setCost(initialCertificates[0].getPrice());
-                purchase1.setTimestamp(new Timestamp( new Date().getTime()) );
+                purchase1.setTimestamp(new Timestamp(new Date().getTime()));
                 purchase2.setUser(initialUsers[0]);
                 purchase2.setCertificate(initialCertificates[1]);
                 purchase2.setCost(initialCertificates[1].getPrice());
-                purchase2.setTimestamp(new Timestamp( new Date().getTime()) );
+                purchase2.setTimestamp(new Timestamp(new Date().getTime()));
                 purchase3.setUser(initialUsers[1]);
                 purchase3.setCertificate(initialCertificates[1]);
                 purchase3.setCost(initialCertificates[1].getPrice());
-                purchase3.setTimestamp(new Timestamp( new Date().getTime()) );
+                purchase3.setTimestamp(new Timestamp(new Date().getTime()));
                 purchase4.setUser(initialUsers[1]);
                 purchase4.setCertificate(initialCertificates[0]);
                 purchase4.setCost(initialCertificates[0].getPrice());
-                purchase4.setTimestamp(new Timestamp( new Date().getTime()) );
+                purchase4.setTimestamp(new Timestamp(new Date().getTime()));
                 purchase5.setUser(initialUsers[1]);
                 purchase5.setCertificate(initialCertificates[2]);
                 purchase5.setCost(initialCertificates[2].getPrice());
-                purchase5.setTimestamp(new Timestamp( new Date().getTime()) );
+                purchase5.setTimestamp(new Timestamp(new Date().getTime()));
                 purchase6.setUser(initialUsers[1]);
                 purchase6.setCertificate(initialCertificates[2]);
                 purchase6.setCost(initialCertificates[2].getPrice());
-                purchase6.setTimestamp(new Timestamp( new Date().getTime()) );
+                purchase6.setTimestamp(new Timestamp(new Date().getTime()));
                 purchase7.setUser(initialUsers[1]);
                 purchase7.setCertificate(initialCertificates[2]);
                 purchase7.setCost(initialCertificates[2].getPrice());
-                purchase7.setTimestamp(new Timestamp( new Date().getTime()) );
+                purchase7.setTimestamp(new Timestamp(new Date().getTime()));
 
             }
 
         }
 
-
-        static void init() {
-            pageable = PageRequest.of(0, 10);
-            initialDbRecords = new InitialDbRecords();
-        }
     }
-
 
 }
