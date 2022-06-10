@@ -5,6 +5,7 @@ import com.epam.esm.model.audit.UserEventLogger;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @EntityListeners(UserEventLogger.class)
@@ -34,7 +35,34 @@ public class User {
     }
 
     public void setPurchases(List<Purchase> purchases) {
-        this.purchases = purchases;
+        this.purchases = new ArrayList(purchases);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (!Objects.equals(id, user.id)) return false;
+        return Objects.equals(purchases, user.purchases);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (purchases != null ? purchases.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    // fixme: somehow @PostRemove in Entity event logger causes NPE in User::toString (it cannot get list of purchases
+    //  AFTER user was deleted? With @PreRemove everything works just fine.)
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                '}';
     }
 
 }

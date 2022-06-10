@@ -8,8 +8,17 @@ com/epam/esm/repository/JpaTagRepository.java
  com.epam.esm.repository.JpaTagRepository
 com/epam/esm/repository/UserRepository.java
  com.epam.esm.repository.UserRepository
-com/epam/esm/service/impl/UserServiceImpl.java
- com.epam.esm.service.impl.UserServiceImpl
+com/epam/esm/controller/api/impl/CertificateSearchControllerImpl.java
+ com.epam.esm.controller.api.impl.CertificateSearchControllerImpl
+ com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$1
+ com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier
+ com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$1
+ com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$2
+ com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$3
+ com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$4
+ com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$5
+ com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$6
+ com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$7
 com/epam/esm/model/dto/TagCreateDto.java
  com.epam.esm.model.dto.TagCreateDto
 com/epam/esm/controller/api/CertificateSearchByTagsController.java
@@ -18,20 +27,20 @@ com/epam/esm/controller/api/exception/TagNotFoundException.java
  com.epam.esm.controller.api.exception.TagNotFoundException
 com/epam/esm/repository/PurchaseRepository.java
  com.epam.esm.repository.PurchaseRepository
-com/epam/esm/service/UserService.java
- com.epam.esm.service.UserService
+com/epam/esm/controller/api/CertificateController.java
+ com.epam.esm.controller.api.CertificateController
 com/epam/esm/controller/api/exception/CertificateNotFoundException.java
  com.epam.esm.controller.api.exception.CertificateNotFoundException
-com/epam/esm/model/audit/UserEventLogger.java
- com.epam.esm.model.audit.UserEventLogger
+com/epam/esm/repository/CustomCertificateRepository.java
+ com.epam.esm.repository.CustomCertificateRepository
 com/epam/esm/Runner.java
  com.epam.esm.Runner
-com/epam/esm/controller/api/impl/UserControllerImpl.java
- com.epam.esm.controller.api.impl.UserControllerImpl
+com/epam/esm/model/audit/CertificateEventLogger.java
+ com.epam.esm.model.audit.CertificateEventLogger
 com/epam/esm/model/audit/show___doesnt_work/interfacebased/EventLogger.java
  com.epam.esm.model.audit.show___doesnt_work.interfacebased.EventLogger
-com/epam/esm/controller/api/UserController.java
- com.epam.esm.controller.api.UserController
+com/epam/esm/model/Certificate.java
+ com.epam.esm.model.Certificate
 com/epam/esm/repository/JpaPurchaseRepository.java
  com.epam.esm.repository.JpaPurchaseRepository
 com/epam/esm/configuration/PersistenceJPAConfig.java
@@ -50,8 +59,8 @@ com/epam/esm/repository/JpaUserRepository.java
  com.epam.esm.repository.JpaUserRepository
 com/epam/esm/controller/api/impl/ControllerExceptionHandlingBase.java
  com.epam.esm.controller.api.impl.ControllerExceptionHandlingBase
-com/epam/esm/model/User.java
- com.epam.esm.model.User
+com/epam/esm/service/CertificateService.java
+ com.epam.esm.service.CertificateService
 com/epam/esm/model/audit/Action.java
  com.epam.esm.model.audit.Action
 com/epam/esm/controller/api/exception/TagAlreadyExistsException.java
@@ -111,40 +120,31 @@ com/epam/esm/repository/CertificateRepository.java
  com.epam.esm.repository.CertificateRepository
 com/epam/esm/controller/api/impl/CertificateControllerImpl.java
  com.epam.esm.controller.api.impl.CertificateControllerImpl
-com/epam/esm/model/util/DtoConverter.java
- com.epam.esm.model.util.DtoConverter
-com/epam/esm/service/CertificateService.java
- com.epam.esm.service.CertificateService
-com/epam/esm/controller/api/CertificateController.java
- com.epam.esm.controller.api.CertificateController
-com/epam/esm/repository/CustomCertificateRepository.java
- com.epam.esm.repository.CustomCertificateRepository
-com/epam/esm/model/Certificate.java
- com.epam.esm.model.Certificate
-com/epam/esm/controller/api/impl/CertificateSearchControllerImpl.java
- com.epam.esm.controller.api.impl.CertificateSearchControllerImpl
- com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$1
- com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier
- com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$1
- com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$2
- com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$3
- com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$4
- com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$5
- com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$6
- com.epam.esm.controller.api.impl.CertificateSearchControllerImpl$SearchParametersVerifier$7
-com/epam/esm/model/audit/CertificateEventLogger.java
- com.epam.esm.model.audit.CertificateEventLogger
-com/epam/esm/model/audit/PurchaseEventLogger.java
- com.epam.esm.model.audit.PurchaseEventLogger
-com/epam/esm/service/impl/PurchaseServiceImpl.java
- com.epam.esm.service.impl.PurchaseServiceImpl
 com/epam/esm/repository/impl/CustomPurchaseRepositoryImpl.java
  com.epam.esm.repository.impl.CustomPurchaseRepositoryImpl
+com/epam/esm/controller/api/impl/UserControllerImpl.java
+ com.epam.esm.controller.api.impl.UserControllerImpl
+com/epam/esm/service/impl/PurchaseServiceImpl.java
+ com.epam.esm.service.impl.PurchaseServiceImpl
+com/epam/esm/model/util/DtoConverter.java
+ com.epam.esm.model.util.DtoConverter
 com/epam/esm/controller/api/impl/PurchaseControllerImpl.java
  com.epam.esm.controller.api.impl.PurchaseControllerImpl
 com/epam/esm/controller/api/PurchaseController.java
  com.epam.esm.controller.api.PurchaseController
+com/epam/esm/service/impl/UserServiceImpl.java
+ com.epam.esm.service.impl.UserServiceImpl
 com/epam/esm/model/Purchase.java
  com.epam.esm.model.Purchase
 com/epam/esm/service/PurchaseService.java
  com.epam.esm.service.PurchaseService
+com/epam/esm/model/audit/PurchaseEventLogger.java
+ com.epam.esm.model.audit.PurchaseEventLogger
+com/epam/esm/controller/api/UserController.java
+ com.epam.esm.controller.api.UserController
+com/epam/esm/model/audit/UserEventLogger.java
+ com.epam.esm.model.audit.UserEventLogger
+com/epam/esm/service/UserService.java
+ com.epam.esm.service.UserService
+com/epam/esm/model/User.java
+ com.epam.esm.model.User

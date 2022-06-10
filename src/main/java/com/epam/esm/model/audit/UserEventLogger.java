@@ -5,6 +5,7 @@ import com.epam.esm.model.User;
 import javax.persistence.PostPersist;
 import javax.persistence.PostRemove;
 import javax.persistence.PostUpdate;
+import javax.persistence.PreRemove;
 import java.time.LocalDateTime;
 
 import static com.epam.esm.model.audit.Action.*;
